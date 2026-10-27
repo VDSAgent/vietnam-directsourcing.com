@@ -15,11 +15,10 @@
 main h2 { font-size: 40px !important; color: #16243D !important; font-weight: 700 !important; }
 main h3 { font-size: 24px !important; color: #16243D !important; font-weight: 700 !important; }
 main p { font-size: 16px !important; color: rgba(24, 21, 44, 0.9) !important; line-height: 1.6 !important; }
-/* Sections with a dark navy background (e.g. Solutions "Additional Execution Services",
-   the Vietnam page category strip) need light text. */
-section[style*="16243d" i] h2,
-section[style*="16243d" i] h3,
-section[style*="16243d" i] p { color: #FFFFFF !important; }
+/* Sections with a dark navy background (Solutions "Additional Execution Services") need light text. */
+.vds-sol--dark h2,
+.vds-sol--dark h3,
+.vds-sol--dark p { color: #FFFFFF !important; }
 
 /* ---------- Header: logo and navigation ---------- */
 .logo-img .vds-logo { display: inline-block; color: #FFFFFF; line-height: 0; text-decoration: none; }
@@ -264,12 +263,60 @@ body.page-id-1296 .accordion-body a:hover, body.page-id-1296 .accordion-body a:f
 #supplier-identification, #supplier-evaluation, #production-management, #end-to-end, #factory-tours, #quality-assurance { scroll-margin-top: 120px; }
 .single-box-list li { border-bottom: 1px solid #D9E3E5; }
 .single-box-list li:nth-child(2) { border-top: none; }
+/* Solutions sections (services-tpl.php). Colours and sizes of h2/h3/p come from the type scale
+   at the top of this file; these rules set layout and the parts the type scale leaves alone. */
+.vds-sol--pipeline { background: #fff; padding: 90px 0 50px; }
+.vds-sol--repeat { background: #fff; padding: 0 0 90px; }
+.vds-sol--dark { background: #16243D; padding: 90px 0; }
+.vds-sol__head { text-align: center; margin-bottom: 60px; }
+.vds-eyebrow { font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.vds-sol__head .vds-eyebrow { margin-bottom: 10px; }
+.vds-sol__title { margin-bottom: 16px; }
+.vds-sol__lede { max-width: 620px; margin: 0 auto; }
+.vds-sol--dark .vds-sol__lede { max-width: 580px; }
+.vds-sol .vds-sol-step { margin-bottom: 90px; }
+.vds-sol .vds-sol-step:last-child { margin-bottom: 40px; }
+.vds-sol-step__img { width: 100%; border-radius: 12px; display: block; }
+.vds-sol-step > .vds-sol-step__copy--right { padding-left: 45px; }
+.vds-sol-step > .vds-sol-step__copy--left { padding-right: 45px; }
+.vds-sol__heading { margin-bottom: 10px; }
+.vds-sol__tagline { font-style: italic; font-weight: 500; margin-bottom: 18px; }
+.vds-sol__body { margin-bottom: 22px; }
+.vds-sol .vds-sol__list { list-style: none; padding: 0; margin: 0 0 30px; }
+.vds-sol__list li { padding: 7px 0; color: #333; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
+.vds-sol__list li:last-child { border-bottom: 0; }
+.vds-sol-tier { border-radius: 12px; background: #fff; border: 1px solid #eee; box-shadow: 0 2px 16px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; padding: 36px; }
+.vds-sol-service { border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); height: 100%; display: flex; flex-direction: column; }
+.vds-sol-service__img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.vds-sol-service__body { padding: 36px; flex: 1; display: flex; flex-direction: column; }
+.vds-sol-tier .vds-sol__tagline, .vds-sol-service .vds-sol__tagline { margin-bottom: 16px; }
+.vds-sol-tier .vds-sol__body, .vds-sol-service .vds-sol__body { flex: 1; }
+.vds-sol .vds-sol-tier .vds-sol__list, .vds-sol .vds-sol-service .vds-sol__list { margin-bottom: 26px; }
+.vds-sol-tier .vds-sol__list li, .vds-sol-service .vds-sol__list li { padding: 6px 0; }
+.vds-sol--dark .vds-sol__list li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.08); }
+.vds-sol .vds-sol__btn { background: #16243D; color: #fff; border: none; padding: 14px 30px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.vds-sol .vds-sol__btn--gold { background: #E3A23A; color: #16243D; padding: 14px; width: 100%; }
+.trustindex-area { min-height: 850px; }
+/* Inquiry modal, opened by any [data-vds-inquiry] button (assets/js/vds.js) */
+#vds-inquiry-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 9999; align-items: center; justify-content: center; }
+.vds-inquiry-box { background: #fff; border-radius: 12px; padding: 40px; max-width: 520px; width: 92%; position: relative; max-height: 90vh; overflow-y: auto; }
+.vds-inquiry-box .vds-eyebrow { margin-bottom: 6px; }
+#vds-modal-title { margin-bottom: 4px; }
+.vds-inquiry-note { margin-bottom: 24px; }
+.vds-field { margin-bottom: 15px; }
+.vds-field--last { margin-bottom: 24px; }
+#vds-inquiry-modal .vds-field label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px; }
+#vds-inquiry-modal .vds-field input,
+#vds-inquiry-modal .vds-field textarea { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; box-sizing: border-box; }
+#vds-inquiry-modal .vds-field textarea { resize: vertical; }
+#vds-inquiry-modal .vds-inquiry-submit { width: 100%; background: #16243D; color: #fff; border: none; padding: 14px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.vds-inquiry-sent { background: #d4edda; color: #155724; padding: 14px; text-align: center; font-size: 15px; border-bottom: 1px solid #c3e6cb; }
 /* Inquiry form honeypot: real visitors never see or fill it (services-tpl.php) */
 .vds-hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 /* Thank-you + booking modal after an inquiry (assets/js/vds.js) */
 .vds-booking-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9999; display: flex; align-items: center; justify-content: center; }
 .vds-booking-modal__box { background: #fff; border-radius: 12px; padding: 36px 32px 24px; max-width: 760px; width: 94%; position: relative; max-height: 92vh; overflow-y: auto; }
-.vds-booking-modal__close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 26px; cursor: pointer; color: #999; line-height: 1; }
+.vds-inquiry-close, .vds-booking-modal__close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 26px; cursor: pointer; color: #999; line-height: 1; }
 .vds-booking-modal__eyebrow { color: #16243D; font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
 .vds-booking-modal h3 { color: #16243D; font-size: 24px; margin-bottom: 6px; }
 .vds-booking-modal__lede { color: #5B6675; font-size: 15px; margin-bottom: 16px; }
