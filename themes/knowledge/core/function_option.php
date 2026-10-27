@@ -1,18 +1,14 @@
 <?php
+/**
+ * Header logo: the VDS lockup, inline so the wordmark renders in Montserrat SemiBold
+ * (loaded as a subset of its own letters, see functions.php) and its colour follows the
+ * header via currentColor: white over the photo hero, Deep Navy on the sticky white
+ * header. The arrowhead stays Signal Gold (brand guidelines v1.2).
+ */
 function logo_knowledgetheme() {
-	global $tp_options;
-	if(	isset($tp_options['logo-on']) 
-		&& $tp_options['logo-on'] != 0 
-		&& isset($tp_options['logo-image']['url']) 
-		&& $tp_options['logo-image']['url'] != ''){		
-		?>
-		<a class="" href="<?php echo site_url();?>"><img class="img-fluid" src="<?php echo esc_url( $tp_options['logo-image']['url'] ); ?>" alt="Vietnam Direct Sourcing"/></a>
-		<?php
-	}else{
-		?>
-		<a class="" href="<?php echo site_url();?>"><?php echo get_bloginfo();?></a>
-		<?php
-	}
+	?>
+	<a class="vds-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><svg viewBox="0 0 336 56" width="336" height="56" role="img" aria-label="Vietnam Direct Sourcing"><line x1="20" y1="28" x2="35" y2="28" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="19" cy="28" r="6" fill="currentColor"/><path d="M35 20 L43 28 L35 36" fill="none" stroke="#E3A23A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><text x="60" y="36" fill="currentColor" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="23" letter-spacing="-0.1">Vietnam Direct Sourcing</text></svg></a>
+	<?php
 }
 function logo_footer_knowledgetheme() {
 	global $tp_options;

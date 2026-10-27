@@ -1,13 +1,6 @@
 (function ($) {
 	"use strict";
 	/*------------------------------------
-			Preloader
-		--------------------------------------*/
-	$(window).on("load", function () {
-		$("#preloader").delay(350).fadeOut("slow");
-		$("body").delay(350).css({ overflow: "visible" });
-	});
-	/*------------------------------------
 		Mobile Menu
 	--------------------------------------*/
 	$(document).ready(function () {
@@ -40,25 +33,7 @@
 			$("body").removeClass("on-side");
 			$(".hamburger-menu > a").removeClass("active");
 		});
-		//hide and show sticky menu
-		var prevScrollpos = window.pageYOffset;
-		window.onscroll = function () {
-			var currentScrollPos = window.pageYOffset;
-			if (prevScrollpos > currentScrollPos) {
-				document.getElementById("hideshow-sticky-menu").style.top = "0";
-			} else {
-				document.getElementById("hideshow-sticky-menu").style.top = "-200px";
-				$(window).on("scroll", function () {
-					var scroll = $(window).scrollTop();
-					if (scroll < 200) {
-						$(".main-header-area").removeClass("sticky-menu");
-					} else {
-						$(".main-header-area").addClass("sticky-menu");
-					}
-				});
-			}
-			prevScrollpos = currentScrollPos;
-		};
+		// Hide/show of the sticky header: assets/js/vds.js
 		// feedback-active
 		// $(".testimonial-active").owlCarousel({
 		// 	loop: false,

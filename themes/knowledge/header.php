@@ -1,73 +1,17 @@
 <?php
 /**
- * The Header for our theme
- *
- * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
+ * Site header: <head>, logo and main navigation.
  */
 ?><!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) & !(IE 8)]><!-->
 <html <?php language_attributes(); ?>>
-<!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<?php
-	global $tp_options;
-	if(isset($tp_options['favicon-logo-image']['url']) &&
-		$tp_options['favicon-logo-image']['url'] != ''){		
-		?>
-		<link rel="icon" href="<?php echo $tp_options['favicon-logo-image']['url'];?>" type="image/x-icon"/>
-		<?php
-	}else{
-		?>
-		<link rel="icon" href="<?php echo site_url();?>/wp-content/uploads/2016/04/logo-2.png" type="image/x-icon"/>
-		<?php
-	}
-	?>
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
-	<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
-	<![endif]
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 	<?php wp_head(); ?>
 </head>
-<div id="myPopup" style="display:none;">
-    <div id="popupContent">
-        <h2 id="popupTitle"></h2>
-        <div id="popupBody"></div>
-        <button id="closePopup">Đóng</button>
-    </div>
-</div>
 <body <?php body_class(); ?>>
-
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <!-- preloader -->
-    <div id="preloader">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!-- preloader end  -->
+<?php wp_body_open(); ?>
     <!-- header-area start -->
      <header>
          <div id="hideshow-sticky-menu">
