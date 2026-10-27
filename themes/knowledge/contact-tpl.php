@@ -33,8 +33,8 @@ get_header();
         $hide_info = get_field('hide_info');        
          if(empty( $hide_info ) || $hide_info[0] !=='yes') { ?>
         <section class="copic-contact position-relative pb-80 pt-lg-8 pb-lg-60 pb-md-60 pt-md-60 pt-xs-60 pb-xs-60">
-            <img aria-hidden="true" class="contact-shape contact-one d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/big-box-1.svg" alt="">
-            <img aria-hidden="true" class="contact-shape contact-two d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/big-box-1.svg" alt="">
+            <img aria-hidden="true" class="contact-shape contact-one d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/big-box-1.svg" alt="">
+            <img aria-hidden="true" class="contact-shape contact-two d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/big-box-1.svg" alt="">
             <div class="container  contact-container">
                 <div class="row reverse-mb">
                     <div class="col-md-12">

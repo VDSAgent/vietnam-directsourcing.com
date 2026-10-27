@@ -20,8 +20,8 @@ get_header();
         <!--slider-area end-->
         <!--copic-team start-->
         <section class="copic-team position-relative pt-120 pb-90 pt-lg-80 pb-lg-50 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30">
-            <img class="team-shape2 tmshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img class="team-shape2 tmshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/border-line-1.svg" alt="">
+            <img class="team-shape2 tmshape-1" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img class="team-shape2 tmshape-2" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/border-line-1.svg" alt="">
             <div class="container">
             	 <?php echo do_shortcode('[team_carousel]'); ?>
             </div><!--/.container-->

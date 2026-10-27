@@ -16,7 +16,7 @@ $title_page=get_field('title_page',get_the_ID ());
     }
     else{ ?>
       <div class="detail">
-        <img src="<?php echo site_url();?>/wp-content/uploads/2016/05/imageabouts.png" class="images-background" />
+        <img src="<?php echo esc_url( site_url() );?>/wp-content/uploads/2016/05/imageabouts.png" class="images-background" />
       </div>
     <?php 
     }
@@ -60,7 +60,7 @@ $title_page=get_field('title_page',get_the_ID ());
         <div class="top-single-post">
           <div class="col-md-2 col-sm-2 col-xs-12 pre-post">
            <?php previous_post_link('%link', '<< PREVIOUS'); ?><?php next_post_link('%link', 'NEXT >>'); ?>
-            <a class="back-pages-blogs" href="<?php echo site_url('/news');?>">&laquo; BACK TO NEWS PAGE</a>
+            <a class="back-pages-blogs" href="<?php echo esc_url( site_url('/news') );?>">&laquo; BACK TO NEWS PAGE</a>
           </div>
           <div class="col-md-8 col-sm-8 col-xs-12 title-post-signle">
               <h2 class="title-singler-post"><?php echo get_the_title();?></h2>

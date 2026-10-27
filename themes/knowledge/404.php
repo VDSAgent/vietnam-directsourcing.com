@@ -24,7 +24,7 @@ get_header(); ?>
 				<p>The page you a looking for cannot be found, please use the navigation above.</p>
 				</br>
 				<div class="sub">
-				  <p><a href="<?php echo home_url();?>">Back To Home</a></p>
+				  <p><a href="<?php echo esc_url( home_url() );?>">Back To Home</a></p>
 				</div>
 			</div><!-- .page-content -->
 

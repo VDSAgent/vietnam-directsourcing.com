@@ -22,7 +22,7 @@ get_header();
         <!--page-title-area end-->
         <!--comic-blog start-->
         <section class="comic-blog position-relative pt-120 pb-90 pt-lg-80 pb-lg-50 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30">
-            <img aria-hidden="true" class="blog-shape blog-gd-shape bshape-3 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-c.svg" alt="">
+            <img aria-hidden="true" class="blog-shape blog-gd-shape bshape-3 d-none d-xxl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/dot-c.svg" alt="">
             <div class="container">
 				<?php get_template_part( 'template-parts/article-search' ); ?>
 				<div id="posts-container" class="row blog_feed">

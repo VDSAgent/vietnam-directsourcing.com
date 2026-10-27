@@ -100,8 +100,8 @@ $avatar_url = get_avatar_url( $author_id );
                                 <?php
                                 $prev_post = get_previous_post();
                                 if ( ! empty( $prev_post ) ): ?>
-                                    <a href="<?php echo get_permalink( $prev_post->ID ); ?>">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/left-arrow.svg" alt="Left Arrow">
+                                    <a href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+                                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/left-arrow.svg" alt="Left Arrow">
                                     </a>
                                     <h4 class="nav-heding mt-2"><?php echo apply_filters( 'the_title', $prev_post->post_title ); ?></h4>
                                 <?php endif; ?>
@@ -110,8 +110,8 @@ $avatar_url = get_avatar_url( $author_id );
                                 <?php
                                 $next_post = get_next_post();
                                 if ( ! empty( $next_post ) ): ?>
-                                    <a href="<?php echo get_permalink( $next_post->ID ); ?>">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/right-arrow.svg" alt="Right Arrow">
+                                    <a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+                                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt="Right Arrow">
                                     </a>
                                     <h4 class="nav-heding mt-2"><?php echo apply_filters( 'the_title', $next_post->post_title ); ?></h4>
                                 <?php endif; ?>

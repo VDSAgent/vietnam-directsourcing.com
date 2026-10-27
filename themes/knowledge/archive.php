@@ -6,7 +6,7 @@
 get_header(); ?>
   <div class="images-bg pt-280  pt-lg-200 pt-md-160  pt-xs-160 ">
       <!-- <div class="detail">
-  				<img src="<?php //echo site_url();?>/wp-content/uploads/2016/05/top_News_1.png" class="images-background" />
+  				<img src="<?php //echo esc_url( site_url() );?>/wp-content/uploads/2016/05/top_News_1.png" class="images-background" />
       </div> -->
       <div class="title-custom-page">
         <div class="container">
@@ -42,7 +42,7 @@ if(!is_home()){
       <?php while ( have_posts() ) : the_post(); ?>
             <li class="colum-full-blogs">
               <div class="img-holder col-md-6 col-sm-6 col-xs-12">
-                <a href="<?php echo get_permalink();?>" class="images_shortcode_services">
+                <a href="<?php echo esc_url( get_permalink() );?>" class="images_shortcode_services">
                   <?php if( has_post_thumbnail( get_the_ID() ) ) { ?>                          
                     <?php echo get_the_post_thumbnail( get_the_ID(), 'detail' ); ?>                          
                   <?php }
@@ -51,7 +51,7 @@ if(!is_home()){
               </div>
               <div class="news-holder col-xs-12 col-sm-6 col-md-6">
                 <h2>
-                  <a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a>
+                  <a href="<?php echo esc_url( get_permalink() );?>"><?php echo get_the_title();?></a>
                   <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>"><?php echo get_the_date(); ?></time>
                 </h2>
                 <p><?php //$texts=get_the_excerpt();

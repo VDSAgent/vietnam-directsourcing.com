@@ -18,7 +18,7 @@ if(!is_front_page() && !is_home()){
 		}
 		else{ ?>
 			<div class="detail">
-				<img src="<?php echo site_url();?>/wp-content/uploads/2016/05/imageabouts.png" class="images-background" />
+				<img src="<?php echo esc_url( site_url() );?>/wp-content/uploads/2016/05/imageabouts.png" class="images-background" />
 			</div>
 		<?php 
 		}

@@ -28,8 +28,8 @@ get_header();
         $hide_faq = get_field('hide_faq');        
          if(empty( $hide_faq ) || $hide_faq[0] !=='yes') { ?>
         <section class="grey-bg-soft3 faq-area-2 position-relative fix pt-105 pb-90 pt-lg-80 pb-lg-50 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30">
-            <img aria-hidden="true" class="shipping-shape sshape-1 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-1.svg" alt="">
-            <img aria-hidden="true" class="faq-shape sshape-2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-5.svg" alt="">
+            <img aria-hidden="true" class="shipping-shape sshape-1 d-none d-md-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/eclip-1.svg" alt="">
+            <img aria-hidden="true" class="faq-shape sshape-2 d-none d-md-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/round-line-5.svg" alt="">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">

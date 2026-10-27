@@ -14,7 +14,7 @@ function shownewpost_shortcode_knowledgetheme( $atts, $content = null ) {
 			while ($loop -> have_posts()) : $loop -> the_post();
 			?>
 				<li>
-				<p><a href="<?php echo get_permalink();?>"><?php echo get_the_title();;?></a></p>
+				<p><a href="<?php echo esc_url( get_permalink() );?>"><?php echo get_the_title();;?></a></p>
 				<p><?php  echo abc_substr(get_the_excerpt(),85);?></p>
 				</li>
 			<?php
@@ -48,7 +48,7 @@ function showservices_shortcode_knowledgetheme() {
                             </div>
                             <h3 class="service-title mb-25 mt-35"><?= get_the_title();?></h3>
                             <p class="mb-35"><?= $exceprt;?></p>
-                            <a class="arrow-icon" href="#<?php echo $post_id;?>" data-id="<?php echo get_the_ID(); ?>">Discover More <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
+                            <a class="arrow-icon" href="#<?php echo $post_id;?>" data-id="<?php echo get_the_ID(); ?>">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@ function showservices_shortcode_home() {
 						</div>
 						<h3 class="service-title mb-25"><?php echo get_the_title();?></h3>
 						<p class="mb-35"><?php echo $exceprt;?></p>
-<!-- 						<a class="arrow-icon" href="<?php echo get_site_url(null,'services');?>/#<?php echo $post_id; ?>">Discover More <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/right-arrow.svg" alt=""></a> -->
-						<a class="arrow-icon" href="https://vietnam-directsourcing.com/solutions/#<?php echo $post_id; ?>">Discover More <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
+<!-- 						<a class="arrow-icon" href="<?php echo esc_url( get_site_url(null,'services') );?>/#<?php echo $post_id; ?>">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a> -->
+						<a class="arrow-icon" href="https://vietnam-directsourcing.com/solutions/#<?php echo $post_id; ?>">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
 						
 					</div>
 				</div>
@@ -112,8 +112,8 @@ function show_single_service() {
 	if ($loop->have_posts()) {
 		?>
 			<section class="value-added-services position-relative pt-120 pb-45 pt-lg-80">
-					<img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
-					<img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
+					<img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/dot-a.svg" alt="">
+					<img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/line/line-baby-1.svg" alt="">
 		<?php
 		while ($loop->have_posts()) {
 			$loop->the_post();

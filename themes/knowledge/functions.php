@@ -448,6 +448,14 @@ function custom_social(){
 
 add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 function mo_comment_fields_custom_order( $fields ) {
+    // The values WordPress's own comment_form() would use. Labels already end in '*',
+    // so the indicator stays empty.
+    $commenter          = wp_get_current_commenter();
+    $req                = (bool) get_option( 'require_name_email' );
+    $html5              = current_theme_supports( 'html5', 'comment-form' );
+    $required_indicator = '';
+    $required_attribute = ' required';
+    $consent            = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
     $comment_field = sprintf(
         '<div class="col-lg-12"><div class="comment-form-comment form-group mb-35">%s %s</div></div>',
         sprintf(
@@ -545,7 +553,7 @@ function categories_with_count_shortcode($atts) {
         'include'            => '',
         'hierarchical'       => 1,
         'echo'               => 1,
-        'taxonomy'           => $atts['cat']
+        'taxonomy'           => ( is_array( $atts ) && isset( $atts['cat'] ) ) ? $atts['cat'] : null
     );
 
     $categories = get_categories( $args );

@@ -324,3 +324,6 @@ body.page-id-2160 .vds-content p { margin-left: auto !important; margin-right: a
 .podcast-section iframe { width: 100%; height: 272px; padding: 20px 0; }
 .podcast-section ul { list-style: none; }
 .styled-text { font-weight: 600; letter-spacing: .5px; }
+
+/* ---------- Footer ---------- */
+.vds-legal { text-align: center; font-size: 14px; color: #5B6675; margin: 0 0 30px; }

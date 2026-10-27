@@ -23,7 +23,7 @@ $vds_episode_id = preg_match( '/Episode\s*(\d+)/i', get_the_title(), $vds_m ) ? 
 				<div class="item">
 					<?php if ( $link ) { ?>
 					<a href="<?php echo esc_url($link); ?>" target="_blank" class="youtube social">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/youtube_logo.png" alt="YouTube">
+						<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/youtube_logo.png" alt="YouTube">
 					</a>
 					<?php } ?>
 					<?php if ( $yt_iframe ) { echo '<div class="youtube-iframe-wrapper">' . $yt_iframe . '</div>'; } ?>
@@ -43,7 +43,7 @@ $vds_episode_id = preg_match( '/Episode\s*(\d+)/i', get_the_title(), $vds_m ) ? 
 				<div class="item">
 					<?php if ( $link ) { ?>
 					<a target="_blank" href="<?php echo esc_url($link); ?>" class="spotify social">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/spotify_logo.png" alt="Spotify">
+						<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/spotify_logo.png" alt="Spotify">
 					</a>
 					<?php } ?>
 					<?php if ( $iframe ) { echo '<div class="spotify-iframe-wrapper">' . $iframe . '</div>'; } ?>

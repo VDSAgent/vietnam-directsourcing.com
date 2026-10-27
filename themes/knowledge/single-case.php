@@ -22,7 +22,7 @@ $author_id = $post->post_author;
         <!--slider-area end-->
         <!--case-single-wrapper start-->
         <section class="case-single-wrapper position-relative pt-120 pb-105 pt-lg-80 pt-md-60 pt-xs-60 pb-lg-50 pb-md-30 pb-xs-30">
-            <img aria-hidden="true" class="case-single-shape cshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-10.png" alt="">
+            <img aria-hidden="true" class="case-single-shape cshape-1 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/line/line-10.png" alt="">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4">
@@ -34,7 +34,7 @@ $author_id = $post->post_author;
                     </div>
                     <div class="col-xl-9 col-lg-8">
                         <div class="case-single-content">
-                            <img class="w-100 mb-45" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/case/case-10.jpg" alt="Case Img">
+                            <img class="w-100 mb-45" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/case/case-10.jpg" alt="Case Img">
                             <h2 class="case-single-title mb-35">Efficiency, error reduction and a vital workplace</h2>
                             <p class="mb-4">We have the capability to tailor solutions for individual businesses by moulding our comprehensive range of services. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum </p>
                             <p class="mb-60">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident,</p>
@@ -52,7 +52,7 @@ $author_id = $post->post_author;
                                 </div>
                                 <div class="col-lg-5 mb-30">
                                     <div class="strategy-img">
-                                        <img class="w-100" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/case/case-11.jpg" alt="Strategy Img">
+                                        <img class="w-100" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/case/case-11.jpg" alt="Strategy Img">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ $author_id = $post->post_author;
                              <p class="mb-70">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, natus numquam unde qui pariatur porro necessitatibus harum libero commodi rem veritatis in nisi vero odit tenetur esse quidem inventore ex.  Sunt nam mollitia, accusantium voluptates</p>
                              <div class="row align-items-center project-manager">
                                  <div class="col-xl-6 col-lg-7 col-md-7 d-sm-flex align-items-center mb-30">
-                                     <img class="pr-manager mr-10" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/case/case-12.jpg" alt="Project Manager">
+                                     <img class="pr-manager mr-10" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/case/case-12.jpg" alt="Project Manager">
                                     <div class="designation-text">
                                         <h4 class="sec-title fw-medium mb-1"><?php echo get_the_author_meta( 'nicename', $author_id ); ?></h4>
                                         <p>Project manager at Logistic Solutions</p>

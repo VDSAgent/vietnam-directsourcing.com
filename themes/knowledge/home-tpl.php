@@ -82,7 +82,7 @@ if(empty($hide_transport) || $hide_transport[0] !== 'yes') { ?>
                     <div class="transport-content">
                         <h3><?php echo $svc['title']; ?></h3>
                         <p><?php echo $svc['desc']; ?></p>
-                        <a href="<?php echo home_url($svc['link']); ?>" class="read-more">Discover More <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
+                        <a href="<?php echo esc_url( home_url($svc['link']) ); ?>" class="read-more">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
                     </div>
                 </div>
             </div>

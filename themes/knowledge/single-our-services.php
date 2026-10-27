@@ -55,8 +55,8 @@ $image_section_action = get_field('image_section_action','option');
         <!--slider-area end-->
         <!--value-added-services start-->
         <section class="value-added-services position-relative pt-120 pb-45 pt-lg-80">
-            <img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
-            <img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
+            <img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/dot-a.svg" alt="">
+            <img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/line/line-baby-1.svg" alt="">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-xl-6 col-lg-6 col-md-6">
@@ -81,8 +81,8 @@ $image_section_action = get_field('image_section_action','option');
         
         <!--air-freight-services start-->
         <section class="air-freight-services position-relative overflow-hidden pt-75 pb-45">
-            <img aria-hidden="true" class="air-shape shape_01 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
-            <img aria-hidden="true" class="air-shape shape_02 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-1.svg" alt="">
+            <img aria-hidden="true" class="air-shape shape_01 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/line/line-baby-1.svg" alt="">
+            <img aria-hidden="true" class="air-shape shape_02 d-none d-xl-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/line/line-1.svg" alt="">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-xl-6 col-lg-6">
@@ -135,8 +135,8 @@ $image_section_action = get_field('image_section_action','option');
         <!--air-freight-services end-->
         <!--call-to-action start-->
         <section class="call-to-action pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30">
-            <img aria-hidden="true" class="cta-shape cta-one cta-service2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/cta/cta-eclip-1.svg" alt="">
-            <img aria-hidden="true" class="cta-shape cta-two cta-inner-shape" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="">
+            <img aria-hidden="true" class="cta-shape cta-one cta-service2 d-none d-md-inline-block" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/cta/cta-eclip-1.svg" alt="">
+            <img aria-hidden="true" class="cta-shape cta-two cta-inner-shape" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/shape/box-2.svg" alt="">
             <div class="container">
                 <div class="cta-border">
                     <div class="row align-items-center">
