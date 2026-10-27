@@ -314,29 +314,4 @@ jQuery(document).ready(function () {
 			jQuery(this).find("a").removeClass("dropdown-toggle");
 		}
 	});
-
-	jQuery("#load-more-posts").on("click", function (event) {
-		event.preventDefault();
-		var button = $(this),
-			page = button.data("page"),
-			newPage = page + 1,
-			totalPages = button.data("total-pages");
-
-		jQuery.ajax({
-			url: ajaxurl,
-			type: "post",
-			data: {
-				action: "load_more_posts",
-				page: page,
-			},
-			success: function (response) {
-				jQuery(".blog_feed").append(response);
-				button.data("page", newPage);
-
-				if (newPage >= totalPages) {
-					button.hide();
-				}
-			},
-		});
-	});
 });
