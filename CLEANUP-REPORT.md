@@ -77,6 +77,7 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | File | Change | Why | Risk |
 |---|---|---|---|
 | `core/function_option.php` | Logo SVG `viewBox` 0 0 336 56 → 0 0 360 56, `width` 336 → 360 | The wordmark renders 350 px wide in Montserrat 600 and was clipped ("Vietnam Direct Sourcin") | none (verified on staging) |
+| `assets/css/vds.css` | `.logo-img .vds-logo svg` max-width 336px → 360px | Matches the wider SVG | none (verified on staging) |
 
 ## 3. Where each snippet went (all 29 active snippets + Additional CSS)
 
