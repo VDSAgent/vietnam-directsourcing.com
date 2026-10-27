@@ -9,13 +9,13 @@ Baseline `e367117` (the live theme, 27 Oct 2026) → branch head. How to deploy:
 | | Baseline | Now |
 |---|---|---|
 | Code that shapes the pages | theme + 29 active WPCode snippets + 448 lines of Additional CSS | theme only (`inc/vds-*.php`, `template-parts/`, `assets/css/vds.css` 381 lines, `assets/js/vds.js`) |
-| Theme PHP | 44 files, 10,571 lines (`functions.php` 1,636) | 43 files, 4,409 lines (`functions.php` 601) |
+| Theme PHP | 44 files, 10,571 lines (`functions.php` 1,636) | 43 files, 4,219 lines (`functions.php` 514) |
 | Templates | home 456, about 480, services 513, contact 192, header 155 lines | home 129, about 34, services 316, contact 53, header 81 |
 | Inline `style=""` attributes | 214 | 4 (vendor templates) |
 | Public (logged-out) AJAX endpoints | 5, two of them unvalidated mailers or query pass-throughs | 2, both with whitelisted, clamped input |
 | jQuery | theme's 1.12.4 (known XSS CVEs) loaded over WordPress's 3.7.1 | WordPress's own only |
 | PHP 8.3 | 0 compile errors; runtime: ~8 warnings per article view, 1 fatal shortcode | 0 errors, 0 runtime warnings in the smoke render |
-| Theme files on the server to delete | – | 16 + 5 stray files + 2 orphan theme folders (HANDOFF §8) |
+| Theme files on the server to delete | – | 17 + 5 stray files + 2 orphan theme folders (HANDOFF §8) |
 
 ## 2. Changes
 
@@ -69,6 +69,8 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | `20289aa` | "No middlemen, no retainer required"; "risk-free" removed (startups and independent retailers kept); Solutions prices shown (Supplier Identification US$250, Supplier Evaluation US$750, Factory Tours US$200/day incl. interpretation); "Verified" → "Checked" contact details; unverifiable claims dropped ("leading" QA firm, "proprietary" database); brand colours; homepage service cards link to anchors that exist; hidden legacy "BOOK A CALL" header button removed (no header CTA) |
 | `725f74b` | One byline on every article from the theme; AI-audio disclosure on episode pages; podcast page "Sourcing From Vietnam: The VDS Podcast / Short episodes on real sourcing questions, every Tuesday"; homepage stats boxes Mist with a Signal Gold rule |
 | `74c644e` | 404 page: "The page you a looking for" → "you are looking for" |
+| `dabf81b` | Comments off site-wide (Rod, 28 Oct: all spam): `inc/vds-comments.php` closes and hides them, removes the admin Comments screens; comment form and count removed from articles and episodes; `comments.php` and the comment-form customisation removed. Risk: none (articles lose the form and the "0 Comment" link) |
+| `eae6a53` | Team roles: Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" |
 
 ## 3. Where each snippet went (all 29 active snippets + Additional CSS)
 
@@ -105,7 +107,7 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | 4331 remove the outdated hidden team section | `about-tpl.php` doesn't print it |
 | Additional CSS (post 644) | `assets/css/vds.css` |
 
-Drafts 3831 and 3832 were not active and stay as they are.
+Draft 3832 (disable comments) was never active; `inc/vds-comments.php` now does that job. Draft 3831 stays as it is.
 
 ## 4. Inventory diff
 
@@ -114,8 +116,8 @@ Drafts 3831 and 3832 were not active and stay as they are.
 | Section | Before → after | What changed |
 |---|---|---|
 | Template headers | 14 → 11 | `case-tpl.php`, `getaquote-tpl.php`, `single-case.php` removed (no page uses them) |
-| Functions | 166 → 70 | TGM classes and dead code out; 36 `vds_*` functions in (the snippets) |
-| Hooks | 69 → 50 | TGM, removed endpoints out; snippet hooks in, with their priorities |
+| Functions | 166 → 70 | TGM classes and dead code out; 39 `vds_*` functions in (the snippets and comments-off) |
+| Hooks | 69 → 55 | TGM, removed endpoints, comment-form hooks out; snippet and comments-off hooks in, with their priorities |
 | Shortcodes | 11 → 6 | `post_feed`, `case_feed`, `testimonial_carousel`, `shortcode_show_team_about`, `vds_solutions` removed |
 | Asset calls | 31 → 7 | Same handles, registered from one array; added `vds`, `vds-logo-font`; dropped `custom-js-jquery-1.12.4-min`, `jquery-bxslider-min`, `style-custom-font` |
 
@@ -131,7 +133,7 @@ New FROZEN entries (`field_66e58d8dceaa5`, `podcast_links`, `youtube_links`, `vd
 - **Vendor code.** Vendor JS/CSS in `assets/` (not reformatted), Redux (`core/options.php`), and `core/postype.php`. The `case-taxanomy` taxonomy is attached to `podcast` and stays.
 - **Widget areas.** All sidebar registrations stay, because widgets may be assigned to them. `sidebar.php` is empty on purpose.
 - **Shortcodes still registered:** `team_carousel`, `categories_with_count`, `showservices`, `show_Services_Home`, `show_single_service`, `shownewpost`. Their output appears on none of the crawled pages, but database content may use them. Remove them after a database search.
-- **The site-wide `!important` type scale** (`main h2/h3/p` in `vds.css`). It is what visitors see today. It overrides the Solutions eyebrow design (HANDOFF §10).
+- **The site-wide `!important` type scale** (`main h2/h3/p` in `vds.css`). It is what visitors see today, and Rod prefers the current layout (28 Oct).
 - **Vendor markup:** `loop/podcast.php` nests `the_content()` inside `<p class="sect-title">`. Browsers auto-close it, and changing it would shift spacing.
 - **The `/viet-nam/` Elementor page** (database), plus WPBakery and Elementor themselves (plugins).
 - **Google Fonts.** The Poppins/Saira `@import` in `main.css` was already there. Added: a Montserrat subset for the logo letters only. Removed: two unused Google Fonts links (Lato, Source Sans Pro).
@@ -149,7 +151,7 @@ New FROZEN entries (`field_66e58d8dceaa5`, `podcast_links`, `youtube_links`, `vd
 - Pre-deploy gate (§4): removed shortcodes, deleted templates, the snippet states, function names.
 - The switch (§6): snippets off and Additional CSS emptied at the same time as the theme files.
 - Server deletions (§8), including the licensed plugin zips that are publicly downloadable.
-- Database copy changes (§9): the Company title "No Fees", the homepage H1, the verification wording, the stats, subtitles without "!", the FAQ retainer answer.
+- Database copy changes (§9): the Company title "No Fees", the homepage H1, the verification wording, "Southeast Asia", subtitles without "!", the FAQ retainer answer, the Discussion setting and the spam comments.
 - Live tests (§7): LiteSpeed JS delay and UCSS against the inquiry and booking modals; an inquiry reaching enquiries@.
 
 ## 8. Verification done here
@@ -168,7 +170,6 @@ New FROZEN entries (`field_66e58d8dceaa5`, `podcast_links`, `youtube_links`, `vd
 
 ## 9. Proposals (not done)
 
-- **Restore the Solutions eyebrows** as small gold labels: one CSS rule, a visible change.
 - **Replace the `!important` type scale** with a plain type system. It is a broad visual change, so test it page by page.
 - **Rebuild `/viet-nam/` as a theme template and remove Elementor.** Elementor's CSS loads on every page for that one page.
 - **Remove WPBakery.** No page uses `[vc_]` content.

@@ -15,6 +15,7 @@ functions.php
 header.php
 home-tpl.php
 inc/vds-articles.php
+inc/vds-comments.php
 inc/vds-page-copy.php
 inc/vds-podcast.php
 inc/vds-redirects.php

@@ -29,6 +29,7 @@ Rod's decisions of 27 Oct replace these rules in your notes:
 | "add `4184:57` to EP_MAP in snippet 4070" | Article-to-episode links come from post meta: `wp post meta update <article_id> vds_episode <N>`. `podcast_entry.py` should set it. The old map is the fallback in `vds_article_episode()` (`inc/vds-podcast.php`). |
 | Snippet IDs named in the notes (3833, 3996, 4004, 4065, 4070, 4096, 4312, 4328 …) | Retired after go-live. CLEANUP-REPORT §3 says which theme file holds each one. |
 | (new) | The Solutions inquiry form now emails **enquiries@** (it emailed contactus@). |
+| (new) | Comments are off site-wide in the theme (`inc/vds-comments.php`, Rod 28 Oct: all spam). Don't activate WPCode draft 3832. |
 
 ## 2. Get the files
 
@@ -159,6 +160,7 @@ Run these on staging, then on live. Check logged out, in a private window, on bo
   - the search box works
   - an article ends with the byline, then the solutions link, then the CTA
   - its podcast box links to `/podcast/#episode-N`
+  - no comment form and no comment count (meta reads "date - N Views")
 - **Podcast:**
   - the new H1 shows
   - search works, and `/podcast/page/2/` works
@@ -179,7 +181,7 @@ Run these on staging, then on live. Check logged out, in a private window, on bo
 Move each item to `~/quarantine-2026-10-27/` first, and delete after 2 weeks. **Never open these in a browser or with curl**: the stray scripts write to the database on any request. Verify each removal with `ls`.
 
 - In the theme root: `el_apply_v2.php`, `el_v3.php`, `upload_test.php`, `find_video.php`, `footer.php.bak-20260712`.
-- Every path in `deploy/deleted-files.txt` (16 files, relative to the theme). `assets/mail.php` is among them: the vendor demo mailer that emails the theme author.
+- Every path in `deploy/deleted-files.txt` (17 files, relative to the theme). `assets/mail.php` is among them: the vendor demo mailer that emails the theme author.
 - `wp-content/themes/salient-child/`: an orphan child theme of a theme that isn't installed (21 MB).
 - `wp-content/themes.1475/`: a leftover copy of the themes folder.
 - `wp-content/themes/knowledge/plugin/*.zip`: the bundled ACF Pro and WPBakery installers. They are licensed, publicly downloadable, and nothing uses them now that TGM is gone. Keep a copy outside the web root.
@@ -197,19 +199,22 @@ From the brand review and Rod's decisions of 26–27 Oct. US spelling throughout
 | 3 | Home (11) | ACF `heading_big_banner_home` | Your Sourcing Partner in Vietnam! | Named Factories, Real Numbers, Someone on the Ground |
 | 4 | Home (11) | page content (the theme prints it) | …we build a shortlist from Vietnam’s 105,000+ factories, verify each one in person, and send you a supplier report covering capability, capacity, certifications and indicative pricing. | …we build a shortlist from Vietnam’s 105,000+ factories and send you a supplier report covering capability, capacity, certifications on record and indicative pricing. When you are ready to commit, Supplier Evaluation audits your shortlisted factories in person. |
 | 5 | Home (11) | page content | There is no retainer and no commission on factory pricing | There is no retainer required and no commission on factory pricing |
-| 6 | Home (11) | ACF `col_manage_left` (stats) | No. 2 / Exporter / In South East Asia · 17 % / Growth / In 2025 · 105,000 + / Factories / In Vietnam | No. 2 / Exporter / in Southeast Asia · 17% / Export growth / in 2025 · 105,000+ / Factories / in Vietnam. Link each to the footnoted source on `/viet-nam/`, but check the 17% figure is sourced there first. |
+| 6 | Home (11) | ACF `col_manage_left` (stats) | In South East Asia | In Southeast Asia (spelling only; Rod 28 Oct: leave the 17% and 105,000+ boxes as they are) |
 | 7 | Solutions (13) | ACF `heading_small_banner_services` | Set Fees and Pay-Per-Use Options! | Flat Fees, Pay-As-You-Go |
 | 8 | Contact (21) | ACF `sub_title_contact` | Let’s talk about sourcing! | Let’s Talk About Sourcing |
 | 9 | FAQ (1296) | ACF repeater `list_questions` (`field_66e58d8dceaa5`), retainer answer | Pay-as-you-go — no retainer, no commission. | Pay-as-you-go, with no retainer required and no commission. An optional monthly plan is available for clients shipping regularly. |
 | 10 | Contact (21) | ACF `description_infor_left` | Đà Nẵng, Da Nang 550000 | Da Nang 550000, Vietnam |
 | 11 | 2 articles | post content | manual "Source: Written by Rod Smith…" line | remove it (the theme prints the byline) |
 | 12 | ~40 podcast episodes | Yoast meta description | identical to the paired article | write a distinct description (optional, later) |
+| 13 | Settings → Discussion | option | comments allowed on new posts | untick "Allow people to submit comments on new posts" (the theme already closes them; this keeps the setting truthful) |
+| 14 | Existing comments | `wp_comments` | spam | optional, after a database backup: check `wp comment list --format=count`, then `wp comment delete $(wp comment list --format=ids) --force`. The theme already hides them. |
 
 The FAQ schema is generated from the repeater (`vds_schema_faq`), so #9 updates the schema as well. Also check the footer and contact social icons: alt text should name the network, and the Twitter bird should become the X mark if the icon comes from widget or ACF content.
 
-## 10. Decisions for Rod (not blocking the deploy)
+## 10. Rod's decisions, 28 Oct (all applied)
 
-- **Comments:** 51 articles show a comment form (snippet 3832 "Completely Disable Comments" is a draft). Recommendation, no code needed: Settings → Discussion → off for new posts, then close comments on existing ones with `wp post list --post_type=post --format=ids | xargs -n50 wp post update --comment_status=closed`.
-- **Team roles:** Telly, Tam, Cassie and Kim have no role on the Company page (`template-parts/company/team.php`). Rod to supply them.
-- **Solutions eyebrows** ("STEP 01", "TIER A" …): they were designed as small gold labels but render as 16 px body text, because the site-wide type scale overrides them. Restoring the design is one CSS rule, and it is a visible change.
-- **B3 measurement:** inquiries sent from a stale cached page now arrive with "(sent from an older cached page)" in the subject. Count them for a month. If they're common, consider a shorter LiteSpeed TTL for `/global-sourcing-solutions/`.
+- **Comments:** off (all spam). Done in the theme; §9 #13–14 tidy the database.
+- **Team roles:** Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" (`template-parts/company/team.php`).
+- **Solutions labels** ("STEP 01", "TIER A" …): keep the current layout. No change.
+- **Homepage 17%:** leave as is.
+- **B3 measurement:** inquiries sent from a stale cached page arrive with "(sent from an older cached page)" in the subject. Count them for a month. If they're common, consider a shorter LiteSpeed TTL for `/global-sourcing-solutions/`.

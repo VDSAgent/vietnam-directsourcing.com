@@ -1,6 +1,7 @@
 admin/themes.php
 assets/mail.php
 case-tpl.php
+comments.php
 content.php
 core/class-tgm-plugin-activation.php
 core/footer-media.php

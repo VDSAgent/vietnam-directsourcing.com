@@ -48,6 +48,7 @@ count home "homepage intro section once" 'class=.vds-intro-area' 1
 count article "one CTA banner on an article" 'class="call-to-action' 1
 count article "one byline" 'class="vds-byline"' 1
 hasnt article "no author slug in the page" 'blog-author-img'
+hasnt article "no comment form" 'id="commentform"'
 count faq "one FAQPage schema" '"FAQPage"' 1
 count contact "one ContactPage schema" '"ContactPage"' 1
 has solutions "inquiry modal with honeypot" 'name="vds_hp"'
