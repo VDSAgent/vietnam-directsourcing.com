@@ -3,7 +3,6 @@
 // Template Name: Home Template
 */
 get_header();
-$image_section_action = array('url' => home_url('/wp-content/uploads/2024/12/Report-Image.png'));
 ?>
 
 <!--slider-area start-->
@@ -11,14 +10,14 @@ $image_section_action = array('url' => home_url('/wp-content/uploads/2024/12/Rep
 $hide_banner_home = get_field('hide_banner_home');
 if(empty($hide_banner_home) || $hide_banner_home[0] !== 'yes') { ?>
 <section class="slider-area pos-rel pt-240 pb-200 pt-lg-180 pt-md-160 pb-md-120 pt-xs-150 pb-xs-90">
-    <img class="slider-shape sshape-1 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-11.png" alt="Page Shape">
-    <img class="slider-shape sshape-2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="Page Shape">
-    <img class="slider-shape sshape-3 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="Page Shape">
-    <img class="slider-shape sshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="Page Shape">
-    <img class="slider-shape sshape-5 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="Page Shape">
-    <img class="slider-shape sshape-6 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="Page Shape">
-    <img class="slider-shape sshape-9 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="Page Shape">
-    <img class="slider-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-1 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-11.png" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-3 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-5 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-6 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+    <img aria-hidden="true" class="slider-shape sshape-9 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="">
+    <img aria-hidden="true" class="slider-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
     <div class="container">
         <div class="row">
             <div class="col-xl-7 col-lg-8">
@@ -36,16 +35,16 @@ if(empty($hide_banner_home) || $hide_banner_home[0] !== 'yes') { ?>
     </div>
 </section>
 <?php } ?>
-<!--slider-area end--><!-- VDS intro section start --><section class='vds-intro-area pt-100 pb-50 pt-md-60 pb-md-20 pt-xs-60 pb-xs-20'><div class='container'><div class='row justify-content-center'><div class='col-xl-8 col-lg-10'><div class='section-title text-center mb-35'><h2>Your Trusted Sourcing Partner in Vietnam</h2></div><p>Vietnam Direct Sourcing is a full-service sourcing company that helps international buyers find, vet and manage manufacturers across Vietnam. From a single product sample to an entire supply chain, our local team handles supplier research, factory audits, quality control and logistics on your behalf &mdash; so you can source with confidence and without the middlemen. With boots on the ground in Hanoi, Da Nang and Ho Chi Minh City, we give you direct access to Vietnam&rsquo;s leading factories across bamboo and wood products, biodegradable plastic and paper, construction materials, health care products, organic textile products, renewable energy products, steel and metal products, and electronic components.</p><p>Whether you are moving production out of China, launching a new product line, or scaling an existing one, we make sourcing from Vietnam simple, transparent and low-risk. You get original factory pricing with no hidden fees, flexible pay-as-you-go services with no retainer, and a dedicated team that keeps you informed at every stage.</p></div></div></div></section><!-- VDS intro section end -->
+<!--slider-area end--><!-- VDS intro section start --><section class='vds-intro-area vds-intro-grid pt-100 pb-60 pt-md-60 pb-md-40 pt-xs-60 pb-xs-40'><div class='container'><div class='row justify-content-center'><div class='col-xl-10 col-lg-11'><div class='section-title text-center mb-25'><h2>Your Trusted Sourcing Partner in Vietnam</h2></div><p class='vds-intro-lead'>We help international buyers find, vet and manage factories across Vietnam.<br>No middlemen, no retainer.</p><ul class='vds-cat-grid'><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="8" width="9" height="50" rx="3"/><path d="M14 22h9M14 36h9M14 49h9"/><rect x="31" y="20" width="9" height="38" rx="3"/><path d="M31 33h9M31 46h9"/></g><path d="M43 24c1-8 7-13 15-13 0 8-6 14-15 13z" fill="#E3A23A" stroke="#E3A23A" stroke-width="1.5" stroke-linejoin="round"/><path d="M43 24l8-6" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg><strong>Bamboo &amp; Wood</strong><span>Furniture, homewares</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 22h38l4 33H9z"/><path d="M23 22v-4a9 9 0 0 1 18 0v4"/></g><path d="M23 47c0-9 6-13 18-13 0 9-7 15-18 13z" fill="#E3A23A" stroke="#E3A23A" stroke-width="1.5" stroke-linejoin="round"/><path d="M23 47l9-8" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg><strong>Biodegradable Plastic &amp; Paper</strong><span>Eco packaging, tableware</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><rect x="19.5" y="26" width="18" height="12" fill="#E3A23A" opacity=".9"/><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="48" height="38" rx="3"/><path d="M8 26h48M8 39h48M30 14v12M19 26v13M41 26v13M30 39v13"/></g></svg><strong>Construction Materials</strong><span>Tiles, stone, fixtures</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="46" height="46" rx="11"/></g><path d="M32 19v26M19 32h26" fill="none" stroke="#E3A23A" stroke-width="6" stroke-linecap="round"/></svg><strong>Health Care</strong><span>Medical supplies</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L7 17l6 12 7-3v29h24V26l7 3 6-12-15-8c-2 5-6 8-10 8s-8-3-10-8z"/></g><path d="M26 47c0-7 4-11 12-11 0 7-5 12-12 11z" fill="#E3A23A" stroke="#E3A23A" stroke-width="1.5" stroke-linejoin="round"/></svg><strong>Organic Textiles</strong><span>Organic fabric, apparel</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 54l9-24h37l-7 24z"/><path d="M13 42h37M28 30l-3 24M41 30l-2 24"/></g><g fill="none" stroke="#E3A23A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="47" cy="15" r="6"/><path d="M47 3v3M47 24v3M35 15h3M56 15h3M38.5 6.5l2 2M55.5 6.5l-2 2"/></g></svg><strong>Renewable Energy</strong><span>Solar racking, components</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 12h38v9h-14v22h14v9H13v-9h14V21H13z"/></g><circle cx="22" cy="16.5" r="1.8" fill="#E3A23A"/><circle cx="42" cy="16.5" r="1.8" fill="#E3A23A"/><circle cx="22" cy="47.5" r="1.8" fill="#E3A23A"/><circle cx="42" cy="47.5" r="1.8" fill="#E3A23A"/></svg><strong>Steel &amp; Metal</strong><span>Fabrication, structural</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="17" width="30" height="30" rx="4"/><path d="M25 9v8M32 9v8M39 9v8M25 47v8M32 47v8M39 47v8M9 25h8M9 32h8M9 39h8M47 25h8M47 32h8M47 39h8"/></g><rect x="26" y="26" width="12" height="12" rx="2" fill="none" stroke="#E3A23A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Electronic Components</strong><span>PCBs, assemblies</span></li><li><svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false"><g fill="none" stroke="#16243D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 9h9v8l5 7v31H8V24l5-7z" transform="translate(2 0)"/><path d="M15 15h9" /></g><g fill="none" stroke="#E3A23A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="38" y="33" width="19" height="22" rx="2"/><path d="M38 41h19"/></g></svg><strong>FMCG &amp; Consumer Goods</strong><span>Food, personal care</span></li></ul><p class='vds-intro-caption'>Local team in Hanoi, Da Nang and Ho Chi Minh City. Original factory pricing, no hidden fees.</p></div></div></div></section><!-- VDS intro section end -->
 
 <!--manage-area start-->
 <?php
 $hide_manage = get_field('hide_manage');
 if(empty($hide_manage) || $hide_manage[0] !== 'yes') { ?>
 <section class="manage-area shape-style pt-120 pb-120 pt-md-60 pb-md-60 pt-xs-60 pb-xs-60">
-    <img class="manage-shape mshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
-    <img class="manage-shape mshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-1.svg" alt="">
-    <img class="manage-shape mshape-3 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-3.svg" alt="">
+    <img aria-hidden="true" class="manage-shape mshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
+    <img aria-hidden="true" class="manage-shape mshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-1.svg" alt="">
+    <img aria-hidden="true" class="manage-shape mshape-3 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-3.svg" alt="">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -58,8 +57,8 @@ if(empty($hide_manage) || $hide_manage[0] !== 'yes') { ?>
         <div class="row align-items-center">
             <div class="col-xl-8 col-lg-8">
                 <?php echo get_field('col_manage_left'); ?>
-                <img class="manage-shape mshape-4 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
-                <img class="manage-shape mshape-5 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+                <img aria-hidden="true" class="manage-shape mshape-4 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
+                <img aria-hidden="true" class="manage-shape mshape-5 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
             </div>
             <div class="col-xl-4 col-lg-4">
                 <?php echo get_field('col_manage_right'); ?>
@@ -179,9 +178,9 @@ if(empty($hide_shyshouldyouchoose) || $hide_shyshouldyouchoose[0] !== 'yes') { ?
         <!-- You can remove or comment out images or shapes causing the issue -->
         <!-- For example, remove these lines or adjust if necessary: -->
         <!--
-        <img class="chose-shape cshape-3 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
-        <img class="chose-shape cshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
-        <img class="chose-shape cshape-5 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
+        <img aria-hidden="true" class="chose-shape cshape-3 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+        <img aria-hidden="true" class="chose-shape cshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
+        <img aria-hidden="true" class="chose-shape cshape-5 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
         -->
 
         <!-- CSS Rule to Hide Box: -->
@@ -200,8 +199,8 @@ if(empty($hide_shyshouldyouchoose) || $hide_shyshouldyouchoose[0] !== 'yes') { ?
                         if(!empty($imageWCU)) { ?>
                             <img class="big-img" src="<?php echo esc_url($imageWCU['url']); ?>" alt="<?php echo esc_attr($imageWCU['alt']); ?>">
                         <?php } ?>
-                        <img class="chose-shape cshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-3.svg" alt="">
-                        <img class="chose-shape cshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-b.svg" alt="">
+                        <img aria-hidden="true" class="chose-shape cshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-3.svg" alt="">
+                        <img aria-hidden="true" class="chose-shape cshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-b.svg" alt="">
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-6">
@@ -254,8 +253,8 @@ if(empty($hide_team) || $hide_team[0] !== 'yes') {
   if($team_q->have_posts()):
 ?>
 <section class="copic-team position-relative pt-80 pb-120 pt-lg-70 pb-lg-70 pt-md-60 pb-md-60 pt-xs-60 pb-xs-60">
-<img class="team-shape tmshape-1" src="<?php echo get_template_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-<img class="team-shape tmshape-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/shape/round-line-b.svg" alt="">
+<img aria-hidden="true" class="team-shape tmshape-1" src="<?php echo get_template_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+<img aria-hidden="true" class="team-shape tmshape-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/shape/round-line-b.svg" alt="">
 <div class="container">
 <div class="section-title text-center mb-85">
             <h2 class="mb-30">Our Experienced Team<span class="bg-shape"></span></h2>
@@ -298,8 +297,8 @@ if(empty($hide_technology_section) || $hide_technology_section[0] !== 'yes') {
         
         <!--copic-team start-->
         <section class="copic-team position-relative pt-140 pb-120 pt-md-60 pb-md-60 pt-xs-60 pb-xs-60" style="background-color: <?php echo get_field('technology_background_color') ?>;">
-            <img class="team-shape tmshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img class="team-shape tmshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/border-line-1.svg" alt="">
+            <img aria-hidden="true" class="team-shape tmshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img aria-hidden="true" class="team-shape tmshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/border-line-1.svg" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -354,8 +353,8 @@ if(empty($hide_suppliers_section) || $hide_suppliers_section[0] !== 'yes') {
         
         <!--copic-team start-->
         <section class="copic-team position-relative pt-140 pb-120 pt-md-60 pb-md-60 pt-xs-60 pb-xs-60">
-            <img class="team-shape tmshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img class="team-shape tmshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/border-line-1.svg" alt="">
+            <img aria-hidden="true" class="team-shape tmshape-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img aria-hidden="true" class="team-shape tmshape-2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/border-line-1.svg" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -402,27 +401,14 @@ if(empty($hide_suppliers_section) || $hide_suppliers_section[0] !== 'yes') {
 ?>
 
 <!--call-to-action start-->
-<section class="call-to-action pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30">
-            <img class="cta-shape cta-one cta-service2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/cta/cta-eclip-1.svg" alt="Cta Shape">
-            <img class="cta-shape cta-two cta-inner-shape" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="Cta Shape">
-            <a href="<?php echo esc_url( home_url( '/contact-for-sourcing/' ) ); ?>">
-                <div class="cta-border">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 col-md-7">
-                            <div class="cta-title text-center text-md-start mb-30">
-                                <h2>Let's talk about what you're sourcing</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5">
-                            <div class="chat-manager text-center text-lg-end mb-30">
-                                <img src="<?php echo esc_url($image_section_action['url']); ?>" height="270px" width="auto">
-                            </div>
-                        </div>
-                    </div>
-					</a>
-                </div>
-            </div>
-        </section>
+<?php
+get_template_part( 'template-parts/cta', null, array(
+	'image'         => home_url( '/wp-content/uploads/2024/12/Report-Image.png' ),
+	'shapes'        => 'home',
+	'text_cols'     => 7,
+	'section_class' => 'pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30',
+) );
+?>
         <!--call-to-action end-->
 
 <script>

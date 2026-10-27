@@ -40,7 +40,6 @@ $description_section_transport = get_field('description_section_transport');
 
 $title_section_bottom = get_field('title_section_bottom','option');
 $action_contact = get_field('action_contact','option');
-$image_section_action = get_field('image_section_action','option');
 
 ?>
 <!--slider-area start-->
@@ -49,13 +48,13 @@ $image_section_action = get_field('image_section_action','option');
         
          if(empty( $hide_banneer ) || $hide_banneer[0] !=='yes') { ?>
         <section class="page-title-area sky-blue-bg pt-280 pb-180 pt-lg-200 pt-md-160 pb-md-120 pt-xs-160 pb-xs-90">
-            <img class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="Page Shape">
-            <img class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="Page Shape">
-            <img class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="Page Shape">
-            <img class="page-shape shape_07 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="Page Shape">
-            <img class="page-shape shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="Page Shape">
-            <img class="page-shape shape_09 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="Page Shape">
-			<img class="page-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_07 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_09 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="">
+			<img aria-hidden="true" class="page-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8">
@@ -319,8 +318,8 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
 $hide_whyshouldyouchoose = get_field('hide_whyshouldyouchoose');        
 if(empty( $hide_whyshouldyouchoose ) || $hide_whyshouldyouchoose[0] !=='yes') { ?>
 <section class="why-chose-us shape-style position-relative">
-        <img class="chose-shape cshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
-        <img class="chose-shape cshape-5 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
+        <img aria-hidden="true" class="chose-shape cshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
+        <img aria-hidden="true" class="chose-shape cshape-5 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
         <div class="container pt-110">
             <div class="row align-items-center">
                 <div class="col-xl-4 col-lg-6">
@@ -477,28 +476,7 @@ if(empty( $hide_ourwork ) || $hide_ourwork[0] !=='yes') { ?>
         $hide_services_bottom = get_field('hide_services_bottom');    
         // var_dump($hide_services_bottom);     
          if(empty( $hide_services_bottom ) || $hide_services_bottom[0] !=='yes') { ?>
-        <section class="call-to-action pt-100 pb-120 pt-md-60 pb-md-30 pt-xs-60">
-            <img class="cta-shape cta-service1 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/cta/cta-eclip-1.svg" alt="Cta Shape">
-            <img class="cta-shape cta-two" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="Cta Shape">
-            <div class="container">
-                <div class="cta-border">
-                    <a href="https://vietnam-directsourcing.com/contact-for-sourcing/" style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="cta-title text-center text-md-start mb-30">
-                                <h2>Let's talk about what you're sourcing</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="chat-manager text-center text-lg-end mb-30">
-                                <img src="<?php echo esc_url($image_section_action['url']); ?>" height="270px" width="auto">
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+        <?php get_template_part( 'template-parts/cta' ); ?>
 
 
 <style>

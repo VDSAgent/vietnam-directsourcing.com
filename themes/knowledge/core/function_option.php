@@ -6,7 +6,7 @@ function logo_knowledgetheme() {
 		&& isset($tp_options['logo-image']['url']) 
 		&& $tp_options['logo-image']['url'] != ''){		
 		?>
-		<a class="" href="<?php echo site_url();?>"><img class="img-fluid" src="<?php echo $tp_options['logo-image']['url'];?>" alt="logo"/></a>
+		<a class="" href="<?php echo site_url();?>"><img class="img-fluid" src="<?php echo esc_url( $tp_options['logo-image']['url'] ); ?>" alt="Vietnam Direct Sourcing"/></a>
 		<?php
 	}else{
 		?>

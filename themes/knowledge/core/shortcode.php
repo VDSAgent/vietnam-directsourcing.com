@@ -112,8 +112,8 @@ function show_single_service() {
 	if ($loop->have_posts()) {
 		?>
 			<section class="value-added-services position-relative pt-120 pb-45 pt-lg-80">
-					<img class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="Dot Shape">
-					<img class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="Line Shape">
+					<img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+					<img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
 		<?php
 		while ($loop->have_posts()) {
 			$loop->the_post();

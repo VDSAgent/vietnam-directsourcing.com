@@ -107,17 +107,6 @@
                                 </div>
                                 <ul class="list-style-none right-btn d-flex align-items-center">
                                     <li>
-                                        <div class="search-area">
-                                            <a class="search-btn" href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/search.svg" alt="icon-not-found"></a>
-                                            <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="input-group">
-                                                <input type="search" name="s" placeholder="Search here....." value="<?php echo get_search_query(); ?>" class="" style="flex:1;border:1px solid #ddd;padding:6px 12px;border-radius:4px 0 0 4px;outline:none;font-size:14px;">
-                                                <button type="submit" class="input-group-text" style="background:transparent;border:1px solid #ddd;border-left:none;padding:6px 12px;cursor:pointer;border-radius:0 4px 4px 0;">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/search.svg" alt="search">
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <a class="theme_btn theme_btn_border d-none d-xl-inline-block" href="<?php echo site_url(); ?>/contact-for-sourcing/">
                                             <span>BOOK A CALL</span>
                                         </a>

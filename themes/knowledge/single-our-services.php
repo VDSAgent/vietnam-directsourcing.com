@@ -35,10 +35,10 @@ $image_section_action = get_field('image_section_action','option');
 
                                 
     <section class="page-title-area page-title-area2 sky-blue-bg pt-230 pb-90 pt-lg-195 pt-md-160 pt-xs-160 ">
-            <img class="page-shape shape_01 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-13.png" alt="Page Shape">
-            <img class="page-shape shape_04 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="Page Shape">
-            <img class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="Page Shape">
-            <img class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="Page Shape">
+            <img aria-hidden="true" class="page-shape shape_01 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-13.png" alt="">
+            <img aria-hidden="true" class="page-shape shape_04 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-8 col-lg-7 col-md-6">
@@ -59,8 +59,8 @@ $image_section_action = get_field('image_section_action','option');
         <!--slider-area end-->
         <!--value-added-services start-->
         <section class="value-added-services position-relative pt-120 pb-45 pt-lg-80">
-            <img class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="Dot Shape">
-            <img class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="Line Shape">
+            <img aria-hidden="true" class="value-shape vshape-1 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+            <img aria-hidden="true" class="value-shape vshape-2 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-xl-6 col-lg-6 col-md-6">
@@ -85,8 +85,8 @@ $image_section_action = get_field('image_section_action','option');
         
         <!--air-freight-services start-->
         <section class="air-freight-services position-relative overflow-hidden pt-75 pb-45">
-            <img class="air-shape shape_01 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="Air Shape">
-            <img class="air-shape shape_02 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-1.svg" alt="Air Shape">
+            <img aria-hidden="true" class="air-shape shape_01 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-baby-1.svg" alt="">
+            <img aria-hidden="true" class="air-shape shape_02 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-1.svg" alt="">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-xl-6 col-lg-6">
@@ -139,8 +139,8 @@ $image_section_action = get_field('image_section_action','option');
         <!--air-freight-services end-->
         <!--call-to-action start-->
         <section class="call-to-action pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30">
-            <img class="cta-shape cta-one cta-service2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/cta/cta-eclip-1.svg" alt="Cta Shape">
-            <img class="cta-shape cta-two cta-inner-shape" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="Cta Shape">
+            <img aria-hidden="true" class="cta-shape cta-one cta-service2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/cta/cta-eclip-1.svg" alt="">
+            <img aria-hidden="true" class="cta-shape cta-two cta-inner-shape" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="">
             <div class="container">
                 <div class="cta-border">
                     <div class="row align-items-center">

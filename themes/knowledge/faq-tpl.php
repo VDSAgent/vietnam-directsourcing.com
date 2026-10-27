@@ -9,14 +9,14 @@ get_header();
         $hide_banner = get_field('hide_banner');        
          if(empty( $hide_banner ) || $hide_banner[0] !=='yes') { ?>
         <section class="page-title-area sky-blue-bg pt-280 pb-180 pt-lg-200 pt-md-160 pb-md-120 pt-xs-160 pb-xs-90">
-            <img class="page-shape contact-shape-1 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-11.png" alt="Page Shape">
-            <img class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="Page Shape">
-            <img class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="Page Shape">
-            <img class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="Page Shape">
-            <img class="page-shape shape_07 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="Page Shape">
-            <img class="page-shape-02 shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="Page Shape">
-            <img class="page-shape shape_09 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="Page Shape">
-			<img class="page-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
+            <img aria-hidden="true" class="page-shape contact-shape-1 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-11.png" alt="">
+            <img aria-hidden="true" class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_07 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="">
+            <img aria-hidden="true" class="page-shape-02 shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
+            <img aria-hidden="true" class="page-shape shape_09 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="">
+			<img aria-hidden="true" class="page-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
@@ -36,8 +36,8 @@ get_header();
         $hide_faq = get_field('hide_faq');        
          if(empty( $hide_faq ) || $hide_faq[0] !=='yes') { ?>
         <section class="grey-bg-soft3 faq-area-2 position-relative fix pt-105 pb-90 pt-lg-80 pb-lg-50 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30">
-            <img class="shipping-shape sshape-1 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-1.svg" alt="">
-            <img class="faq-shape sshape-2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-5.svg" alt="">
+            <img aria-hidden="true" class="shipping-shape sshape-1 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-1.svg" alt="">
+            <img aria-hidden="true" class="faq-shape sshape-2 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-5.svg" alt="">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
@@ -140,28 +140,7 @@ get_header();
         </section>
 				
 				<br><br><br>
-<section class="call-to-action pt-100 pb-120 pt-md-60 pb-md-30 pt-xs-60">
-            <img class="cta-shape cta-service1 d-none d-md-inline-block" src="https://vietnam-directsourcing.com/wp-content/themes/knowledge/assets/img/cta/cta-eclip-1.svg" alt="Cta Shape">
-            <img class="cta-shape cta-two" src="https://vietnam-directsourcing.com/wp-content/themes/knowledge/assets/img/shape/box-2.svg" alt="Cta Shape">
-            <div class="container">
-                <div class="cta-border">
-                    <a href="https://vietnam-directsourcing.com/contact-for-sourcing/" style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="cta-title text-center text-md-start mb-30">
-                                <h2>Let's talk about what you're sourcing</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="chat-manager text-center text-lg-end mb-30">
-                                <img src="https://vietnam-directsourcing.com/wp-content/uploads/2024/08/ai.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+<?php get_template_part( 'template-parts/cta', null, array( 'image' => home_url( '/wp-content/uploads/2024/08/ai.svg' ), 'image_height' => 0 ) ); ?>
 				
 				
         <?php } ?>
