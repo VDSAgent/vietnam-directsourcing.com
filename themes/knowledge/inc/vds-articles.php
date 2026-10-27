@@ -148,9 +148,7 @@ function vds_article_closing( $content ) {
 
 	ob_start();
 	get_template_part( 'template-parts/cta', null, array(
-		'image'         => false,
 		'shapes'        => false,
-		'text_cols'     => 7,
 		'section_class' => 'pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30',
 	) );
 

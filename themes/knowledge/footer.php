@@ -3,7 +3,6 @@
     <footer class="footer-area sky-blue-bg-soft pos-rel pt-130 pt-md-100 pt-xs-100 fix">
         <img aria-hidden="true" class="fot-shape f-shape1 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-5.svg" alt="">
         <img aria-hidden="true" class="fot-shape f-shape2" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-shape-1.svg" alt="">
-        <img aria-hidden="true" class="fot-shape f-shape3 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-black-1.svg" alt="">
         <img aria-hidden="true" class="fot-shape f-shape4" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-4.svg" alt="">
         <div class="container">
         	<div class="row borders-grey pb-30">

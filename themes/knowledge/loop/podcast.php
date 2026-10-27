@@ -1,4 +1,8 @@
-<div class="chose-wrapper white-bg podcast">
+<?php
+// Anchor for links such as /podcast/#episode-12 (from articles and Shorts descriptions).
+$vds_episode_id = preg_match( '/Episode\s*(\d+)/i', get_the_title(), $vds_m ) ? 'episode-' . $vds_m[1] : '';
+?>
+<div<?php echo $vds_episode_id ? ' id="' . esc_attr( $vds_episode_id ) . '"' : ''; ?> class="chose-wrapper white-bg podcast">
 	<div class="row justify-content-center">
 		<div class="col-lg-12">
 			<div class="section-title text-center mb-80">

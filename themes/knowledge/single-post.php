@@ -10,12 +10,6 @@ $avatar_url = get_avatar_url( $author_id );
 ?>
 <!--page-title-area start-->
         <section class="page-title-area page-title-blog-details grey-bg pt-220 pb-100 pt-lg-200  pt-md-160  pt-xs-160 pb-xs-90">
-            <img aria-hidden="true" class="page-shape shape_01 blog-shape-3 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-11.png" alt="">
-            <img aria-hidden="true" class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
-            <img aria-hidden="true" class="page-shape-02 shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
-            <img aria-hidden="true" class="page-shape blog-shape-4 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-12.png" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-12">
@@ -54,15 +48,17 @@ $avatar_url = get_avatar_url( $author_id );
 								Want to dive deeper into this subject? Check out our latest podcast on this subject on <a href="https://creators.spotify.com/pod/show/vietnam-direct-sourcing">Spotify</a>, where we explore this topic and so much more! Whether you're on the go or relaxing at home, tune in for insights, tips, and discussions that bring our blog topics to life.
 							</p>
 							
-							<?php 
+							<?php
+							// YouTube and Spotify buttons open the episode on /podcast/ when the article has one.
+							$episode_url = vds_article_episode_url( get_the_ID() );
 							$youtube_link = get_field('youtube_link');
 							if($youtube_link) { ?>
-								<a target="_blank" href="<?php echo esc_attr(get_field('youtube_link')); ?>" class="podcast-video"><img class="podcast-logo" src="https://vietnam-directsourcing.com/wp-content/uploads/2024/11/new-youtube-logo.svg"></a>
+								<a <?php echo $episode_url ? '' : 'target="_blank" '; ?>href="<?php echo esc_url( $episode_url ?: $youtube_link ); ?>" class="podcast-video"><img class="podcast-logo" src="https://vietnam-directsourcing.com/wp-content/uploads/2024/11/new-youtube-logo.svg"></a>
 							<?php } ?>							
 							<?php 
 							$postcast_link = get_field('postcast_link');
 							if($postcast_link) { ?>
-								<a target="_blank" href="<?php echo esc_attr(get_field('postcast_link')); ?>" class="podcast-video"><img class="podcast-logo" src="https://vietnam-directsourcing.com/wp-content/uploads/2024/11/spotify-logo.svg"></a>
+								<a <?php echo $episode_url ? '' : 'target="_blank" '; ?>href="<?php echo esc_url( $episode_url ?: $postcast_link ); ?>" class="podcast-video"><img class="podcast-logo" src="https://vietnam-directsourcing.com/wp-content/uploads/2024/11/spotify-logo.svg"></a>
 							<?php } ?>
 							<?php 
 							$medium_link = get_field('medium_link');

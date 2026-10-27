@@ -35,10 +35,6 @@ $image_section_action = get_field('image_section_action','option');
 
                                 
     <section class="page-title-area page-title-area2 sky-blue-bg pt-230 pb-90 pt-lg-195 pt-md-160 pt-xs-160 ">
-            <img aria-hidden="true" class="page-shape shape_01 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-13.png" alt="">
-            <img aria-hidden="true" class="page-shape shape_04 d-none d-xl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-8 col-lg-7 col-md-6">

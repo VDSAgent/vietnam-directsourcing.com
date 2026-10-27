@@ -231,3 +231,32 @@ function vds_podcast_transcript( $content ) {
 		. $html . '</details>';
 }
 add_filter( 'the_content', 'vds_podcast_transcript', 25 );
+
+/**
+ * Episode number of an article (articles and episodes pair 1:1). The post meta
+ * 'vds_episode' wins; the map covers the articles published before that meta existed
+ * (formerly EP_MAP in WPCode snippet 4070).
+ */
+function vds_article_episode( $post_id ) {
+	$meta = (int) get_post_meta( $post_id, 'vds_episode', true );
+	if ( $meta ) {
+		return $meta;
+	}
+	static $map = array(
+		970 => 1, 478 => 2, 683 => 3, 987 => 4, 1004 => 5, 1025 => 6, 1052 => 7, 1366 => 8, 1731 => 9,
+		472 => 10, 1879 => 11, 1044 => 12, 2100 => 13, 2096 => 14, 2672 => 15, 2677 => 16, 2683 => 17,
+		2687 => 18, 2691 => 19, 2697 => 20, 2737 => 21, 2745 => 22, 2751 => 23, 2755 => 24, 2759 => 25,
+		2763 => 26, 2837 => 27, 2842 => 28, 2848 => 29, 2853 => 30, 2858 => 31, 3177 => 32, 3185 => 33,
+		3192 => 34, 3208 => 35, 3219 => 36, 3236 => 37, 3242 => 38, 3258 => 39, 3266 => 40, 3290 => 41,
+		3314 => 42, 3329 => 43, 3341 => 44, 3354 => 45, 3372 => 46, 3720 => 47, 3721 => 48, 3722 => 49,
+		3905 => 50, 3912 => 51, 4027 => 52, 4036 => 53, 4038 => 54, 4140 => 55, 4158 => 56, 4184 => 57,
+		4287 => 58, 4293 => 59, 4298 => 60,
+	);
+	return $map[ $post_id ] ?? 0;
+}
+
+/** Link from an article to its episode on the /podcast/ page, or '' when it has none. */
+function vds_article_episode_url( $post_id ) {
+	$ep = vds_article_episode( $post_id );
+	return $ep ? home_url( '/podcast/#episode-' . $ep ) : '';
+}

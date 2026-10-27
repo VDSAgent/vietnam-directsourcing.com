@@ -24,23 +24,6 @@ get_header();
 $heading_small_banner_services = get_field('heading_small_banner_services');
 $heading_big_banner_services = get_field('heading_big_banner_services');
 
-$heading_small_process = get_field('heading_small_process');
-$heading_big_process = get_field('title_section_process');
-$list_our_word_process = get_field('list_our_word_process');
-
-$heading_small_wcu = get_field('heading_small_wcu');
-$title_section_wcu = get_field('title_section_wcu');
-$description_why_choose_us_right = get_field('description_why_choose_us_right');
-$description_why_choose_us_bottom = get_field('description_why_choose_us_bottom');
-$image_wcu = get_field('image_wcu');
-
-$title_section_transport = get_field('title_section_transport');
-$description_section_transport = get_field('description_section_transport');
-
-
-$title_section_bottom = get_field('title_section_bottom','option');
-$action_contact = get_field('action_contact','option');
-
 ?>
 <!--slider-area start-->
 <?php 
@@ -48,13 +31,6 @@ $action_contact = get_field('action_contact','option');
         
          if(empty( $hide_banneer ) || $hide_banneer[0] !=='yes') { ?>
         <section class="page-title-area sky-blue-bg pt-280 pb-180 pt-lg-200 pt-md-160 pb-md-120 pt-xs-160 pb-xs-90">
-            <img aria-hidden="true" class="page-shape shape_04 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_05 d-none d-xxl-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/round-line-a.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_06 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/berry-1.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_07 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/truck.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_08 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/dot-a.svg" alt="">
-            <img aria-hidden="true" class="page-shape shape_09 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/nav-box.svg" alt="">
-			<img aria-hidden="true" class="page-shape transport img-one" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/plane.svg" alt="">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8">
@@ -76,7 +52,7 @@ $action_contact = get_field('action_contact','option');
 <!-- VDS Inquiry Modal -->
 <div id="vds-inquiry-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);z-index:9999;align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:12px;padding:40px;max-width:520px;width:92%;position:relative;max-height:90vh;overflow-y:auto;">
-    <button onclick="document.getElementById('vds-inquiry-modal').style.display='none';" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:26px;cursor:pointer;color:#999;line-height:1;">&times;</button>
+    <button type="button" class="vds-inquiry-close" aria-label="Close" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:26px;cursor:pointer;color:#999;line-height:1;">&times;</button>
     <p style="color:#e8693c;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">GET IN TOUCH</p>
     <h3 id="vds-modal-title" style="color:#1a2a4a;font-size:22px;margin-bottom:4px;">Send an Inquiry</h3>
     <p style="color:#888;font-size:14px;margin-bottom:24px;">We respond within 24 business hours.</p>
@@ -104,18 +80,6 @@ $action_contact = get_field('action_contact','option');
     </form>
   </div>
 </div>
-<script>
-function vdsOpenInquiry(serviceName) {
-  document.getElementById('vds-service-name').value = serviceName;
-  document.getElementById('vds-modal-title').textContent = serviceName;
-  var m = document.getElementById('vds-inquiry-modal');
-  m.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-document.getElementById('vds-inquiry-modal').addEventListener('click', function(e) {
-  if (e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; }
-});
-</script>
 
 <?php if (isset($_GET['inquiry']) && $_GET['inquiry'] === 'sent') : ?>
 <div style="background:#d4edda;color:#155724;padding:14px;text-align:center;font-size:15px;border-bottom:1px solid #c3e6cb;">
@@ -148,7 +112,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
           <li style="padding:7px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;International Quality Certifications</li>
           <li style="padding:7px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;Initial Factory Price Sheets</li>
         </ul>
-        <button onclick="vdsOpenInquiry('Request Supplier Identification List')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Request Supplier Identification List &rarr;</button>
+        <button type="button" data-vds-inquiry="Request Supplier Identification List" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Request Supplier Identification List &rarr;</button>
       </div>
     </div>
 
@@ -169,7 +133,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
           <li style="padding:7px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;Custom Sample Production Management</li>
           <li style="padding:7px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;Facilitated Supplier Introduction Call</li>
         </ul>
-        <button onclick="vdsOpenInquiry('Inquire About Supplier Evaluation')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Inquire About Supplier Evaluation &rarr;</button>
+        <button type="button" data-vds-inquiry="Inquire About Supplier Evaluation" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Inquire About Supplier Evaluation &rarr;</button>
       </div>
     </div>
 
@@ -189,7 +153,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
           <li style="padding:7px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;Timeline Slip Remediation</li>
           <li style="padding:7px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;Post-Production Handoff Coordination</li>
         </ul>
-        <button onclick="vdsOpenInquiry('Get Production Management Support')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Get Production Management Support &rarr;</button>
+        <button type="button" data-vds-inquiry="Get Production Management Support" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Get Production Management Support &rarr;</button>
       </div>
     </div>
 
@@ -209,7 +173,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
           <li style="padding:7px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;Integrated Logistics &amp; Freight Scheduling</li>
           <li style="padding:7px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;Dedicated Account Manager in Vietnam</li>
         </ul>
-        <button onclick="vdsOpenInquiry('Apply for End-to-End Sourcing')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Apply for End-to-End Sourcing &rarr;</button>
+        <button type="button" data-vds-inquiry="Apply for End-to-End Sourcing" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Apply for End-to-End Sourcing &rarr;</button>
       </div>
     </div>
 
@@ -237,7 +201,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
             <li style="padding:6px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;Shipping-Document Follow-Through</li>
             <li style="padding:6px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;Landed-Cost Reconciliation</li>
           </ul>
-          <button onclick="vdsOpenInquiry('Per-Container Management')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Talk About Per-Container Pricing &rarr;</button>
+          <button type="button" data-vds-inquiry="Per-Container Management" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Talk About Per-Container Pricing &rarr;</button>
         </div>
       </div>
       <div class="col-lg-6 col-md-12 mb-40">
@@ -252,7 +216,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
             <li style="padding:6px 0;color:#333;font-size:14px;border-bottom:1px solid #f0f0f0;">&#10003;&nbsp;&nbsp;Priority Response Ahead of Ad-Hoc Work</li>
             <li style="padding:6px 0;color:#333;font-size:14px;">&#10003;&nbsp;&nbsp;No Minimum Term — 30 Days’ Notice</li>
           </ul>
-          <button onclick="vdsOpenInquiry('Sourcing Partner Retainer')" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Discuss the Sourcing Partner Retainer &rarr;</button>
+          <button type="button" data-vds-inquiry="Sourcing Partner Retainer" style="background:#1a2a4a;color:#fff;border:none;padding:14px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;">Discuss the Sourcing Partner Retainer &rarr;</button>
         </div>
       </div>
     </div>
@@ -282,7 +246,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
               <li style="padding:6px 0;color:rgba(255,255,255,0.7);font-size:14px;border-bottom:1px solid rgba(255,255,255,0.08);">&#10003;&nbsp;&nbsp;Pre-Verified Production Suitability</li>
               <li style="padding:6px 0;color:rgba(255,255,255,0.7);font-size:14px;">&#10003;&nbsp;&nbsp;Local Transportation &amp; Logistics Handling</li>
             </ul>
-            <button onclick="vdsOpenInquiry('Book a Tailored Factory Tour')" style="background:#e8693c;color:#fff;border:none;padding:14px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%;">Book a Tailored Factory Tour &rarr;</button>
+            <button type="button" data-vds-inquiry="Book a Tailored Factory Tour" style="background:#e8693c;color:#fff;border:none;padding:14px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%;">Book a Tailored Factory Tour &rarr;</button>
           </div>
         </div>
       </div>
@@ -300,7 +264,7 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
               <li style="padding:6px 0;color:rgba(255,255,255,0.7);font-size:14px;border-bottom:1px solid rgba(255,255,255,0.08);">&#10003;&nbsp;&nbsp;Lab Testing &amp; Certification Procedures</li>
               <li style="padding:6px 0;color:rgba(255,255,255,0.7);font-size:14px;">&#10003;&nbsp;&nbsp;Defect Sorting &amp; Corrective Action Plans</li>
             </ul>
-            <button onclick="vdsOpenInquiry('Schedule a Quality Inspection')" style="background:#e8693c;color:#fff;border:none;padding:14px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%;">Schedule a Quality Inspection &rarr;</button>
+            <button type="button" data-vds-inquiry="Schedule a Quality Inspection" style="background:#e8693c;color:#fff;border:none;padding:14px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;width:100%;">Schedule a Quality Inspection &rarr;</button>
           </div>
         </div>
       </div>
@@ -311,139 +275,6 @@ document.getElementById('vds-inquiry-modal').addEventListener('click', function(
 <!--solutions-services end-->
 <?php endif; ?>
 
-
-
-<!--why-chose-us start-->
-<?php 
-$hide_whyshouldyouchoose = get_field('hide_whyshouldyouchoose');        
-if(empty( $hide_whyshouldyouchoose ) || $hide_whyshouldyouchoose[0] !=='yes') { ?>
-<section class="why-chose-us shape-style position-relative">
-        <img aria-hidden="true" class="chose-shape cshape-4 d-none d-lg-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
-        <img aria-hidden="true" class="chose-shape cshape-5 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/chose/big-truck.svg" alt="">
-        <div class="container pt-110">
-            <div class="row align-items-center">
-                <div class="col-xl-4 col-lg-6">
-                    <div class="chose-img-wrapper mb-30">
-                        <img class="big-img" src="<?php echo esc_url($image_wcu['url']); ?>" alt="<?php echo esc_attr($image_wcu['alt']); ?>">
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-6">
-                    <div class="chose-wrapper white-bg pt-75 pr-65 pb-55 pl-115 mb-30">
-                        <div class="section-title pr-65">
-                            <h6 class="mb-25"><?= $heading_small_wcu;?></h6>
-                            <h2 class="mb-10"><?= $title_section_wcu;?></h2>
-                        </div>
-                        <div class="chose-box mb-10">
-                            <ul class="single-box-list custom pr-45">
-                                <?php if( have_rows('list_why_choose_us') ): 
-                                    $i = 0;
-                                    ?>
-                                    <?php while( have_rows('list_why_choose_us') ): the_row(); 
-                                        $i ++;
-                                        $icon_item = get_sub_field('icon_item');
-                                        $title_item = get_sub_field('title_item');
-                                        ?>
-                                         <li>
-                                            <div class="single-box">
-                                                <img src="<?php echo esc_url($icon_item['url']); ?>" alt="<?php echo esc_attr($icon_item['alt']); ?>">
-                                                <h4 class="ml-25"><?= $title_item;?></h4>
-                                            </div>
-                                        </li>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                            </ul>
-                            <p><?= $description_why_choose_us_right;?></p>
-                        </div>
-                        <p><?= $description_why_choose_us_bottom;?></p>
-                    </div>
-                </div>
-            </div><!--/.row-->
-            
-            
-        </div><!--/.container-->
-		<div class="form-pricing container" style="margin-top: 30px; max-width: 1580px">
-			<div data-tf-live="01JA9C12XPMNESHQZ0MSFC2AJE"></div>
-			<script src="//embed.typeform.com/next/embed.js"></script>
-		</div>
-    
-</section>
-<?php } ?>
-
-
-
-<!--work-process start-->
-<?php 
-$hide_ourwork = get_field('hide_ourwork');        
-if(empty( $hide_ourwork ) || $hide_ourwork[0] !=='yes') { ?>
-<section class="work-process position-relative pt-110 pb-60 pt-lg-80 pb-lg-30 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30">
-    <div class="container">
-        <div class="row align-items-center mb-140 mb-md-80 mb-xs-80">
-            <div class="col-xl-8 col-lg-8 col-md-7">
-                <div class="section-title section-title2 text-center text-md-start mb-30">
-                    <h6 class="mb-30"><?=  $heading_small_process;?></h6>
-                    <?= $heading_big_process;?>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <?php if( have_rows('list_our_word_process') ): 
-                $i = 0;
-            ?>
-            <?php while( have_rows('list_our_word_process') ): the_row(); 
-                $i ++;
-                $icon_item = get_sub_field('icon_item');
-                $title_item = get_sub_field('title_item');
-                ?>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="single-work sw-<?= $i;?> mb-30">
-                        <div class="single-work__icon mb-20">
-                            <img class="work-icon" src="<?php echo esc_url($icon_item['url']); ?>" alt="<?php echo esc_attr($icon_item['alt']); ?>" />
-                        </div>
-                        <h4 class="semi-title"><?= $title_item;?></h4>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-            <?php endif; ?>
-        </div><!--/.row-->
-    </div><!--/.container-->
-</section>
-<div class="form-pricing container typeform-section" style="margin-top: 30px; max-width: 1580px">
-				<!-- <h2 class="pb-60">Get a sourcing quote in minutes!</h2> -->
-	<div data-tf-live="01JA9C12XPMNESHQZ0MSFC2AJE"></div>
-	<script src="//embed.typeform.com/next/embed.js"></script>
-</div>
-<?php } ?>
-<!--work-process end-->
-
-
-
-<!--logistics-services start-->
-
-        <?php 
-        $hide_transport = get_field('hide_transport');     
-        // var_dump($hide_transport);   
-         if(empty( $hide_transport ) || $hide_transport[0] !=='yes') { ?>
-        <section class="logistics-services pos-rel pt-60 pb-60 pb-md-30 pb-xs-30">
-            <img class="service-shape2 service-1" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-3.svg" alt="">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7">
-
-                        <div class="section-title section-title2 text-center mb-80">
-                            <?= $title_section_transport;?>
-                            <p class="pl-50 pr-50 pl-xs-0 pr-xs-0"><?= $description_section_transport;?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <?php 
-                    // do_shortcode('[showservices]');
-                    ?>
-                </div><!--/.row-->
-            </div><!--/.container-->
-        </section>
-        <?php } ?>
-        <!--logistics-services end-->
         
         <!-- Widget -->
         <?php
@@ -464,28 +295,12 @@ if(empty( $hide_ourwork ) || $hide_ourwork[0] !=='yes') { ?>
         </div>
         <?php } } ?>
 
-        <!--value-added-services start-->
-        <?php 
-        /* echo do_shortcode('[show_single_service]'); */ 
-        
-        ?>
-        <!--value-added-services end-->
-
         <!--call-to-action start-->
         <?php 
         $hide_services_bottom = get_field('hide_services_bottom');    
         // var_dump($hide_services_bottom);     
          if(empty( $hide_services_bottom ) || $hide_services_bottom[0] !=='yes') { ?>
         <?php get_template_part( 'template-parts/cta' ); ?>
-
-
-<style>
-@media (max-width: 448px) { 
-	.single-box {
-    	height: 58px !important;
-	}
-}
-</style>
         <?php } ?>
         <!--call-to-action end-->
 <?php
