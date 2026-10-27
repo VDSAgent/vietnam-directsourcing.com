@@ -18,7 +18,7 @@
             <div id="theme-menu-one" class="main-header-area menu-style-1 pt-20 pb-15">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-2 col-6">
+                        <div class="col-xl-3 col-lg-2 col-6">
                             <div class="logo-img"> 
                             	<?php
 																logo_knowledgetheme();
@@ -26,7 +26,7 @@
 														</div>
                         </div>
 
-                        <div class="col-xl-10 col-lg-10 col-6 d-flex align-items-center justify-content-end">
+                        <div class="col-xl-9 col-lg-10 col-6 d-flex align-items-center justify-content-end">
                             <nav id="topheader" class="navbar navbar-expand-lg justify-content-end mr-25">
                                 <div class="nav-container">
                                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
