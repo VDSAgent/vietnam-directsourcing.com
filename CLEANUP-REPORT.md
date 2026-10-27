@@ -72,6 +72,12 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | `dabf81b` | Comments off site-wide (Rod, 28 Oct: all spam): `inc/vds-comments.php` closes and hides them, removes the admin Comments screens; comment form and count removed from articles and episodes; `comments.php` and the comment-form customisation removed. Risk: none (articles lose the form and the "0 Comment" link) |
 | `eae6a53` | Team roles: Thao "Central Sourcing Specialist", Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" |
 
+### Staging fixes (found by Rod's local session, 28 Oct; already on staging and in the live deploy)
+
+| File | Change | Why | Risk |
+|---|---|---|---|
+| `core/function_option.php` | Logo SVG `viewBox` 0 0 336 56 → 0 0 360 56, `width` 336 → 360 | The wordmark renders 350 px wide in Montserrat 600 and was clipped ("Vietnam Direct Sourcin") | none (verified on staging) |
+
 ## 3. Where each snippet went (all 29 active snippets + Additional CSS)
 
 | Snippet | Now in the theme |
