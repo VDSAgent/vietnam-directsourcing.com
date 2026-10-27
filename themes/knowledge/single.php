@@ -63,7 +63,7 @@ $title_page=get_field('title_page',get_the_ID ());
             <a class="back-pages-blogs" href="<?php echo site_url('/news');?>">&laquo; BACK TO NEWS PAGE</a>
           </div>
           <div class="col-md-8 col-sm-8 col-xs-12 title-post-signle">
-              <h2 class="title-singler-post"><?php echo get_the_title();?></h1>
+              <h2 class="title-singler-post"><?php echo get_the_title();?></h2>
               <?php //the_date('d/m/Y', '<p>', '</p>'); ?>
           </div>
         </div>

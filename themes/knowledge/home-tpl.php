@@ -109,7 +109,8 @@ if(empty($hide_slider_video) || $hide_slider_video[0] !== 'yes') { ?>
                     </div>
                     <br><br>
                     <div class="embed-container">
-                    <iframe title="Vietnam Direct Sourcing on YouTube" src="https://www.youtube.com/embed/lOyaK9q8_iU?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="Vietnam Direct Sourcing on YouTube" src="https://www.youtube.com/embed/lOyaK9q8_iU?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
