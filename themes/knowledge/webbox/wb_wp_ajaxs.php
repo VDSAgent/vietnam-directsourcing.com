@@ -1,61 +1,56 @@
-<?php 
+<?php
+/**
+ * Public AJAX loader behind the /podcast/ "Load More" button (assets/js/main.js).
+ *
+ * Visitors may only page through published podcast episodes: the query is
+ * rebuilt from a whitelist instead of passing the request data to WP_Query.
+ */
 class wb_wp_ajaxs
 {
     public function __construct()
     {
-        $actions = [
-            'wb_load_blog'=>'public'
-        ];
-        foreach($actions as $action=>$security){
-            add_action( "wp_ajax_{$action}", [$this,'calback_'.$action]);
-            if($security == 'public'){
-                add_action( "wp_ajax_nopriv_{$action}", [$this,'calback_'.$action]);
-            }
-        }
+        add_action( 'wp_ajax_wb_load_blog', [ $this, 'calback_wb_load_blog' ] );
+        add_action( 'wp_ajax_nopriv_wb_load_blog', [ $this, 'calback_wb_load_blog' ] );
     }
+
     public function calback_wb_load_blog()
     {
-        extract($_REQUEST);
-
-       
-        $args = isset($_POST['data'])?$_POST['data']:false;
-        if($args):
-            if(isset($args['paged'])){
-            $args['paged'] = $args['paged'] + 1;
-            }
-        
-        switch($args['post_type']){
-            case 'podcast':
-                $temp = 'loop/podcast';                
-                break;            
+        $data = isset( $_POST['data'] ) && is_array( $_POST['data'] ) ? wp_unslash( $_POST['data'] ) : null;
+        if ( ! $data ) {
+            wp_die();
         }
-        
-        $loop = new WP_Query($args);
+
+        // Same keys podcast-tpl.php puts in data-args; 'paged' is the page already shown.
+        $args = [
+            'post_type'      => 'podcast',
+            'post_status'    => 'publish',
+            'posts_per_page' => min( 50, max( 1, absint( $data['posts_per_page'] ?? 10 ) ) ),
+            'order'          => ( isset( $data['order'] ) && strtoupper( (string) $data['order'] ) === 'ASC' ) ? 'ASC' : 'DESC',
+            'orderby'        => 'date',
+            'paged'          => max( 1, absint( $data['paged'] ?? 1 ) ) + 1,
+        ];
+
+        $loop = new WP_Query( $args );
         ob_start();
-        if($loop->have_posts()):            
-            ?>
-            
-                <?php while($loop->have_posts()):$loop->the_post()?>
-                <?php get_template_part($temp,'null')?>
-                <?php endwhile?>
-            <?php            
-        else:
+        if ( $loop->have_posts() ) {
+            while ( $loop->have_posts() ) {
+                $loop->the_post();
+                get_template_part( 'loop/podcast', 'null' );
+            }
+            wp_reset_postdata();
+        } else {
             ?>
             <div class="no-posts align-center">
-                <?php _e('No post found.')?>
+                <?php esc_html_e( 'No post found.' ); ?>
             </div>
-            <?php 
-        endif;
-        $more = $loop->max_num_pages > $args['paged']?true:false;
-        $html = ob_get_clean();
-        $returns = [
-            'items' => $html,
-            'more' => $more,
-            'args'  => $args
-        ];        
-        wp_send_json($returns);
-        endif;
-        wp_die();
+            <?php
+        }
+
+        wp_send_json( [
+            'items' => ob_get_clean(),
+            'more'  => $loop->max_num_pages > $args['paged'],
+            'args'  => $args,
+        ] );
     }
 }
-new wb_wp_ajaxs;
+new wb_wp_ajaxs();

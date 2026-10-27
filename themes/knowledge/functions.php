@@ -1093,7 +1093,7 @@ function acf_add_allowed_iframe_tag( $tags, $context ) {
 
     return $tags;
 }
-require_once 'webbox/mains.php';
+require_once __DIR__ . '/webbox/wb_wp_ajaxs.php';
 
 
 
