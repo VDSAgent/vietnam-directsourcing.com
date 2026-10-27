@@ -9,10 +9,10 @@ $vds_team = array(
 	array( 'Minh', 'Technology Specialist', 'all', 'Nationwide', '2026/09/vds-team-minh.jpg' ),
 	array( 'Tho', 'Logistics Specialist', 'all', 'Nationwide', '2026/09/vds-team-tho.jpg' ),
 	array( 'Thao', 'Sourcing Specialist', 'central', 'Central', '2026/09/vds-team-hien.jpg' ),
-	array( 'Telly', 'Sourcing Specialist', 'north', 'North', '2026/09/vds-team-telly.jpg' ),
-	array( 'Tam', 'Sourcing Specialist', 'north', 'North', '2026/09/vds_team_tham.png' ),
-	array( 'Cassie', 'Sourcing Specialist', 'south', 'South', '2026/09/vds-team-cassie.jpg' ),
-	array( 'Kim', 'Sourcing Specialist', 'south', 'South', '2026/09/vds-team-kim.png' ),
+	array( 'Telly', 'North Sourcing Specialist', 'north', 'North', '2026/09/vds-team-telly.jpg' ),
+	array( 'Tam', 'North Sourcing Specialist', 'north', 'North', '2026/09/vds_team_tham.png' ),
+	array( 'Cassie', 'South Sourcing Specialist', 'south', 'South', '2026/09/vds-team-cassie.jpg' ),
+	array( 'Kim', 'South Sourcing Specialist', 'south', 'South', '2026/09/vds-team-kim.png' ),
 );
 $vds_linkedin = array( 'Rod' => 'https://www.linkedin.com/in/roddouglassmith/' );
 $vds_uploads  = 'https://vietnam-directsourcing.com/wp-content/uploads/';
