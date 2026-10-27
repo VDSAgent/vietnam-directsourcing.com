@@ -11,14 +11,6 @@ require_once __DIR__ . '/inc/vds-page-copy.php';
 require_once __DIR__ . '/inc/vds-articles.php';
 require_once __DIR__ . '/inc/vds-podcast.php';
 require_once __DIR__ . '/inc/vds-redirects.php';
-function ajaxurl(){
-    ?>
-    <script type="text/javascript">
-        var ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>" ;
-    </script>
-    <?php
-}
-add_action('wp_head','ajaxurl');
 /*
  * Register three Knowledge Theme widget areas.
  *
@@ -153,54 +145,64 @@ function knowledgetheme_widgets_init() {
 }
 add_action( 'widgets_init', 'knowledgetheme_widgets_init' );
 /**
- * Enqueue scripts and styles for the front end.
+ * Front-end styles and scripts. Versions follow each file's modification time, so a
+ * deploy busts the LiteSpeed and CDN caches.
  */
 function knowledgetheme_scripts() {
+	$uri = get_template_directory_uri();
+	$dir = get_template_directory();
+	$ver = static function ( $file ) use ( $dir ) {
+		return file_exists( $dir . $file ) ? filemtime( $dir . $file ) : null;
+	};
 
-    $custom_ver = filemtime(get_template_directory() . '/custom.css');
+	// Brand fonts: Saira Extra Condensed + Poppins (loaded by main.css); Montserrat
+	// SemiBold only for the logo wordmark, subset to its own letters.
+	wp_enqueue_style( 'vds-logo-font', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600&text=' . rawurlencode( 'Vietnam Direct Sourcing' ) . '&display=swap', array(), null );
 
-    wp_enqueue_style( 'style-custom-bootstrap.min', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css');
-    wp_enqueue_style( 'style-custom-owl', get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css');
-    wp_enqueue_style( 'style-custom-animate', get_stylesheet_directory_uri() . '/assets/css/animate.css');
-    wp_enqueue_style( 'style-custom-magnific', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css');
-    wp_enqueue_style( 'style-custom-all', get_stylesheet_directory_uri() . '/assets/css/all.min.css');
-    wp_enqueue_style( 'style-custom-font', get_stylesheet_directory_uri() . '/assets/css/font.css');
-    wp_enqueue_style( 'style-custom-metisMenu', get_stylesheet_directory_uri() . '/assets/css/metisMenu.css');
-    wp_enqueue_style( 'style-custom-nice', get_stylesheet_directory_uri() . '/assets/css/nice-select.css');
-    wp_enqueue_style( 'style-custom-spacing', get_stylesheet_directory_uri() . '/assets/css/spacing.css');
-    wp_enqueue_style( 'style-custom-main', get_stylesheet_directory_uri() . '/assets/css/main.css');
-    wp_enqueue_style( 'style-t', get_template_directory_uri() . '/style-t.css', array(), '1.0' );
-    wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom.css', array(), $custom_ver, false );
-    wp_enqueue_style( 'vds', get_template_directory_uri() . '/assets/css/vds.css', array( 'custom' ), filemtime( get_template_directory() . '/assets/css/vds.css' ) );
+	$styles = array(
+		'style-custom-bootstrap.min' => '/assets/css/bootstrap.min.css',
+		'style-custom-owl'           => '/assets/css/owl.carousel.min.css',
+		'style-custom-animate'       => '/assets/css/animate.css',
+		'style-custom-magnific'      => '/assets/css/magnific-popup.css',
+		'style-custom-all'           => '/assets/css/all.min.css',
+		'style-custom-metisMenu'     => '/assets/css/metisMenu.css',
+		'style-custom-nice'          => '/assets/css/nice-select.css',
+		'style-custom-spacing'       => '/assets/css/spacing.css',
+		'style-custom-main'          => '/assets/css/main.css',
+		'style-t'                    => '/style-t.css',
+		'custom'                     => '/custom.css',
+		'vds'                        => '/assets/css/vds.css',
+	);
+	foreach ( $styles as $handle => $file ) {
+		wp_enqueue_style( $handle, $uri . $file, array(), $ver( $file ) );
+	}
 
-    wp_enqueue_script( 'custom-js-modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-3.5.0.min.js'); 
-    wp_enqueue_script( 'custom-js-jquery-1.12.4-min', get_stylesheet_directory_uri() . '/assets/js/vendor/jquery-1.12.4.min.js'); 
-    wp_enqueue_script( 'custom-js-popper-min', get_stylesheet_directory_uri() . '/assets/js/popper.min.js');  
-    wp_enqueue_script( 'custom-js-bootstrap.min', get_stylesheet_directory_uri() . '/assets/js/bootstrap.min.js');  
-    wp_enqueue_script( 'custom-js-owl.carousel-min', get_stylesheet_directory_uri() . '/assets/js/owl.carousel.min.js');  
-    wp_enqueue_script( 'custom-js-isotope.pkgd-min', get_stylesheet_directory_uri() . '/assets/js/isotope.pkgd.min.js');  
-    wp_enqueue_script( 'custom-js-metisMenu.min', get_stylesheet_directory_uri() . '/assets/js/metisMenu.min.js');  
-    wp_enqueue_script( 'custom-js-jquery.nice-select', get_stylesheet_directory_uri() . '/assets/js/jquery.nice-select.js');  
-    wp_enqueue_script( 'custom-js-wow.min', get_stylesheet_directory_uri() . '/assets/js/wow.min.js');  
-    wp_enqueue_script( 'custom-js-jquery.counterup.min', get_stylesheet_directory_uri() . '/assets/js/jquery.counterup.min.js');  
-    wp_enqueue_script( 'custom-js-waypoints.min', get_stylesheet_directory_uri() . '/assets/js/waypoints.min.js');  
-    wp_enqueue_script( 'custom-js-imagesloaded.pkgd.min', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js');   
-    wp_enqueue_script( 'custom-js-jquery.magnific-popup.min', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.min.js');  
-    wp_enqueue_script( 'custom-js-main', get_stylesheet_directory_uri() . '/assets/js/main.js');  
-        
-/*    wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), '1.0' );
-    wp_enqueue_style( 'responsive', get_template_directory_uri() . '/responsive.css', array(), '1.0' );
-    wp_enqueue_style( 'bootstrap-min-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );     
-    wp_enqueue_style( 'font-awesome.min.css', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '3.3.6' );
-    wp_enqueue_style( 'lightbox.min.css', get_template_directory_uri() . '/css/lightbox.min.css', array(), '3.3.6' );
-    wp_enqueue_style( 'style-main', get_template_directory_uri() . '/css/style.css', array(), '1.0' );
-    wp_enqueue_style( 'style-bxslider', get_template_directory_uri() . '/css/jquery.bxslider.css');  
-    wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/js/jquery-1.11.2.min.js', array( 'jquery' ), '1.11.2', false );
-    wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );      
-    wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), '3.3.6', true ); */    
+	// jQuery plugins run on WordPress's own jQuery (the theme used to load jQuery 1.12.4
+	// over it, which has known XSS vulnerabilities).
+	$scripts = array(
+		'custom-js-modernizr'                 => array( '/assets/js/vendor/modernizr-3.5.0.min.js', array() ),
+		'custom-js-popper-min'                => array( '/assets/js/popper.min.js', array() ),
+		'custom-js-bootstrap.min'             => array( '/assets/js/bootstrap.min.js', array( 'custom-js-popper-min' ) ),
+		'custom-js-owl.carousel-min'          => array( '/assets/js/owl.carousel.min.js', array( 'jquery' ) ),
+		'custom-js-isotope.pkgd-min'          => array( '/assets/js/isotope.pkgd.min.js', array( 'jquery' ) ),
+		'custom-js-metisMenu.min'             => array( '/assets/js/metisMenu.min.js', array( 'jquery' ) ),
+		'custom-js-jquery.nice-select'        => array( '/assets/js/jquery.nice-select.js', array( 'jquery' ) ),
+		'custom-js-wow.min'                   => array( '/assets/js/wow.min.js', array() ),
+		'custom-js-waypoints.min'             => array( '/assets/js/waypoints.min.js', array( 'jquery' ) ),
+		'custom-js-jquery.counterup.min'      => array( '/assets/js/jquery.counterup.min.js', array( 'jquery', 'custom-js-waypoints.min' ) ),
+		'custom-js-imagesloaded.pkgd.min'     => array( '/assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ) ),
+		'custom-js-jquery.magnific-popup.min' => array( '/assets/js/jquery.magnific-popup.min.js', array( 'jquery' ) ),
+		'custom-js-main'                      => array( '/assets/js/main.js', array( 'jquery' ) ),
+	);
+	foreach ( $scripts as $handle => list( $file, $deps ) ) {
+		wp_enqueue_script( $handle, $uri . $file, $deps, $ver( $file ) );
+	}
+	// main.js (podcast Load More) posts to admin-ajax.php via the global ajaxurl.
+	wp_add_inline_script( 'custom-js-main', 'var ajaxurl = ' . wp_json_encode( admin_url( 'admin-ajax.php' ) ) . ';', 'before' );
 
-
+	wp_enqueue_script( 'vds', $uri . '/assets/js/vds.js', array(), $ver( '/assets/js/vds.js' ), true );
 }
+add_action( 'wp_enqueue_scripts', 'knowledgetheme_scripts' );
 
 function team_carousel_func($attr){  
     $atts = shortcode_atts(array(
@@ -280,12 +282,6 @@ function custom_nav_menu_link_attributes($atts, $item, $args, $depth) {
 add_filter('nav_menu_link_attributes', 'custom_nav_menu_link_attributes', 10, 4);
 
 
-add_action( 'wp_enqueue_scripts', 'knowledgetheme_scripts' );
-function wo_script() {
-  wp_register_script( 'jquery-bxslider-min', get_stylesheet_directory_uri() . '/js/jquery.bxslider.min.js',array(), '1.0.0', true ); 
-    wp_enqueue_script( 'jquery-bxslider-min' );
-}
-add_action( 'wp_enqueue_scripts', 'wo_script' );
 function removeDemoModeLink() {
     if ( class_exists('ReduxFrameworkPlugin') ) {
         remove_filter( 'plugin_row_meta', array( ReduxFrameworkPlugin::get_instance(), 'plugin_metalinks'), null, 2 );
