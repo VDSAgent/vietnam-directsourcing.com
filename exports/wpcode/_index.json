@@ -1,0 +1,374 @@
+[
+    {
+        "id": 3831,
+        "title": "Display a message after the 1st paragraph of posts",
+        "status": "draft",
+        "type": "text",
+        "location": [
+            "after_paragraph"
+        ],
+        "priority": "",
+        "file": "3831-display-a-message-after-the-1st-paragraph-of-posts.txt",
+        "bytes": 59
+    },
+    {
+        "id": 3832,
+        "title": "Completely Disable Comments",
+        "status": "draft",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "3832-completely-disable-comments.php",
+        "bytes": 1239
+    },
+    {
+        "id": 3833,
+        "title": "Yoast Organization schema - founder & founding date (VDS)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "3833-yoast-organization-schema-founder-founding-date-vds.php",
+        "bytes": 709
+    },
+    {
+        "id": 3924,
+        "title": "FAQ Schema (JSON-LD) - FAQ page (auto from ACF)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "3924-faq-schema-json-ld-faq-page-auto-from-acf.php",
+        "bytes": 1072
+    },
+    {
+        "id": 3996,
+        "title": "VDS — Render page copy (templates missing the_content)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "3996-vds-render-page-copy-templates-missing-the_content.php",
+        "bytes": 3046
+    },
+    {
+        "id": 4004,
+        "title": "VDS - Company page: regions + team + ecosystem sections",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "site_wide_header"
+        ],
+        "priority": "10",
+        "file": "4004-vds-company-page-regions-team-ecosystem-sections.php",
+        "bytes": 26005
+    },
+    {
+        "id": 4035,
+        "title": "VDS - Home: team slider fallback (theme fix is the real one)",
+        "status": "publish",
+        "type": "css",
+        "location": [
+            "site_wide_header"
+        ],
+        "priority": "10",
+        "file": "4035-vds-home-team-slider-fallback-theme-fix-is-the-real-one.css",
+        "bytes": 345
+    },
+    {
+        "id": 4050,
+        "title": "VDS - Point CTAs at the Contact page (theme edits are the real fix)",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4050-vds-point-ctas-at-the-contact-page-theme-edits-are-the-real-.js",
+        "bytes": 1126
+    },
+    {
+        "id": 4065,
+        "title": "VDS - Article closing CTA + search scoped to articles",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "frontend_only"
+        ],
+        "priority": "10",
+        "file": "4065-vds-article-closing-cta-search-scoped-to-articles.php",
+        "bytes": 1247
+    },
+    {
+        "id": 4066,
+        "title": "VDS - Articles page search box",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4066-vds-articles-page-search-box.js",
+        "bytes": 1112
+    },
+    {
+        "id": 4069,
+        "title": "VDS - Podcast page episode anchors",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4069-vds-podcast-page-episode-anchors.js",
+        "bytes": 2002
+    },
+    {
+        "id": 4070,
+        "title": "VDS - Article podcast links to site episode anchor",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4070-vds-article-podcast-links-to-site-episode-anchor.js",
+        "bytes": 1161
+    },
+    {
+        "id": 4076,
+        "title": "VDS - Articles page auto-load on scroll",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4076-vds-articles-page-auto-load-on-scroll.js",
+        "bytes": 2689
+    },
+    {
+        "id": 4077,
+        "title": "VDS - Restrict Load More Articles to published posts",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4077-vds-restrict-load-more-articles-to-published-posts.php",
+        "bytes": 654
+    },
+    {
+        "id": 4096,
+        "title": "VDS - Sticky header scroll fix",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4096-vds-sticky-header-scroll-fix.js",
+        "bytes": 2626
+    },
+    {
+        "id": 4113,
+        "title": "VDS - Solutions inquiry: book-a-call after submit",
+        "status": "publish",
+        "type": "js",
+        "location": [
+            "site_wide_footer"
+        ],
+        "priority": "10",
+        "file": "4113-vds-solutions-inquiry-book-a-call-after-submit.js",
+        "bytes": 4048
+    },
+    {
+        "id": 4196,
+        "title": "VDS — Company page hero band",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4196-vds-company-page-hero-band.php",
+        "bytes": 4996
+    },
+    {
+        "id": 4214,
+        "title": "VDS - Decorative shapes: aria-hidden + empty alt",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4214-vds-decorative-shapes-aria-hidden-empty-alt.php",
+        "bytes": 1875
+    },
+    {
+        "id": 4215,
+        "title": "VDS - Remove leftover header search markup",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "4215-vds-remove-leftover-header-search-markup.php",
+        "bytes": 1113
+    },
+    {
+        "id": 4226,
+        "title": "VDS - Solutions page + sitewide markup polish",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "4226-vds-solutions-page-sitewide-markup-polish.php",
+        "bytes": 4062
+    },
+    {
+        "id": 4228,
+        "title": "VDS - FAQ page: drop stale hardcoded FAQPage schema",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "4228-vds-faq-page-drop-stale-hardcoded-faqpage-schema.php",
+        "bytes": 720
+    },
+    {
+        "id": 4231,
+        "title": "VDS Articles Real Pagination (page\/N)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4231-vds-articles-real-pagination-page-n.php",
+        "bytes": 2222
+    },
+    {
+        "id": 4232,
+        "title": "VDS Podcast Episode Pages (players, schema)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4232-vds-podcast-episode-pages-players-schema.php",
+        "bytes": 4491
+    },
+    {
+        "id": 4233,
+        "title": "VDS Podcast Real Pagination (page\/N)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4233-vds-podcast-real-pagination-page-n.php",
+        "bytes": 1829
+    },
+    {
+        "id": 4234,
+        "title": "VDS Podcast Search + Topic Pills",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4234-vds-podcast-search-topic-pills.php",
+        "bytes": 3725
+    },
+    {
+        "id": 4235,
+        "title": "VDS Podcast Transcript Field + Display",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4235-vds-podcast-transcript-field-display.php",
+        "bytes": 2027
+    },
+    {
+        "id": 4236,
+        "title": "VDS Contact Page SEO (ContactPage schema, hours, og type)",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4236-vds-contact-page-seo-contactpage-schema-hours-og-type.php",
+        "bytes": 1416
+    },
+    {
+        "id": 4301,
+        "title": "VDS - 301 redirects for consolidated articles",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "4301-vds-301-redirects-for-consolidated-articles.php",
+        "bytes": 1523
+    },
+    {
+        "id": 4312,
+        "title": "VDS - Homepage intro: short lead + 9 industry tiles",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "",
+        "file": "4312-vds-homepage-intro-short-lead-9-industry-tiles.php",
+        "bytes": 6918
+    },
+    {
+        "id": 4328,
+        "title": "VDS - Security headers + user-enumeration block",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4328-vds-security-headers-user-enumeration-block.php",
+        "bytes": 1385
+    },
+    {
+        "id": 4331,
+        "title": "VDS - Company page: remove the outdated hidden team section",
+        "status": "publish",
+        "type": "php",
+        "location": [
+            "everywhere"
+        ],
+        "priority": "10",
+        "file": "4331-vds-company-page-remove-the-outdated-hidden-team-section.php",
+        "bytes": 1221
+    }
+]

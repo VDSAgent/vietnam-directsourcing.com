@@ -1,0 +1,448 @@
+.podcast-container {
+	padding: 40px 0;
+	text-align: center;
+}
+
+.podcast-container .podcast-logo {
+    height: 30px;
+    margin: 10px 10px;
+}
+
+.comic-blog p {
+	margin-bottom: 20px
+}
+
+.contact-info p {
+	font-size: 20px;
+	line-height: 1.5em;
+}
+
+.contact-info h5 {
+	font-size: 24px !important;
+	line-height: 1.5em;	
+}
+
+.social-media-icons a img {
+	width: 40px !important;
+	height: 40px !important;
+}
+.podcast-section .item .social{
+	justify-content:center;
+}
+
+.transport.img-two {
+	right: 18%;
+}
+.transport.img-three {
+    right: 17.5%;
+	bottom: 155px;
+}
+
+
+.single-post a {
+	color: #FF3E41;
+}
+
+/* Single box list - border under all items */
+.single-box-list li {
+  border-bottom: 1px solid #D9E3E5;
+}
+.single-box-list li:nth-child(2) {
+  border-top: none;
+}
+
+/* === VDS homepage fixes (added by assistant) === */
+/* Constrain Direct & Simple Sourcing Solutions card images: fixes horizontal overflow + header alignment */
+.transport-area .vds-info-image,
+.home .vds-info-image { max-width: 100%; height: auto; display: block; }
+
+
+/* === VDS stats section: 3 equal infographic columns === */
+.manage-area .col-xl-8.col-lg-8 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+.manage-area .col-xl-4.col-lg-4 { display: none; }
+.manage-area .vds-stats-row { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.manage-area .vds-stats-row > [class*="col-"] { display: -ms-flexbox; display: flex; margin-bottom: 24px; }
+.manage-area .vds-stats-row .counter-box { width: 100%; height: 100%; }
+.counter-box.cb-2 { background-color: #F5A623; }
+
+.manage-area .vds-stats-row .counter-box.sky-blue-bg { background-color: #51CEED; }
+.manage-area .vds-stats-row .counter-box.cb-1 { background-color: #E45050; }
+
+
+/* === VDS solutions section: match 'What Sets Our Company Apart' === */
+.transport-area { background-color: #F6FCFF; }
+.transport-area .section-title { text-align: center; }
+.transport-area .row > [class*="col-"] { display: -ms-flexbox; display: flex; }
+.transport-area .transport-wrapper { text-align: center; background: #fff; border-radius: 8px; padding: 30px 25px 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); width: 100%; height: 100%; transition: .4s; }
+.transport-area .transport-wrapper:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.12); -webkit-transform: translateY(-5px); transform: translateY(-5px); }
+.transport-area .transport-img { text-align: center; margin-bottom: 25px; }
+.transport-area .vds-info-image { border-radius: 8px; margin: 0 auto; }
+.transport-area .transport-content { text-align: center; }
+.transport-area .transport-content h3 { font-size: 24px; }
+.transport-area .read-more { display: -ms-inline-flexbox; display: inline-flex; -ms-flex-align: center; align-items: center; }
+
+
+/* === VDS video section: center 'Vietnam Sourcing Agent' === */
+.slider-video-area .row { -ms-flex-pack: center; justify-content: center; }
+.slider-video-area .col-xl-6.col-lg-6 { -ms-flex: 0 0 auto; flex: 0 0 auto; width: 100%; max-width: 800px; }
+.slider-video-area .slider-video-wrapper { text-align: center; }
+.slider-video-area .section-title { text-align: center; }
+
+
+/* === VDS homepage preloader: render content immediately instead of blocking spinner === */
+body.home #preloader { display: none !important; }
+
+
+/* === VDS solutions curved bottom (match company section) === */
+.transport-area { border-radius: 0 0 68% 68%; position: relative; z-index: 1; }
+
+
+/* === VDS header plane: keep hero plane below the navigation === */
+@media (min-width: 992px) {
+  .slider-area .transport.img-one { top: 170px !important; }
+}
+
+
+/* === VDS home hero: match Solutions page hero === */
+.slider-area { background-color: #F6FCFF; padding-top: 260px; }
+.slider-area .row { -ms-flex-pack: center; justify-content: center; }
+.slider-area .col-xl-7, .slider-area .col-lg-8 { -ms-flex: 0 0 66.6667%; flex: 0 0 66.6667%; max-width: 66.6667%; }
+.slider-area .slider-wrapper { text-align: center; }
+.slider-area h1 { font-size: 90px; line-height: 0.98; }
+@media (min-width: 992px) and (max-width: 1200px) { .slider-area h1 { font-size: 45px; } }
+@media (min-width: 768px) and (max-width: 991px) { .slider-area h1 { font-size: 42px; } .slider-area .col-xl-7, .slider-area .col-lg-8 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
+@media (min-width: 576px) and (max-width: 767px) { .slider-area h1 { font-size: 36px; } }
+@media (max-width: 767px) { .slider-area h1 { font-size: 26px; } .slider-area { padding-top: 160px; } .slider-area .col-xl-7, .slider-area .col-lg-8 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
+
+
+/* === VDS home hero shapes: declutter to match Solutions === */
+.slider-area .sshape-1, .slider-area .sshape-2, .slider-area .sshape-3, .slider-area .sshape-4, .slider-area .sshape-6, .slider-area .sshape-9 { display: none !important; }
+@media (min-width: 992px) {
+  .slider-area .sshape-5 { left: 90px !important; right: auto !important; top: 380px !important; }
+  .slider-area .transport.img-one { left: auto !important; right: 70px !important; top: 360px !important; }
+}
+@media (max-width: 991px) {
+  .slider-area .sshape-5, .slider-area .transport.img-one { display: none !important; }
+}
+
+
+/* === VDS home hero button: remove Discover More to match Solutions === */
+.slider-area .slider-wrapper .theme_btn { display: none !important; }
+
+
+/* === VDS new copy sections: center text, match body size === */
+.vds-intro-area p, .vds-why-area p { font-size: 20px; line-height: 32px; text-align: center; }
+.vds-why-area p { margin-bottom: 18px; }
+
+
+/* === VDS center dynamic hub intro + hide broken shape === */
+.manage-area .manage-title { text-align: center; max-width: 900px; margin-left: auto; margin-right: auto; }
+img[src*="round-line-b"] { display: none !important; }
+
+
+/* Hero: factory production background */
+.slider-area{
+  background-image: linear-gradient(rgba(10,14,28,0.60), rgba(10,14,28,0.66)), url('https://vietnam-directsourcing.com/wp-content/uploads/2024/11/2.Asian-worker-scaled.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+.slider-area .slider-shape{ display:none !important; }
+.slider-area h1{ color:#ffffff !important; }
+.slider-area h4.styled-text{ color:#ffb347 !important; }
+
+
+/* Hero nav contrast: white menu over photo hero (home) */
+.home header .navbar-nav > .nav-item > a,
+.home header .navbar-nav > .nav-item > .nav-link{ color:#ffffff !important; }
+.home header .navbar-nav > .nav-item > a:hover{ color:#ffb347 !important; }
+.home header .dropdown-menu a{ color:#1a1a2e !important; }
+
+
+/* Inner-page photo hero + nav contrast */
+.page-title-area{
+  background-image: linear-gradient(rgba(10,14,28,0.60), rgba(10,14,28,0.66)), url('https://vietnam-directsourcing.com/wp-content/uploads/2024/11/2.Asian-worker-scaled.jpg') !important;
+  background-size: cover !important;
+  background-position: center 30% !important;
+  background-repeat: no-repeat !important;
+}
+.page-title-area .page-shape{ display:none !important; }
+.page-title-area h1{ color:#ffffff !important; }
+.page-title-area .styled-text{ color:#ffb347 !important; }
+body:has(.page-title-area) header .navbar-nav > .nav-item > a{ color:#ffffff !important; }
+body:has(.page-title-area) header .navbar-nav > .nav-item > a:hover{ color:#ffb347 !important; }
+body:has(.page-title-area) header .dropdown-menu a{ color:#1a1a2e !important; }
+
+
+/* Software ecosystem logo slider: keep logos in one row, no wrap below */
+.copic-team .owl-carousel-technology{ overflow:hidden !important; }
+.copic-team .owl-carousel-technology .owl-stage-outer{ overflow:hidden !important; }
+.copic-team .owl-carousel-technology:not(.owl-loaded){ display:flex !important; flex-wrap:nowrap !important; justify-content:center; align-items:center; overflow:hidden !important; max-height:220px; }
+.copic-team .owl-carousel-technology:not(.owl-loaded) > .item{ flex:0 0 auto; }
+
+
+/* Per-page hero images (diversify) */
+.page-id-13 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.58), rgba(10,14,28,0.64)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/louis-reed-wSTCaQpiLtc-unsplash-scaled.jpg') !important; background-position:center center !important; }
+.page-id-16 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.55), rgba(10,14,28,0.62)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/foreman-or-worker-work-at-factory-site-check-up-scaled.jpg') !important; background-position:center center !important; }
+
+
+/* Per-page hero images (set 2) */
+.page-id-2160 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.62), rgba(10,14,28,0.68)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/daniel-lee-ozQi6EanRsA-unsplash-scaled.jpg') !important; background-position:center center !important; }
+.page-id-1948 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.55), rgba(10,14,28,0.62)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/homa-appliances-pWUyHVJgLhg-unsplash-scaled.jpg') !important; background-position:center center !important; }
+.page-id-1296 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.62), rgba(10,14,28,0.68)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/Kitchen-Bowls-scaled.jpg') !important; background-position:center center !important; }
+.page-id-18 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.55), rgba(10,14,28,0.62)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/Bamboo-Cloth-scaled.jpg') !important; background-position:center center !important; }
+
+
+/* Per-page hero images (set 3) */
+.page-id-21 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.52), rgba(10,14,28,0.60)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/business-warehouse-2023-11-27-04-57-47-utc-scaled.jpg') !important; background-position:center center !important; }
+.page-id-2431 .page-title-area{ background-image: linear-gradient(rgba(10,14,28,0.55), rgba(10,14,28,0.62)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/warehouse-with-pipes-and-tube-on-yard-2023-11-2-scaled.jpg') !important; background-position:center center !important; }
+
+
+/* Hero overlay adjustments (stronger contrast on bright images) */
+.page-id-2160 .page-title-area{ background-image: linear-gradient(rgba(8,11,22,0.72), rgba(8,11,22,0.78)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/daniel-lee-ozQi6EanRsA-unsplash-scaled.jpg') !important; }
+.page-id-1296 .page-title-area{ background-image: linear-gradient(rgba(8,11,22,0.72), rgba(8,11,22,0.78)), url('https://vietnam-directsourcing.com/wp-content/uploads/2026/06/Kitchen-Bowls-scaled.jpg') !important; }
+
+
+/* New brand logo in header */
+.logo-img a img{ display:none !important; }
+.logo-img a{ display:inline-flex !important; align-items:center; gap:13px; text-decoration:none; }
+.logo-img a::before{ content:""; width:48px; height:48px; flex:0 0 auto; background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2056%22%3E%3Cline%20x1%3D%2222%22%20y1%3D%2228%22%20x2%3D%2238%22%20y2%3D%2228%22%20stroke%3D%22%23F4F6FA%22%20stroke-width%3D%223.8%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2228%22%20r%3D%226.5%22%20fill%3D%22%23F4F6FA%22%2F%3E%3Cpath%20d%3D%22M38%2019%20L47%2028%20L38%2037%22%20fill%3D%22none%22%20stroke%3D%22%23E3A23A%22%20stroke-width%3D%223.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat; }
+.logo-img a::after{ content:"Vietnam Direct Sourcing"; font-family:'Montserrat','Helvetica Neue',Arial,sans-serif; font-weight:600; font-size:23px; line-height:1.05; color:#ffffff; white-space:nowrap; letter-spacing:-0.3px; }
+
+
+/* Hide broken decorative shape */
+img[src*="round-line-b"]{ display:none !important; }
+
+/* Site-wide RFI CTA banner. It was hidden in July 2026 because the theme
+   prints <img src=""> in the right-hand column - get_field('image_section_action')
+   has no matching ACF field, so half the banner was an empty broken image.
+   The empty column is removed here and the heading gets a real button instead.
+   Fixed 13 Sep 2026. */
+section.call-to-action .chat-manager{display:none!important;}
+section.call-to-action .row>[class*="col-"]:first-child{flex:0 0 100%!important;max-width:100%!important;}
+section.call-to-action .cta-border{background:#16243D;border:0!important;border-radius:14px;padding:56px 40px;}
+section.call-to-action .cta-title{text-align:center!important;}
+section.call-to-action .cta-title *{color:#fff!important;}
+section.call-to-action .cta-border>a{display:block;text-align:center;text-decoration:none;}
+section.call-to-action .cta-border>a::after{content:"Start the RFI form";display:inline-block;margin-top:28px;background:#E3A23A;color:#16243D;padding:15px 36px;border-radius:6px;font-weight:600;font-size:16px;letter-spacing:.3px;}
+@media(max-width:767px){section.call-to-action .cta-border{padding:40px 22px;}}
+
+/* VDS Font Size & Style Guide v1.2 — standardize heading/body sizes & colors across pages (Saira Extra Condensed + Poppins kept, per Brand Kit) */
+main h2 {
+  font-size: 40px !important;
+  color: #16243D !important;
+  font-weight: 700 !important;
+}
+main h3 {
+  font-size: 24px !important;
+  color: #16243D !important;
+  font-weight: 700 !important;
+}
+main p {
+  font-size: 16px !important;
+  color: rgba(24, 21, 44, 0.9) !important;
+  line-height: 1.6 !important;
+}
+
+
+/* Fix: sections with a dark navy (#1A2A4A) background (e.g. Solutions "Additional Execution Services" cards, Vietnam page category strip) need light text — the standardized navy heading/body color above would otherwise render navy-on-navy */
+section[style*="1a2a4a" i] h2,
+section[style*="1a2a4a" i] h3,
+section[style*="1a2a4a" i] p {
+  color: #FFFFFF !important;
+}
+
+
+.page-id-3807 .page-title-area{
+	background-image: linear-gradient(rgba(10,14,28,0.58), rgba(10,14,28,0.64)), url(https://vietnam-directsourcing.com/wp-content/uploads/2026/07/anti-bribery-scaled.jpg) !important;
+	background-position:center center !important;
+	background-size:cover !important;
+}
+
+
+.page-id-3 .page-title-area{
+	background-image: linear-gradient(rgba(10,14,28,0.58), rgba(10,14,28,0.64)), url(https://vietnam-directsourcing.com/wp-content/uploads/2026/07/privacy-policy-scaled.jpg) !important;
+	background-position:center center !important;
+	background-size:cover !important;
+}
+
+
+/* Privacy Policy (Termly) typography - match site type system (Saira Extra Condensed + Poppins) */
+.page-id-3 .comic-blog [data-custom-class="body"],
+.page-id-3 .comic-blog [data-custom-class="body"] p,
+.page-id-3 .comic-blog [data-custom-class="body"] li,
+.page-id-3 .comic-blog [data-custom-class="body"] span,
+.page-id-3 .comic-blog [data-custom-class="body"] div,
+.page-id-3 .comic-blog [data-custom-class="body_text"],
+.page-id-3 .comic-blog [data-custom-class="body_text"] * {
+	font-family: "Poppins", sans-serif !important;
+	font-size: 16px !important;
+	color: rgba(24,21,44,0.9) !important;
+	line-height: 1.6 !important;
+}
+.page-id-3 .comic-blog [data-custom-class="subtitle"],
+.page-id-3 .comic-blog [data-custom-class="subtitle"] * {
+	font-family: "Poppins", sans-serif !important;
+	font-size: 16px !important;
+	color: #5B6675 !important;
+}
+.page-id-3 .comic-blog [data-custom-class="title"],
+.page-id-3 .comic-blog [data-custom-class="title"] *,
+.page-id-3 .comic-blog [data-custom-class="heading_1"],
+.page-id-3 .comic-blog [data-custom-class="heading_1"] * {
+	font-family: "Saira Extra Condensed", sans-serif !important;
+	font-size: 40px !important;
+	font-weight: 700 !important;
+	color: #16243D !important;
+	line-height: 1.1 !important;
+}
+.page-id-3 .comic-blog [data-custom-class="heading_2"],
+.page-id-3 .comic-blog [data-custom-class="heading_2"] * {
+	font-family: "Saira Extra Condensed", sans-serif !important;
+	font-size: 28px !important;
+	font-weight: 700 !important;
+	color: #16243D !important;
+	line-height: 1.15 !important;
+}
+.page-id-3 .comic-blog a,
+.page-id-3 .comic-blog a *,
+.page-id-3 .comic-blog a:visited,
+.page-id-3 .comic-blog a:visited * {
+	font-family: "Poppins", sans-serif !important;
+	font-size: 16px !important;
+	color: #C7872A !important;
+	text-decoration: underline;
+}
+.page-id-3 .comic-blog a:hover,
+.page-id-3 .comic-blog a:hover * { color: #16243D !important; }
+.page-id-3 .comic-blog ul { padding-left: 20px; }
+
+
+/* link color fix - higher specificity */
+.page-id-3 .comic-blog [data-custom-class="body"] a,
+.page-id-3 .comic-blog [data-custom-class="body"] a span,
+.page-id-3 .comic-blog [data-custom-class="body"] a * {
+	color: #C7872A !important;
+	text-decoration: underline;
+}
+.page-id-3 .comic-blog [data-custom-class="body"] a:hover,
+.page-id-3 .comic-blog [data-custom-class="body"] a:hover span,
+.page-id-3 .comic-blog [data-custom-class="body"] a:hover * { color: #16243D !important; }
+
+
+/* Hide legacy testimonials & shipping sections on Team page (VDS cleanup) */
+body.page-id-30 .testimonial-area,
+body.page-id-30 .shipping-discount{display:none !important;}
+
+
+/* Vietnam page — Next Steps CTA readable + centered text (vietnam page cta) */
+body.page-id-2160 .vds-cta-wrap h1,
+body.page-id-2160 .vds-cta-wrap h2,
+body.page-id-2160 .vds-cta-wrap h3,
+body.page-id-2160 .vds-cta-wrap h4,
+body.page-id-2160 .vds-cta-wrap p,
+body.page-id-2160 .vds-cta-wrap li{color:#ffffff !important;}
+body.page-id-2160 .vds-content{text-align:center;}
+
+/* Vietnam page — centre the max-width paragraph blocks on the true page centre (vietnam page para-centre) */
+body.page-id-2160 .vds-content p{margin-left:auto !important;margin-right:auto !important;}
+
+
+/* Mobile header: hide search icon, put menu toggle top-right */
+@media (max-width: 991.98px){
+  #theme-menu-one .search-btn{ display:none !important; }
+  #theme-menu-one .hamburger-menu{ display:inline-block !important; }
+}
+
+/* Home: page copy above the closing CTA banner - 14 Sep 2026 */
+body.home main{display:flex;flex-direction:column;}
+body.home main section.vds-page-copy{order:1;}
+body.home main section.call-to-action{order:2;}
+
+/* Home: closing copy section - centre it and title it like the intro section (14 Sep 2026) */
+body.home section.vds-page-copy .vds-copy-body{text-align:center;}
+body.home section.vds-page-copy .vds-copy-body h2{font-size:40px;line-height:1.2;color:#16243D;margin:0 0 28px;}
+body.home section.vds-page-copy .vds-copy-body p{margin-bottom:20px;}
+body.home section.vds-page-copy .vds-copy-body p:last-child{margin-bottom:0;}
+@media(max-width:767px){body.home section.vds-page-copy .vds-copy-body h2{font-size:28px;margin-bottom:20px;}}
+
+/* Contact page (21): booking first, addresses / social / map below - 14 Sep 2026 */
+body.page-id-21 main{display:flex;flex-direction:column;}
+body.page-id-21 main section.page-title-area{order:1;}
+body.page-id-21 main section.vds-page-copy{order:2;}
+body.page-id-21 main section.copic-contact{order:3;}
+body.page-id-21 section.vds-page-copy{background:transparent !important;padding:60px 0 10px !important;}
+body.page-id-21 section.vds-page-copy .vds-copy-body{text-align:center;}
+body.page-id-21 section.vds-page-copy .vds-copy-body p{margin-bottom:18px;}
+body.page-id-21 section.vds-page-copy .vds-copy-body p:last-child{margin-bottom:0;}
+body.page-id-21 section.copic-contact .row.reverse-mb>div:nth-child(1){order:2;}
+body.page-id-21 section.copic-contact .row.reverse-mb>div:nth-child(2){order:1;margin-bottom:60px;}
+body.page-id-21 .calendly-inline-widget{height:700px !important;margin-left:auto;margin-right:auto;}
+body.page-id-21 section.copic-contact .row.reverse-mb>div:nth-child(2){text-align:center;}
+@media(max-width:767px){
+  body.page-id-21 section.vds-page-copy{padding:40px 0 6px !important;}
+  body.page-id-21 section.copic-contact .row.reverse-mb>div:nth-child(2){margin-bottom:40px;}
+  body.page-id-21 .calendly-inline-widget{height:1000px !important;}
+}
+/* CTA banner button label - now points at the booking page */
+section.call-to-action .cta-border>a::after{content:"Book a 30-minute call" !important;}
+
+/* Search removed from the header - it lives on the Articles page now (14 Sep 2026) */
+.list-style-none.right-btn .search-area{display:none !important;}
+
+/* Articles page search box - brand palette */
+.vds-article-search{display:flex;gap:10px;max-width:520px;margin:0 auto 50px;}
+.vds-article-search input[type="search"]{flex:1 1 auto;min-width:0;padding:14px 18px;border:1px solid #D7DCE5;border-radius:6px;font-size:15px;color:#16243D;background:#fff;}
+.vds-article-search input[type="search"]:focus{outline:none;border-color:#16243D;}
+.vds-article-search button{flex:0 0 auto;background:#E3A23A;color:#16243D;border:0;border-radius:6px;padding:14px 26px;font-weight:600;font-size:15px;cursor:pointer;}
+.vds-article-search button:hover{background:#C7872A;}
+@media(max-width:575px){.vds-article-search{flex-direction:column;margin-bottom:34px;}.vds-article-search button{width:100%;}}
+
+
+.blog_lists > .chose-wrapper {
+	scroll-margin-top: 110px;
+}
+
+/* Back-to-top button: brand gold instead of theme red */
+.scrollUp {
+	background-color: #E3A23A;
+}
+
+/* Mobile/tablet menu toggle: brand gold instead of theme red */
+.hamburger-menu > a { color: #E3A23A; }
+/* Odoo booking replaces Calendly on the Contact page (22 Sep 2026) - Calendly column hidden, not deleted */
+body.page-id-21 section.copic-contact .row.reverse-mb>div:nth-child(2){display:none !important;}
+@media(max-width:767px){body.page-id-21 .vds-odoo-booking iframe{height:1000px !important;}}
+/* vds-faq-links: make in-answer links recognisable on the FAQ accordion (9 Oct 2026) */
+body.page-id-1296 .accordion-body a{color:#9A6412;text-decoration:underline;text-underline-offset:2px;}
+body.page-id-1296 .accordion-body a:hover,body.page-id-1296 .accordion-body a:focus{color:#13123A;}
+
+/* VDS homepage intro: short lead + 9 industry tiles (no links) */
+.vds-intro-grid .vds-intro-lead{max-width:840px;margin:0 auto 38px;text-align:center;font-size:18px;line-height:30px}
+.vds-intro-grid .vds-cat-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.vds-intro-grid .vds-cat-grid li{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:24px 14px 22px;box-shadow:0 2px 12px rgba(22,36,61,.05);margin:0}
+.vds-intro-grid .vds-cat-grid svg{width:72px;height:72px;margin-bottom:12px;flex:none}
+.vds-intro-grid .vds-cat-grid strong{display:block;font-size:17px;line-height:22px;font-weight:600;color:#16243D}
+.vds-intro-grid .vds-cat-grid span{display:block;margin-top:5px;font-size:14px;line-height:20px;color:#5B6675}
+.vds-intro-grid .vds-intro-caption{margin:30px 0 0;text-align:center;font-size:15px;line-height:24px;color:#5B6675}
+@media(max-width:767px){.vds-intro-grid .vds-intro-lead{font-size:16px;line-height:26px;margin-bottom:26px}
+.vds-intro-grid .vds-cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.vds-intro-grid .vds-cat-grid li{padding:20px 10px 16px}
+.vds-intro-grid .vds-cat-grid svg{width:58px;height:58px;margin-bottom:8px}
+.vds-intro-grid .vds-cat-grid strong{font-size:15px;line-height:20px}
+.vds-intro-grid .vds-cat-grid span{font-size:13px;line-height:18px}
+.vds-intro-grid .vds-cat-grid li:last-child{grid-column:1/-1}}
+
+/* VDS article callouts + comparison tables (moved out of pasted per-article <style> blocks, 26 Oct 2026; scoped to the article body) */
+.comic-blog .highlight{background-color:#fffacd;padding:15px;border-left:4px solid #ffd700;margin:20px 0}
+.comic-blog .warning{background-color:#ffe6e6;padding:15px;border-left:4px solid #ff6666;margin:20px 0}
+.comic-blog table.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.comic-blog table.comparison-table th,.comic-blog table.comparison-table td{border:1px solid #ddd;padding:12px;text-align:left}
+.comic-blog table.comparison-table th{background-color:#f5f5f5;font-weight:bold}
+@media(max-width:767px){.comic-blog table.comparison-table{display:block;overflow-x:auto}}
+
+/* VDS homepage stats section (26 Oct 2026, Rod): remove ALL outdated decorative shapes (wave, curl, red diamond, cyan leaf, dots) so the section is clean white, centre the text of the three stat boxes, and balance the spacing above and below the section (equal gaps) */
+.manage-area .mshape-1,.manage-area .mshape-2,.manage-area .mshape-3,.manage-area .mshape-4,.manage-area .mshape-5{display:none !important}
+.manage-area .vds-stats-row .counter-box{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+@media(min-width:992px){.manage-area.shape-style{padding-top:60px}}
+@media(max-width:991px){.manage-area.shape-style{padding-top:20px}}

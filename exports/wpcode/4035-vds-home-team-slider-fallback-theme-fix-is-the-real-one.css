@@ -1,0 +1,6 @@
+/* Fallback only. The real fix is in home-tpl.php line 250:
+   get_field('hide_team') was corrected to get_field('hide_team_section'),
+   so the section is no longer printed. This rule only matters if a theme
+   update overwrites that file. */
+body.home section.copic-team,
+body.page-id-11 section.copic-team { display: none !important; }

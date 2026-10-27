@@ -1,0 +1,17 @@
+# never commit these
+*.zip
+*.bak*
+*.sql
+*.log
+*.orig
+.env
+wp-config.php
+.htaccess
+uploads/
+**/plugin/*.zip
+
+# stray one-off scripts found on the live server (delete on the server, never keep)
+themes/knowledge/el_apply_v2.php
+themes/knowledge/el_v3.php
+themes/knowledge/upload_test.php
+themes/knowledge/find_video.php
