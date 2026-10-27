@@ -3,22 +3,31 @@
 // Template Name: Services Template
 */
 
-// VDS Solutions inquiry form handler
-if ( isset($_POST['vds_inquiry_submit']) && isset($_POST['vds_nonce']) ) {
-    if ( wp_verify_nonce($_POST['vds_nonce'], 'vds_inquiry') ) {
-        $vds_to      = 'contactus@vietnam-directsourcing.com';
-        $vds_service = sanitize_text_field(isset($_POST['service_name']) ? $_POST['service_name'] : 'General Inquiry');
-        $vds_name    = sanitize_text_field(isset($_POST['inquiry_name']) ? $_POST['inquiry_name'] : '');
-        $vds_email   = sanitize_email(isset($_POST['inquiry_email']) ? $_POST['inquiry_email'] : '');
-        $vds_company = sanitize_text_field(isset($_POST['inquiry_company']) ? $_POST['inquiry_company'] : '');
-        $vds_message = sanitize_textarea_field(isset($_POST['inquiry_message']) ? $_POST['inquiry_message'] : '');
-        $vds_subject = 'VDS Inquiry: ' . $vds_service;
-        $vds_body    = "Service: " . $vds_service . "\nName: " . $vds_name . "\nEmail: " . $vds_email . "\nCompany: " . $vds_company . "\n\nMessage:\n" . $vds_message;
-        $vds_headers = array('Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $vds_name . ' <' . $vds_email . '>');
-        wp_mail( $vds_to, $vds_subject, $vds_body, $vds_headers );
-        wp_redirect( esc_url( add_query_arg('inquiry', 'sent', get_permalink(13)) ) );
-        exit;
-    }
+// VDS Solutions inquiry form handler (the modal form below).
+// The page is served from the LiteSpeed cache for longer than a nonce lives, so an expired
+// nonce must not drop an inquiry: it only tags the subject. Bots are stopped by vds_hp,
+// a field that must be present and left empty.
+if ( isset( $_POST['vds_inquiry_submit'] ) && isset( $_POST['vds_hp'] ) && '' === $_POST['vds_hp'] ) {
+	$vds_field   = function ( $key ) {
+		return isset( $_POST[ $key ] ) ? wp_unslash( $_POST[ $key ] ) : '';
+	};
+	$vds_service = sanitize_text_field( $vds_field( 'service_name' ) );
+	$vds_service = '' === $vds_service ? 'General Inquiry' : $vds_service;
+	$vds_name    = sanitize_text_field( $vds_field( 'inquiry_name' ) );
+	$vds_email   = sanitize_email( $vds_field( 'inquiry_email' ) );
+	$vds_company = sanitize_text_field( $vds_field( 'inquiry_company' ) );
+	$vds_message = sanitize_textarea_field( $vds_field( 'inquiry_message' ) );
+	$vds_fresh   = wp_verify_nonce( $vds_field( 'vds_nonce' ), 'vds_inquiry' );
+
+	$vds_subject = 'VDS Inquiry: ' . $vds_service . ( $vds_fresh ? '' : ' (sent from an older cached page)' );
+	$vds_body    = "Service: " . $vds_service . "\nName: " . $vds_name . "\nEmail: " . $vds_email . "\nCompany: " . $vds_company . "\n\nMessage:\n" . $vds_message;
+	$vds_headers = array( 'Content-Type: text/plain; charset=UTF-8' );
+	if ( is_email( $vds_email ) ) {
+		$vds_headers[] = 'Reply-To: ' . $vds_name . ' <' . $vds_email . '>';
+	}
+	wp_mail( 'enquiries@vietnam-directsourcing.com', $vds_subject, $vds_body, $vds_headers );
+	wp_safe_redirect( add_query_arg( 'inquiry', 'sent', get_permalink( 13 ) ) );
+	exit;
 }
 get_header();
 $heading_small_banner_services = get_field('heading_small_banner_services');
@@ -59,6 +68,7 @@ $heading_big_banner_services = get_field('heading_big_banner_services');
     <form method="POST">
       <?php echo wp_nonce_field('vds_inquiry', 'vds_nonce', true, false); ?>
       <input type="hidden" name="vds_inquiry_submit" value="1">
+      <div class="vds-hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="vds_hp" value="" tabindex="-1" autocomplete="off"></label></div>
       <input type="hidden" name="service_name" id="vds-service-name" value="">
       <div style="margin-bottom:15px;">
         <label style="display:block;font-size:13px;font-weight:600;color:#333;margin-bottom:5px;">Full Name *</label>
