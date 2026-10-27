@@ -43,9 +43,9 @@ $avatar_url = get_avatar_url( $author_id );
                         <?php the_content(); ?>
 						
 						<div class="podcast-container">
-							<h3>Learn more about this topic on our podcast!</h3>
+							<h3>Listen to the episode</h3>
 							<p>
-								Want to dive deeper into this subject? Check out our latest podcast on this subject on <a href="https://creators.spotify.com/pod/show/vietnam-direct-sourcing">Spotify</a>, where we explore this topic and so much more! Whether you're on the go or relaxing at home, tune in for insights, tips, and discussions that bring our blog topics to life.
+								This topic is also a short episode of the VDS podcast, on YouTube and <a href="https://creators.spotify.com/pod/show/vietnam-direct-sourcing">Spotify</a>.
 							</p>
 							
 							<?php

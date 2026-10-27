@@ -8,6 +8,9 @@
 
 const VDS_ARTICLES_PER_PAGE = 9;
 
+/** Byline printed at the end of every article (one place to change the wording). */
+const VDS_ARTICLE_BYLINE = 'Researched and edited by Rod Smith, Sourcing Manager, Vietnam Direct Sourcing';
+
 /** Load More script for the Articles page grid (blog-tpl.php). */
 function enqueue_load_more_scripts() {
 	wp_enqueue_script( 'load-more-posts', get_template_directory_uri() . '/js/load-more-posts.js', array( 'jquery' ), null, true );
@@ -134,7 +137,7 @@ function vds_pager( $max, $label ) {
 	echo '</nav>';
 }
 
-/** Single articles end with a link to the Solutions page, then the contact CTA. */
+/** Single articles end with the byline, a link to the Solutions page, then the contact CTA. */
 function vds_article_closing( $content ) {
 	static $done = false;
 	if ( is_admin() || $done || ! is_singular( 'post' ) || ! is_main_query() ) {
@@ -142,7 +145,8 @@ function vds_article_closing( $content ) {
 	}
 	$done = true;
 
-	$link = '<p class="vds-solutions-link"><strong>Not sure where to start?</strong> See how our <a href="'
+	$byline = '<p class="vds-byline">' . esc_html( VDS_ARTICLE_BYLINE ) . '</p>';
+	$link   = '<p class="vds-solutions-link"><strong>Not sure where to start?</strong> See how our <a href="'
 		. esc_url( home_url( '/global-sourcing-solutions/' ) )
 		. '">Vietnam sourcing solutions</a> work, from supplier identification to quality assurance.</p>';
 
@@ -152,7 +156,7 @@ function vds_article_closing( $content ) {
 		'section_class' => 'pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30',
 	) );
 
-	return $content . $link . ob_get_clean();
+	return $content . $byline . $link . ob_get_clean();
 }
 add_filter( 'the_content', 'vds_article_closing', 20 );
 

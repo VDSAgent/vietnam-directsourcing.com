@@ -103,9 +103,10 @@ body:has(.page-title-area) header .dropdown-menu a { color: #16243D !important; 
 .manage-area .vds-stats-row { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 .manage-area .vds-stats-row > [class*="col-"] { display: -ms-flexbox; display: flex; margin-bottom: 24px; }
 .manage-area .vds-stats-row .counter-box { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.counter-box.cb-2 { background-color: #F5A623; }
-.manage-area .vds-stats-row .counter-box.sky-blue-bg { background-color: #51CEED; }
-.manage-area .vds-stats-row .counter-box.cb-1 { background-color: #E45050; }
+/* Brand: Mist boxes with a Signal Gold rule (were theme red, orange and cyan) */
+.manage-area .vds-stats-row .counter-box.cb-1,
+.manage-area .vds-stats-row .counter-box.cb-2,
+.manage-area .vds-stats-row .counter-box.sky-blue-bg { background-color: #F4F6FA; border-top: 4px solid #E3A23A; border-radius: 8px; }
 @media (min-width: 992px) { .manage-area.shape-style { padding-top: 60px; } }
 @media (max-width: 991px) { .manage-area.shape-style { padding-top: 20px; } }
 
@@ -214,7 +215,8 @@ section.call-to-action .cta-button { display: inline-block; margin-top: 28px; ba
 /* ---------- Articles ---------- */
 .comic-blog p { margin-bottom: 20px; }
 .single-post a { color: #9A6412; }
-.vds-solutions-link { margin: 2.5rem 0 0; }
+.vds-byline { margin: 2.5rem 0 0; font-style: italic; color: #5B6675; }
+.vds-solutions-link { margin: 1rem 0 0; }
 /* Search box on the Articles page and search results */
 .vds-article-search{display:flex;gap:10px;max-width:520px;margin:0 auto 50px;}
 .vds-article-search input[type="search"]{flex:1 1 auto;min-width:0;padding:14px 18px;border:1px solid #D7DCE5;border-radius:6px;font-size:15px;color:#16243D;background:#fff;}
@@ -247,6 +249,7 @@ section.call-to-action .cta-button { display: inline-block; margin-top: 28px; ba
 .vds-pills a.is-active { background: #E3A23A; color: #fff; }
 .vds-podcast-filter__status { margin-top: 16px; }
 .vds-podcast-empty { padding: 40px 0; text-align: center; }
+.vds-ep-disclosure { font-size: 14px; color: #5B6675; font-style: italic; }
 .vds-ep-player { margin: 24px 0; }
 .vds-transcript { margin: 24px 0; }
 .vds-transcript summary { cursor: pointer; font-weight: 700; }

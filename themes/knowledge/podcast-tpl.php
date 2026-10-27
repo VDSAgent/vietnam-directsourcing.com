@@ -12,8 +12,8 @@ get_header();
                 <div class="row justify-content-center">
                     <div class="col-xl-8">
                         <div class="page-title-wrapper text-center">
-                            <h1 class="h1 page-title">Conversations About Sourcing From Vietnam</h1>
-                            <h4 class="styled-text theme-color mb-30">Conversations that Drive Sourcing Success</h4>
+                            <h1 class="h1 page-title">Sourcing From Vietnam: The VDS Podcast</h1>
+                            <h4 class="styled-text theme-color mb-30">Short episodes on real sourcing questions, every Tuesday</h4>
                         </div>
                     </div>
                 </div>

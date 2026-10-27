@@ -145,7 +145,7 @@ function vds_podcast_episode_players( $content ) {
 		return $content;
 	}
 	$id  = get_the_ID();
-	$out = '';
+	$out = '<p class="vds-ep-disclosure">AI-generated audio, produced by Vietnam Direct Sourcing from our article on this topic.</p>';
 	foreach ( (array) get_field( 'youtube_links', $id ) as $row ) {
 		if ( ! empty( $row['yt_iframe'] ) ) {
 			$out .= '<div class="vds-ep-player vds-ep-youtube">' . $row['yt_iframe'] . '</div>';
