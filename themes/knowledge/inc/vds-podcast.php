@@ -9,7 +9,7 @@
 const VDS_PODCAST_PER_PAGE = 10;
 
 /** The ?ps= search term on /podcast/, or ''. */
-function vds_podcast_term() {
+function vds_podcast_search_term() {
 	return isset( $_GET['ps'] ) ? trim( sanitize_text_field( wp_unslash( $_GET['ps'] ) ) ) : '';
 }
 
@@ -20,7 +20,7 @@ function vds_podcast_max_page() {
 
 /** True on the /podcast/ list when it should show the pager and Load More (not on search views). */
 function vds_podcast_is_paged_list() {
-	return is_page_template( 'podcast-tpl.php' ) && vds_podcast_term() === '';
+	return is_page_template( 'podcast-tpl.php' ) && vds_podcast_search_term() === '';
 }
 
 /**
@@ -31,7 +31,7 @@ function vds_podcast_list_query( $q ) {
 	if ( is_admin() || $q->is_main_query() || ! is_page_template( 'podcast-tpl.php' ) || $q->get( 'post_type' ) !== 'podcast' ) {
 		return;
 	}
-	$term = vds_podcast_term();
+	$term = vds_podcast_search_term();
 	if ( $term !== '' ) {
 		$q->set( 's', $term );
 		$q->set( 'posts_per_page', 100 );
@@ -50,7 +50,7 @@ add_action( 'pre_get_posts', 'vds_podcast_list_query', 5 );
 
 /** Search views are noindex; /page/N/ is self-canonical; search views canonical to /podcast/. */
 function vds_podcast_robots( $robots ) {
-	return ( is_page_template( 'podcast-tpl.php' ) && vds_podcast_term() !== '' ) ? 'noindex, follow' : $robots;
+	return ( is_page_template( 'podcast-tpl.php' ) && vds_podcast_search_term() !== '' ) ? 'noindex, follow' : $robots;
 }
 add_filter( 'wpseo_robots', 'vds_podcast_robots' );
 
@@ -58,7 +58,7 @@ function vds_podcast_canonical( $canonical ) {
 	if ( ! is_page_template( 'podcast-tpl.php' ) ) {
 		return $canonical;
 	}
-	if ( vds_podcast_term() !== '' ) {
+	if ( vds_podcast_search_term() !== '' ) {
 		return get_permalink();
 	}
 	$p = (int) get_query_var( 'paged' );
@@ -88,13 +88,13 @@ function vds_podcast_pager() {
 add_action( 'get_footer', 'vds_podcast_pager' );
 
 /** Search box and topic pills, printed once before the first episode. */
-function vds_podcast_filter_ui() {
+function vds_podcast_search_ui() {
 	static $done = false;
 	if ( $done || ! is_page_template( 'podcast-tpl.php' ) ) {
 		return;
 	}
 	$done  = true;
-	$term  = vds_podcast_term();
+	$term  = vds_podcast_search_term();
 	$base  = trailingslashit( get_permalink() );
 	$pills = array(
 		'Quality'          => 'quality',
@@ -123,15 +123,15 @@ function vds_podcast_filter_ui() {
 	}
 	echo '</div>';
 }
-add_action( 'get_template_part_loop/podcast', 'vds_podcast_filter_ui' );
+add_action( 'get_template_part_loop/podcast', 'vds_podcast_search_ui' );
 
 /** Zero search results: the loop never runs, so show the box with a message before the footer. */
 function vds_podcast_no_results() {
-	if ( ! is_page_template( 'podcast-tpl.php' ) || vds_podcast_term() === '' || did_action( 'get_template_part_loop/podcast' ) ) {
+	if ( ! is_page_template( 'podcast-tpl.php' ) || vds_podcast_search_term() === '' || did_action( 'get_template_part_loop/podcast' ) ) {
 		return;
 	}
-	echo '<div class="container vds-podcast-empty"><p>No episodes found for <strong>' . esc_html( vds_podcast_term() ) . '</strong>.</p>';
-	vds_podcast_filter_ui();
+	echo '<div class="container vds-podcast-empty"><p>No episodes found for <strong>' . esc_html( vds_podcast_search_term() ) . '</strong>.</p>';
+	vds_podcast_search_ui();
 	echo '</div>';
 }
 add_action( 'get_footer', 'vds_podcast_no_results', 5 );

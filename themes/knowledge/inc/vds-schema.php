@@ -37,12 +37,12 @@ function vds_schema_organization( $data ) {
 add_filter( 'wpseo_schema_organization', 'vds_schema_organization' );
 
 /** The contact page is a ContactPage (keeps WebPage) and an og:type website. */
-function vds_is_contact_page() {
+function vds_schema_is_contact_page() {
 	return is_page( 'contact-for-sourcing' );
 }
 
 function vds_schema_contact_webpage( $data ) {
-	if ( vds_is_contact_page() ) {
+	if ( vds_schema_is_contact_page() ) {
 		$data['@type'] = array( 'WebPage', 'ContactPage' );
 	}
 	return $data;
@@ -50,7 +50,7 @@ function vds_schema_contact_webpage( $data ) {
 add_filter( 'wpseo_schema_webpage', 'vds_schema_contact_webpage' );
 
 function vds_contact_og_type( $type ) {
-	return vds_is_contact_page() ? 'website' : $type;
+	return vds_schema_is_contact_page() ? 'website' : $type;
 }
 add_filter( 'wpseo_opengraph_type', 'vds_contact_og_type' );
 
