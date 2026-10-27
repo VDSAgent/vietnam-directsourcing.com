@@ -37,7 +37,7 @@ Rod's decisions of 27 Oct replace these rules in your notes:
 git clone -b cleanup/themes-2026-10 https://github.com/VDSAgent/vietnam-directsourcing.com.git vds-cleanup
 ```
 
-The repo is a code-only subset: no fonts, images or plugin zips. Deploying means copying the files listed in `deploy/changed-files.txt` (45 paths, relative to the theme folder). **Never mirror the folder** (`rsync --delete` or similar): that would delete fonts and images on the server.
+The repo is a code-only subset: no fonts, images or plugin zips. Deploying means copying the files listed in `deploy/changed-files.txt` (46 paths, relative to the theme folder). **Never mirror the folder** (`rsync --delete` or similar): that would delete fonts and images on the server.
 
 ## 3. Backups (staging and live, before anything else)
 
