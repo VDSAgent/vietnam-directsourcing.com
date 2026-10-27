@@ -81,7 +81,6 @@ function showservices_shortcode_home() {
 						</div>
 						<h3 class="service-title mb-25"><?php echo get_the_title();?></h3>
 						<p class="mb-35"><?php echo $exceprt;?></p>
-<!-- 						<a class="arrow-icon" href="<?php echo esc_url( get_site_url(null,'services') );?>/#<?php echo $post_id; ?>">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a> -->
 						<a class="arrow-icon" href="https://vietnam-directsourcing.com/solutions/#<?php echo $post_id; ?>">Discover More <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/icon/right-arrow.svg" alt=""></a>
 						
 					</div>

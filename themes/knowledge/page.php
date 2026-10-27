@@ -78,9 +78,6 @@ $link_page_home=get_field('link');
 if(!is_home()&&!is_front_page()){
 	$add_class_width="width-700-padding-right";
 ?>
-<!--<div class="custom-breadcrumbs">
-  
-</div>-->
 <?php
 $bg_custom=get_field('background_top_content');
 if(!empty($bg_custom)){

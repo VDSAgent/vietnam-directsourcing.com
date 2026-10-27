@@ -3,10 +3,6 @@
 // Template Name: Single Post Template
 */
 get_header();
-$author_id = $post->post_author;
-$avatar_url = get_avatar_url( $author_id );
-
-
 ?>
 <!--page-title-area start-->
         <section class="page-title-area page-title-blog-details grey-bg pt-220 pb-100 pt-lg-200  pt-md-160  pt-xs-160 pb-xs-90">
@@ -14,11 +10,7 @@ $avatar_url = get_avatar_url( $author_id );
                 <div class="row justify-content-center">
                     <div class="col-xl-12">
                         <div class="page-title-wrapper text-center">
-							<!--
-                            <img class="blog-author-img" src="<?php echo $avatar_url;?>" alt="Author Img">
-                            <h6 class="fw-medium text-uppercase mb-10"><?php echo get_the_author_meta( 'nicename', $author_id ); ?></h6>
--->
-                            <h1 class="h1 page-title mb-25"><?php echo get_the_title();?></h1>
+	                            <h1 class="h1 page-title mb-25"><?php echo get_the_title();?></h1>
                             <div class="blog-meta mb-25">
                                 <a href="javascript:void(0)" class="meta-links"><?php echo get_the_date('F j, Y'); ?></a>
                                 <a href="javascript:void(0)" class="meta-links"> - <?php echo do_shortcode('[post-views]'); ?> Views - </a>
@@ -91,7 +83,6 @@ $avatar_url = get_avatar_url( $author_id );
                             <div class="col-lg-6 col-md-6 text-start text-md-end ms-auto">
                                 <div class="social_share mb-25">
                                     <?php echo do_shortcode('[addtoany]')?>
-                                    <!-- <a href="blog-details.html">Share the post<span><i class="fal fa-share-alt"></i></span></a> -->
                                 </div>
                             </div>
                         </div>
@@ -137,15 +128,6 @@ $avatar_url = get_avatar_url( $author_id );
 						
                     </div>
 					<div class="col-xl-2 col-lg-2"></div>
-					<!--
-                   <div class="col-xl-3 col-lg-4">
-                        <div class="single-widget-area sticky-top">
-                            <?php if (is_active_sidebar('single-post-sidebar')) : ?>
-                                <?php dynamic_sidebar('single-post-sidebar'); ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-					-->
                 </div><!--/.row-->
             </div><!--/.container-->
         </section>

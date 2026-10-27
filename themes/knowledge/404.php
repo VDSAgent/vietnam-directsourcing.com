@@ -17,12 +17,8 @@ get_header(); ?>
 			</header>
 
 			<div class="page-content">
-			<!--
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'knowledgetheme' ); ?></p>-->
-
-				<?php //get_search_form(); ?>
-				<p>The page you a looking for cannot be found, please use the navigation above.</p>
-				</br>
+				<p>The page you are looking for cannot be found. Please use the navigation above.</p>
+				<br>
 				<div class="sub">
 				  <p><a href="<?php echo esc_url( home_url() );?>">Back To Home</a></p>
 				</div>

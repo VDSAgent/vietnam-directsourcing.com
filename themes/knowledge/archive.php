@@ -5,9 +5,6 @@
 
 get_header(); ?>
   <div class="images-bg pt-280  pt-lg-200 pt-md-160  pt-xs-160 ">
-      <!-- <div class="detail">
-  				<img src="<?php //echo esc_url( site_url() );?>/wp-content/uploads/2016/05/top_News_1.png" class="images-background" />
-      </div> -->
       <div class="title-custom-page">
         <div class="container">
           <div class="row">

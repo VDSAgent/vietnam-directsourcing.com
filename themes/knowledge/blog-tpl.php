@@ -10,8 +10,6 @@ get_header();
                 <div class="row justify-content-center">
                     <div class="col-xl-8">
                         <div class="page-title-wrapper text-center">
-<!-- 							<h5 class="h1 page-title"><?php echo get_field('page_title'); ?></h5>
-                            <h4 class="styled-text theme-color mb-30"><?php echo get_the_title(); ?></h4> -->
                             <h1 class="h1 page-title">Expert Advice and Fresh Perspectives</h1>
                             <h4 class="styled-text theme-color mb-30">Latest News, Tips, and Ideas</h4>
                         </div>
@@ -50,11 +48,6 @@ get_header();
 											<div class="comic-blogs-thumb">'. $img_link . '</div>
 											<div class="blogs-content">
 												<div class="blog-meta mb-25">
-													<!--
-												   <span class="meta-btn">
-													Business growth                        
-													</span>
-													-->
 												</div>
 												<div class="blog-meta-date mb-15">' . get_the_date() . '</div>
 												<h3 class="blog-title">

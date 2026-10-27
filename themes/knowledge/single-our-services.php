@@ -142,8 +142,6 @@ $image_section_action = get_field('image_section_action','option');
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-md-7">
                             <div class="cta-title text-center text-md-start mb-30">
-                                <!-- <h2>Let's co-create the right digital Logistic solution for your business.</h2>
-                                <a href="contact.html" class="theme_btn black-btn cta-btn">Let’s Discuss</a> -->
                                 <h2><?= $title_section_bottom;?></h2>
                                 <?php 
                                     if( $action_contact ): 
