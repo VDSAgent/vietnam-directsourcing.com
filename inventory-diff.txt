@@ -1,0 +1,537 @@
+@@ -7 +6,0 @@
+-case-tpl.php  Case Template
+@@ -10 +8,0 @@
+-getaquote-tpl.php  Get A Quote Template
+@@ -21,9 +19,7 @@
+-require_once  'wb_wp_ajaxs.php'
+-require_once  'webbox/mains.php'
+-require_once  ABSPATH . 'wp-admin/includes/class-wp-list-table.php'
+-require_once  ABSPATH . 'wp-admin/includes/class-wp-upgrader.php'
+-require_once  ABSPATH . 'wp-admin/includes/class-wp-upgrader.php'
+-require_once  ABSPATH . 'wp-admin/includes/plugin-install.php'
+-require_once  ABSPATH . 'wp-admin/includes/plugin-install.php'
+-require_once  ABSPATH . 'wp-admin/includes/plugin.php'
+-require_once  dirname( __FILE__ ) . '/core/class-tgm-plugin-activation.php'
++require_once  __DIR__ . '/inc/vds-articles.php'
++require_once  __DIR__ . '/inc/vds-page-copy.php'
++require_once  __DIR__ . '/inc/vds-podcast.php'
++require_once  __DIR__ . '/inc/vds-redirects.php'
++require_once  __DIR__ . '/inc/vds-schema.php'
++require_once  __DIR__ . '/inc/vds-security.php'
++require_once  __DIR__ . '/webbox/wb_wp_ajaxs.php'
+@@ -32 +27,0 @@
+-require_once  dirname( __FILE__ ) . '/core/plugins.php'
+@@ -37,7 +31,0 @@
+-TGMPA_Bulk_Installer
+-TGMPA_Bulk_Installer_Skin
+-TGMPA_List_Table
+-TGMPA_Utils
+-TGM_Bulk_Installer
+-TGM_Bulk_Installer_Skin
+-TGM_Plugin_Activation
+@@ -48,94 +35,0 @@
+-TGMPA_Bulk_Installer::__construct
+-TGMPA_Bulk_Installer::activate_strings
+-TGMPA_Bulk_Installer::auto_activate
+-TGMPA_Bulk_Installer::bulk_install
+-TGMPA_Bulk_Installer::bulk_upgrade
+-TGMPA_Bulk_Installer::run
+-TGMPA_Bulk_Installer_Skin::__construct
+-TGMPA_Bulk_Installer_Skin::add_strings
+-TGMPA_Bulk_Installer_Skin::after
+-TGMPA_Bulk_Installer_Skin::after_flush_output
+-TGMPA_Bulk_Installer_Skin::before
+-TGMPA_Bulk_Installer_Skin::before_flush_output
+-TGMPA_Bulk_Installer_Skin::bulk_footer
+-TGMPA_List_Table::__construct
+-TGMPA_List_Table::_gather_plugin_data
+-TGMPA_List_Table::_get_plugin_data_from_name
+-TGMPA_List_Table::categorize_plugins_to_views
+-TGMPA_List_Table::column_cb
+-TGMPA_List_Table::column_default
+-TGMPA_List_Table::column_plugin
+-TGMPA_List_Table::column_version
+-TGMPA_List_Table::extra_tablenav
+-TGMPA_List_Table::get_bulk_actions
+-TGMPA_List_Table::get_columns
+-TGMPA_List_Table::get_default_primary_column_name
+-TGMPA_List_Table::get_plugin_advise_type_text
+-TGMPA_List_Table::get_plugin_source_type_text
+-TGMPA_List_Table::get_plugin_status_text
+-TGMPA_List_Table::get_primary_column_name
+-TGMPA_List_Table::get_row_actions
+-TGMPA_List_Table::get_table_classes
+-TGMPA_List_Table::get_views
+-TGMPA_List_Table::no_items
+-TGMPA_List_Table::prepare_items
+-TGMPA_List_Table::process_bulk_actions
+-TGMPA_List_Table::set_view_totals
+-TGMPA_List_Table::single_row
+-TGMPA_List_Table::sort_table_items
+-TGMPA_List_Table::wp_plugin_update_row
+-TGMPA_Utils::emulate_filter_bool
+-TGMPA_Utils::validate_bool
+-TGMPA_Utils::wrap_in_em
+-TGMPA_Utils::wrap_in_strong
+-TGM_Plugin_Activation::__construct
+-TGM_Plugin_Activation::__get
+-TGM_Plugin_Activation::__set
+-TGM_Plugin_Activation::_get_plugin_basename_from_slug
+-TGM_Plugin_Activation::_get_plugin_data_from_name
+-TGM_Plugin_Activation::actions
+-TGM_Plugin_Activation::activate_single_plugin
+-TGM_Plugin_Activation::add_admin_menu
+-TGM_Plugin_Activation::add_plugin_action_link_filters
+-TGM_Plugin_Activation::admin_init
+-TGM_Plugin_Activation::admin_menu
+-TGM_Plugin_Activation::can_plugin_activate
+-TGM_Plugin_Activation::can_plugin_update
+-TGM_Plugin_Activation::config
+-TGM_Plugin_Activation::dismiss
+-TGM_Plugin_Activation::display_settings_errors
+-TGM_Plugin_Activation::do_plugin_install
+-TGM_Plugin_Activation::does_plugin_have_update
+-TGM_Plugin_Activation::does_plugin_require_update
+-TGM_Plugin_Activation::filter_plugin_action_links_activate
+-TGM_Plugin_Activation::filter_plugin_action_links_deactivate
+-TGM_Plugin_Activation::filter_plugin_action_links_update
+-TGM_Plugin_Activation::flush_plugins_cache
+-TGM_Plugin_Activation::force_activation
+-TGM_Plugin_Activation::force_deactivation
+-TGM_Plugin_Activation::get_download_url
+-TGM_Plugin_Activation::get_info_link
+-TGM_Plugin_Activation::get_installed_version
+-TGM_Plugin_Activation::get_instance
+-TGM_Plugin_Activation::get_plugin_source_type
+-TGM_Plugin_Activation::get_plugins
+-TGM_Plugin_Activation::get_plugins_api
+-TGM_Plugin_Activation::get_tgmpa_status_url
+-TGM_Plugin_Activation::get_tgmpa_url
+-TGM_Plugin_Activation::get_upgrade_notice
+-TGM_Plugin_Activation::get_wp_repo_download_url
+-TGM_Plugin_Activation::init
+-TGM_Plugin_Activation::inject_update_info
+-TGM_Plugin_Activation::install_plugins_page
+-TGM_Plugin_Activation::is_plugin_active
+-TGM_Plugin_Activation::is_plugin_installed
+-TGM_Plugin_Activation::is_tgmpa_complete
+-TGM_Plugin_Activation::is_tgmpa_page
+-TGM_Plugin_Activation::maybe_adjust_source_dir
+-TGM_Plugin_Activation::notices
+-TGM_Plugin_Activation::populate_file_path
+-TGM_Plugin_Activation::register
+-TGM_Plugin_Activation::sanitize_key
+-TGM_Plugin_Activation::show_tgmpa_version
+-TGM_Plugin_Activation::thickbox
+-TGM_Plugin_Activation::update_dismiss
+@@ -144 +37,0 @@
+-add_custom_css_classes
+@@ -147,10 +39,0 @@
+-ajaxurl
+-back_to_top_knowledgetheme
+-busyness_custom_header_setup
+-busyness_entry_footer
+-busyness_footer_site_info
+-busyness_posted_on
+-busyness_render_blog_section
+-busyness_render_slider_section
+-busyness_single_categories
+-case_feed_func
+@@ -166 +48,0 @@
+-fix_nav_search_form
+@@ -168,6 +49,0 @@
+-footer_social_knowledgetheme
+-knowledge_archive_categories
+-knowledge_edit_link
+-knowledge_posted_by
+-knowledge_single_tags
+-knowledge_time_link
+@@ -179,3 +54,0 @@
+-knowledgetheme_plugin_activation
+-knowledgetheme_plugin_activation_js_composer
+-knowledgetheme_plugin_activation_js_composer_advanced_custom
+@@ -185 +57,0 @@
+-load_more_posts_ajax_handler
+@@ -187,2 +58,0 @@
+-load_tgm_plugin_activation
+-logo_footer_knowledgetheme
+@@ -191,3 +60,0 @@
+-more_post_ajax
+-post_content  FROZEN
+-post_feed_func
+@@ -196 +62,0 @@
+-shortcode_team_about
+@@ -201 +66,0 @@
+-team_about
+@@ -203,8 +68,36 @@
+-testimonial_carousel_func
+-tgmpa
+-tgmpa_load_bulk_installer
+-vds_faq_page_schema  FROZEN
+-vds_solutions_css
+-vds_solutions_field_services_and_modal
+-vds_solutions_form_submit
+-vds_solutions_shortcode
++vds_article_closing
++vds_article_episode
++vds_article_episode_url
++vds_articles_max_page
++vds_articles_paged_canonical
++vds_articles_paged_query
++vds_articles_paged_redirect
++vds_articles_pager
++vds_block_author_archives
++vds_consolidated_purge
++vds_consolidated_redirect
++vds_contact_og_type
++vds_hide_rest_users
++vds_pager
++vds_podcast_canonical
++vds_podcast_episode_players
++vds_podcast_is_paged_list
++vds_podcast_list_query
++vds_podcast_max_page
++vds_podcast_no_results
++vds_podcast_paged_redirect
++vds_podcast_pager
++vds_podcast_robots
++vds_podcast_search_term
++vds_podcast_search_ui
++vds_podcast_transcript
++vds_podcast_transcript_field
++vds_render_page_copy
++vds_schema_contact_webpage
++vds_schema_faq
++vds_schema_is_contact_page
++vds_schema_organization
++vds_schema_podcast
++vds_schema_service
++vds_search_articles_only
++vds_security_headers
+@@ -213 +105,0 @@
+-wo_script
+@@ -216,10 +108,2 @@
+-add_action  "tgmpa_after_plugin_row_$slug" -> array( $this, 'wp_plugin_update_row' ) prio=10 args=2
+-add_action  "wp_ajax_nopriv_{$action}" -> [$this,'calback_'.$action] prio=10 args=1
+-add_action  "wp_ajax_{$action}" -> [$this,'calback_'.$action] prio=10 args=1
+-add_action  'admin_enqueue_scripts' -> array( $this, 'thickbox' ) prio=10 args=1
+-add_action  'admin_head' -> array( $this, 'dismiss' ) prio=10 args=1
+-add_action  'admin_init' -> 'tgmpa_load_bulk_installer' prio=10 args=1
+-add_action  'admin_init' -> array( $this, 'admin_init' ) prio=1 args=1
+-add_action  'admin_init' -> array( $this, 'force_activation' ) prio=10 args=1
+-add_action  'admin_menu' -> array( $this, 'admin_menu' ) prio=10 args=1
+-add_action  'admin_notices' -> array( $this, 'notices' ) prio=10 args=1
++add_action  'acf/init' -> 'vds_podcast_transcript_field' prio=10 args=1
++add_action  'after_setup_theme' -> 'vds_security_headers' prio=0 args=1
+@@ -227,0 +112,5 @@
++add_action  'get_footer' -> 'vds_articles_pager' prio=10 args=1
++add_action  'get_footer' -> 'vds_podcast_no_results' prio=5 args=1
++add_action  'get_footer' -> 'vds_podcast_pager' prio=10 args=1
++add_action  'get_footer' -> 'vds_render_page_copy' prio=10 args=1
++add_action  'get_template_part_loop/podcast' -> 'vds_podcast_search_ui' prio=10 args=1
+@@ -233,3 +121,0 @@
+-add_action  'init' -> array( $this, 'init' ) prio=10 args=1
+-add_action  'load-plugins.php' -> array( $this, 'add_plugin_action_link_filters' ) prio=1 args=1
+-add_action  'plugins_loaded' -> 'load_tgm_plugin_activation' prio=10 args=1
+@@ -237,8 +123,8 @@
+-add_action  'switch_theme' -> array( $this, 'flush_plugins_cache' ) prio=10 args=1
+-add_action  'switch_theme' -> array( $this, 'force_deactivation' ) prio=10 args=1
+-add_action  'switch_theme' -> array( $this, 'update_dismiss' ) prio=10 args=1
+-add_action  'tgmpa_register' -> 'knowledgetheme_plugin_activation' prio=10 args=1
+-add_action  'tgmpa_register' -> 'knowledgetheme_plugin_activation_js_composer' prio=10 args=1
+-add_action  'tgmpa_register' -> 'knowledgetheme_plugin_activation_js_composer_advanced_custom' prio=10 args=1
+-add_action  'upgrader_process_complete' -> array( $this->tgmpa, 'populate_file_path' ) prio=10 args=1
+-add_action  'vc_before_init' -> 'team_about' prio=10 args=1
++add_action  'pre_get_posts' -> 'vds_articles_paged_query' prio=10 args=1
++add_action  'pre_get_posts' -> 'vds_podcast_list_query' prio=5 args=1
++add_action  'pre_get_posts' -> 'vds_search_articles_only' prio=10 args=1
++add_action  'template_redirect' -> 'vds_articles_paged_redirect' prio=10 args=1
++add_action  'template_redirect' -> 'vds_block_author_archives' prio=0 args=1
++add_action  'template_redirect' -> 'vds_consolidated_redirect' prio=1 args=1
++add_action  'template_redirect' -> 'vds_podcast_paged_redirect' prio=10 args=1
++add_action  'transition_post_status' -> 'vds_consolidated_purge' prio=10 args=3
+@@ -246 +131,0 @@
+-add_action  'wp_ajax_load_more_posts' -> 'load_more_posts_ajax_handler' prio=10 args=1
+@@ -248,2 +132,0 @@
+-add_action  'wp_ajax_more_post_ajax' -> 'more_post_ajax' prio=10 args=1
+-add_action  'wp_ajax_nopriv_load_more_posts' -> 'load_more_posts_ajax_handler' prio=10 args=1
+@@ -251,3 +134,2 @@
+-add_action  'wp_ajax_nopriv_more_post_ajax' -> 'more_post_ajax' prio=10 args=1
+-add_action  'wp_ajax_nopriv_vds_solutions_form' -> 'vds_solutions_form_submit' prio=10 args=1
+-add_action  'wp_ajax_vds_solutions_form' -> 'vds_solutions_form_submit' prio=10 args=1
++add_action  'wp_ajax_nopriv_wb_load_blog' -> [ $this, 'calback_wb_load_blog' ] prio=10 args=1
++add_action  'wp_ajax_wb_load_blog' -> [ $this, 'calback_wb_load_blog' ] prio=10 args=1
+@@ -256,5 +138,3 @@
+-add_action  'wp_enqueue_scripts' -> 'wo_script' prio=10 args=1
+-add_action  'wp_footer' -> 'fix_nav_search_form' prio=10 args=1
+-add_action  'wp_head' -> 'ajaxurl' prio=10 args=1
+-add_action  'wp_head' -> 'vds_faq_page_schema' prio=10 args=1  FROZEN
+-add_action  'wp_head' -> 'vds_solutions_css' prio=10 args=1
++add_action  'wp_head' -> 'vds_schema_faq' prio=20 args=1
++add_action  'wp_head' -> 'vds_schema_podcast' prio=30 args=1
++add_action  'wp_head' -> 'vds_schema_service' prio=30 args=1
+@@ -262,2 +141,0 @@
+-add_filter  'gform_submit_button' -> 'add_custom_css_classes' prio=10 args=2
+-add_filter  'install_plugin_complete_actions' -> array( $this, 'actions' ) prio=10 args=1
+@@ -266,10 +144,4 @@
+-add_filter  'plugin_action_links_' . $plugin['file_path'] -> array( $this, 'filter_plugin_action_links_activate' ) prio=20 args=1
+-add_filter  'plugin_action_links_' . $plugin['file_path'] -> array( $this, 'filter_plugin_action_links_deactivate' ) prio=20 args=1
+-add_filter  'plugin_action_links_' . $plugin['file_path'] -> array( $this, 'filter_plugin_action_links_update' ) prio=20 args=1
+-add_filter  'sewn/seo/add_keywords' -> '__return_true' prio=10 args=1
+-add_filter  'tgmpa_table_data_items' -> array( $this, 'sort_table_items' ) prio=10 args=1
+-add_filter  'update_plugin_complete_actions' -> array( $this, 'actions' ) prio=10 args=1
+-add_filter  'upgrader_post_install' -> array( $this, 'auto_activate' ) prio=10 args=1
+-add_filter  'upgrader_post_install' -> array( $this, 'auto_activate' ) prio=10 args=1
+-add_filter  'upgrader_source_selection' -> array( $this, 'maybe_adjust_source_dir' ) prio=1 args=3
+-add_filter  'upgrader_source_selection' -> array( $this->tgmpa, 'maybe_adjust_source_dir' ) prio=1 args=3
++add_filter  'rest_endpoints' -> 'vds_hide_rest_users' prio=10 args=1
++add_filter  'the_content' -> 'vds_article_closing' prio=20 args=1
++add_filter  'the_content' -> 'vds_podcast_episode_players' prio=20 args=1
++add_filter  'the_content' -> 'vds_podcast_transcript' prio=25 args=1
+@@ -278 +150,6 @@
+-add_filter  'wpseo_schema_organization' -> function($data){ $data['areaServed'] = array(array('@type'=>'Country','name'=>'Vietnam'), 'Worldwide'); return $data; } prio=10 args=1
++add_filter  'wpseo_canonical' -> 'vds_articles_paged_canonical' prio=10 args=1
++add_filter  'wpseo_canonical' -> 'vds_podcast_canonical' prio=20 args=1
++add_filter  'wpseo_opengraph_type' -> 'vds_contact_og_type' prio=10 args=1
++add_filter  'wpseo_robots' -> 'vds_podcast_robots' prio=10 args=1
++add_filter  'wpseo_schema_organization' -> 'vds_schema_organization' prio=10 args=1
++add_filter  'wpseo_schema_webpage' -> 'vds_schema_contact_webpage' prio=10 args=1
+@@ -281,4 +157,0 @@
+-remove_filter  'upgrader_post_install' -> array( $this, 'auto_activate' ) prio=10 args=1
+-remove_filter  'upgrader_post_install' -> array( $this, 'auto_activate' ) prio=10 args=1
+-remove_filter  'upgrader_source_selection' -> array( $this, 'maybe_adjust_source_dir' ) prio=1 args=3
+-remove_filter  'upgrader_source_selection' -> array( $this->tgmpa, 'maybe_adjust_source_dir' ) prio=1 args=3
+@@ -287 +159,0 @@
+-add_shortcode  'case_feed' -> 'case_feed_func'
+@@ -289,2 +160,0 @@
+-add_shortcode  'post_feed' -> 'post_feed_func'
+-add_shortcode  'shortcode_show_team_about' -> 'shortcode_team_about'
+@@ -296,2 +165,0 @@
+-add_shortcode  'testimonial_carousel' -> 'testimonial_carousel_func'
+-add_shortcode  'vds_solutions' -> 'vds_solutions_shortcode'
+@@ -300,31 +168,7 @@
+-wp_enqueue_script  'custom-js-bootstrap.min', get_stylesheet_directory_uri() . '/assets/js/bootstrap.min.js'
+-wp_enqueue_script  'custom-js-imagesloaded.pkgd.min', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js'
+-wp_enqueue_script  'custom-js-isotope.pkgd-min', get_stylesheet_directory_uri() . '/assets/js/isotope.pkgd.min.js'
+-wp_enqueue_script  'custom-js-jquery-1.12.4-min', get_stylesheet_directory_uri() . '/assets/js/vendor/jquery-1.12.4.min.js'
+-wp_enqueue_script  'custom-js-jquery.counterup.min', get_stylesheet_directory_uri() . '/assets/js/jquery.counterup.min.js'
+-wp_enqueue_script  'custom-js-jquery.magnific-popup.min', get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.min.js'
+-wp_enqueue_script  'custom-js-jquery.nice-select', get_stylesheet_directory_uri() . '/assets/js/jquery.nice-select.js'
+-wp_enqueue_script  'custom-js-main', get_stylesheet_directory_uri() . '/assets/js/main.js'
+-wp_enqueue_script  'custom-js-metisMenu.min', get_stylesheet_directory_uri() . '/assets/js/metisMenu.min.js'
+-wp_enqueue_script  'custom-js-modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-3.5.0.min.js'
+-wp_enqueue_script  'custom-js-owl.carousel-min', get_stylesheet_directory_uri() . '/assets/js/owl.carousel.min.js'
+-wp_enqueue_script  'custom-js-popper-min', get_stylesheet_directory_uri() . '/assets/js/popper.min.js'
+-wp_enqueue_script  'custom-js-waypoints.min', get_stylesheet_directory_uri() . '/assets/js/waypoints.min.js'
+-wp_enqueue_script  'custom-js-wow.min', get_stylesheet_directory_uri() . '/assets/js/wow.min.js'
+-wp_enqueue_script  'jquery-bxslider-min'
+-wp_enqueue_script  'load-more-posts', get_template_directory_uri() . '/js/load-more-posts.js', array('jquery'), null, true
+-wp_enqueue_style  'custom', get_template_directory_uri() . '/custom.css', array(), $custom_ver, false
+-wp_enqueue_style  'plugin-install'
+-wp_enqueue_style  'style-custom-all', get_stylesheet_directory_uri() . '/assets/css/all.min.css'
+-wp_enqueue_style  'style-custom-animate', get_stylesheet_directory_uri() . '/assets/css/animate.css'
+-wp_enqueue_style  'style-custom-bootstrap.min', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css'
+-wp_enqueue_style  'style-custom-font', get_stylesheet_directory_uri() . '/assets/css/font.css'
+-wp_enqueue_style  'style-custom-magnific', get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css'
+-wp_enqueue_style  'style-custom-main', get_stylesheet_directory_uri() . '/assets/css/main.css'
+-wp_enqueue_style  'style-custom-metisMenu', get_stylesheet_directory_uri() . '/assets/css/metisMenu.css'
+-wp_enqueue_style  'style-custom-nice', get_stylesheet_directory_uri() . '/assets/css/nice-select.css'
+-wp_enqueue_style  'style-custom-owl', get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css'
+-wp_enqueue_style  'style-custom-spacing', get_stylesheet_directory_uri() . '/assets/css/spacing.css'
+-wp_enqueue_style  'style-t', get_template_directory_uri() . '/style-t.css', array(), '1.0'
+-wp_localize_script  'load-more-posts', 'loadMoreParams', array( 'ajaxUrl' => admin_url('admin-ajax.php'), 'postsPerPage' => 9, )
+-wp_register_script  'jquery-bxslider-min', get_stylesheet_directory_uri() . '/js/jquery.bxslider.min.js', array(), '1.0.0', true
++wp_add_inline_script  'custom-js-main', 'var ajaxurl = ' . wp_json_encode( admin_url( 'admin-ajax.php' ) ) . ';', 'before'
++wp_enqueue_script  $handle, $uri . $file, $deps, $ver( $file )
++wp_enqueue_script  'load-more-posts', get_template_directory_uri() . '/js/load-more-posts.js', array( 'jquery' ), null, true
++wp_enqueue_script  'vds', $uri . '/assets/js/vds.js', array(), $ver( '/assets/js/vds.js' ), true
++wp_enqueue_style  $handle, $uri . $file, array(), $ver( $file )
++wp_enqueue_style  'vds-logo-font', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600&text=' . rawurlencode( 'Vietnam Direct Sourcing' ) . '&display=swap', array(), null
++wp_localize_script  'load-more-posts', 'loadMoreParams', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ), 'postsPerPage' => VDS_ARTICLES_PER_PAGE, )
+@@ -332,0 +177 @@
++acf_add_local_field_group  array( 'key' => 'group_vds_transcript', 'title' => 'Episode transcript', 'fields' => array( array( 'key' => 'field_vds_transcript', 'label' => 'Transcript', 'name' => 'vds_transcript', 'type' => 'textarea', 'rows' => 20, 'new_lines' => '', 'instructions' => 'Plain text. Start a line with "## " for a subheading. Separate paragraphs with a blank line.', ), ), 'location' => array( array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'podcast' ) ) ), 'position' => 'normal', )
+@@ -336 +180,0 @@
+-add_theme_support  'custom-header', apply_filters( 'busyness_custom_header_args', array( 'default-image' => get_stylesheet_directory_uri() . '/assets/images/knowledge-header-image.jpg', 'default-text-color' => 'fff', 'width' => 1920, 'height' => 960, 'flex-height' => true, 'wp-head-callback' => 'busyness_header_style', ) )
+@@ -359 +202,0 @@
+-vc_map  array( "name" => __( "Team About Show", "starbeach" ), "base" => "shortcode_show_team_about", "class" => "", "category" => __( "Content", "starbeach"), "params" => array( ), "description" => "Team About Show", )
+@@ -364,2 +206,0 @@
+-get_field  "description_infor_right"
+-get_field  "description_team"
+@@ -368,2 +208,0 @@
+-get_field  "technology_description"
+-get_field  "technology_title"
+@@ -372,3 +210,0 @@
+-get_field  "title_faq"
+-get_field  "title_team"
+-get_field  'action_contact', 'option'
+@@ -376,4 +211,0 @@
+-get_field  'action_home'
+-get_field  'action_shipping_discount'
+-get_field  'action_why_choose_us'
+-get_field  'action_why_choose_us'
+@@ -385 +216,0 @@
+-get_field  'col_manage_right'
+@@ -387,2 +217,0 @@
+-get_field  'ctf_form'
+-get_field  'des_shipping_discount'
+@@ -391 +219,0 @@
+-get_field  'description'  FROZEN
+@@ -393 +220,0 @@
+-get_field  'description_brand'
+@@ -395,2 +221,0 @@
+-get_field  'description_section_transport'
+-get_field  'description_team'
+@@ -399,6 +223,0 @@
+-get_field  'description_why_choose_us_bottom'
+-get_field  'description_why_choose_us_bottom'
+-get_field  'description_why_choose_us_bottom'
+-get_field  'description_why_choose_us_right'
+-get_field  'description_why_choose_us_right'
+-get_field  'description_why_choose_us_right'
+@@ -407,2 +226 @@
+-get_field  'featured_image'
+-get_field  'gallery_image'
++get_field  'field_66e58d8dceaa5', 1296  FROZEN
+@@ -416,4 +233,0 @@
+-get_field  'heading_small_process'
+-get_field  'heading_small_wcu'
+-get_field  'heading_small_wcu'
+-get_field  'heading_small_wcu'
+@@ -425,2 +238,0 @@
+-get_field  'hide_content_leftright'
+-get_field  'hide_faq'
+@@ -430,3 +241,0 @@
+-get_field  'hide_oneplace'
+-get_field  'hide_ourwork'
+-get_field  'hide_podcast'
+@@ -435,2 +243,0 @@
+-get_field  'hide_shipping'
+-get_field  'hide_shyshouldyouchoose'
+@@ -438,6 +244,0 @@
+-get_field  'hide_team'  FROZEN
+-get_field  'hide_team_section'  FROZEN
+-get_field  'hide_team_section'  FROZEN
+-get_field  'hide_technology_section'
+-get_field  'hide_testimonials'
+-get_field  'hide_transport'
+@@ -445,2 +245,0 @@
+-get_field  'hide_whyshouldyouchoose'
+-get_field  'hide_whyshouldyouchoose'
+@@ -449,3 +247,0 @@
+-get_field  'image_faq'
+-get_field  'image_section_action', 'option'  FROZEN
+-get_field  'image_section_action', 'option'  FROZEN
+@@ -454 +249,0 @@
+-get_field  'image_shipping_discount'
+@@ -457,3 +251,0 @@
+-get_field  'image_wcu'
+-get_field  'image_wcu'
+-get_field  'image_wcu'
+@@ -466,2 +257,0 @@
+-get_field  'list_item_brand'
+-get_field  'list_our_word_process'
+@@ -473 +263 @@
+-get_field  'page_title'
++get_field  'podcast_links', $id  FROZEN
+@@ -477,4 +266,0 @@
+-get_field  'position'  FROZEN
+-get_field  'position'  FROZEN
+-get_field  'position'  FROZEN
+-get_field  'postcast_link'
+@@ -484 +269,0 @@
+-get_field  'sub_title'
+@@ -488,3 +272,0 @@
+-get_field  'sub_title_testinomial'
+-get_field  'technology_background_color'
+-get_field  'technology_gallery'
+@@ -496 +277,0 @@
+-get_field  'title_brand'
+@@ -508 +288,0 @@
+-get_field  'title_section_bottom', 'option'
+@@ -510,6 +289,0 @@
+-get_field  'title_section_process'
+-get_field  'title_section_transport'
+-get_field  'title_section_wcu'
+-get_field  'title_section_wcu'
+-get_field  'title_section_wcu'
+-get_field  'title_shipping_discount'
+@@ -517,2 +290,0 @@
+-get_field  'title_team'
+-get_field  'title_testinomial'
+@@ -520,0 +293 @@
++get_field  'vds_transcript', get_the_ID(), false  FROZEN
+@@ -522 +295,2 @@
+-get_field  'youtube_link'
++get_field  'youtube_links', $id  FROZEN
++get_field  'youtube_links', $id  FROZEN
+@@ -524,2 +297,0 @@
+-get_sub_field  "description_question"
+-get_sub_field  "title_question"
+@@ -528,2 +299,0 @@
+-get_sub_field  'description_award'
+-get_sub_field  'description_award'
+@@ -533,4 +302,0 @@
+-get_sub_field  'icon_item'
+-get_sub_field  'icon_item'
+-get_sub_field  'icon_item'
+-get_sub_field  'icon_item'
+@@ -540,2 +305,0 @@
+-get_sub_field  'number_award'
+-get_sub_field  'number_award'
+@@ -543,6 +306,0 @@
+-get_sub_field  'title_award'
+-get_sub_field  'title_award'
+-get_sub_field  'title_item'
+-get_sub_field  'title_item'
+-get_sub_field  'title_item'
+-get_sub_field  'title_item'
+@@ -552,14 +309,0 @@
+-have_rows  "list_questions"
+-have_rows  "list_questions"
+-have_rows  'list_item_brand_left'
+-have_rows  'list_item_brand_left'
+-have_rows  'list_item_brand_right'
+-have_rows  'list_item_brand_right'
+-have_rows  'list_our_word_process'
+-have_rows  'list_our_word_process'
+-have_rows  'list_why_choose_us'
+-have_rows  'list_why_choose_us'
+-have_rows  'list_why_choose_us'
+-have_rows  'list_why_choose_us'
+-have_rows  'list_why_choose_us'
+-have_rows  'list_why_choose_us'
+@@ -594,4 +337,0 @@
+-get_footer
+-get_footer
+-get_header
+-get_header
+@@ -617 +356,0 @@
+-get_template_part  $temp, 'null'
+@@ -618,0 +358,27 @@
++get_template_part  'loop/podcast', 'null'
++get_template_part  'template-parts/article-search'
++get_template_part  'template-parts/article-search'
++get_template_part  'template-parts/company/ecosystem'
++get_template_part  'template-parts/company/hero'
++get_template_part  'template-parts/company/how-we-work'
++get_template_part  'template-parts/company/regions'
++get_template_part  'template-parts/company/team'
++get_template_part  'template-parts/cta'
++get_template_part  'template-parts/cta'
++get_template_part  'template-parts/cta'
++get_template_part  'template-parts/cta', null, array( 'shapes' => 'home', 'section_class' => 'pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30', )
++get_template_part  'template-parts/cta', null, array( 'shapes' => false, 'section_class' => 'pt-100 pb-120 pt-md-60 pb-lg-80 pb-md-30 pt-xs-60 pb-xs-30', )
++get_template_part  'template-parts/home/intro'
++get_template_part  'template-parts/home/why'
++is_page_template  'blog-tpl.php'  FROZEN
++is_page_template  'blog-tpl.php'  FROZEN
++is_page_template  'blog-tpl.php'  FROZEN
++is_page_template  'blog-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
++is_page_template  'podcast-tpl.php'  FROZEN
