@@ -16,7 +16,7 @@ $vds_uploads = 'https://vietnam-directsourcing.com/wp-content/uploads/';
 	<div class="container">
 		<div class="row justify-content-center"><div class="col-xl-8"><div class="section-title text-center mb-70">
 			<h2 class="mb-20">Tech-Enabled Transparency</h2>
-			<p>We run an integrated tech stack — including Odoo ERP — to give you real-time visibility into supplier vetting, factory audits, quality inspections, and shipment status. You see where your production actually stands, not just what we report back.</p>
+			<p>We run an integrated tech stack, including Odoo ERP, that tracks supplier vetting, factory audits, quality inspections and shipment status in one place, so our reports show where your production actually stands.</p>
 		</div></div></div>
 		<div class="vds-eco-grid">
 			<?php foreach ( $vds_eco as list( $image, $label ) ) : ?>

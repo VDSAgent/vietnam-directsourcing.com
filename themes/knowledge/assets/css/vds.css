@@ -17,9 +17,9 @@ main h3 { font-size: 24px !important; color: #16243D !important; font-weight: 70
 main p { font-size: 16px !important; color: rgba(24, 21, 44, 0.9) !important; line-height: 1.6 !important; }
 /* Sections with a dark navy background (e.g. Solutions "Additional Execution Services",
    the Vietnam page category strip) need light text. */
-section[style*="1a2a4a" i] h2,
-section[style*="1a2a4a" i] h3,
-section[style*="1a2a4a" i] p { color: #FFFFFF !important; }
+section[style*="16243d" i] h2,
+section[style*="16243d" i] h3,
+section[style*="16243d" i] p { color: #FFFFFF !important; }
 
 /* ---------- Header: logo and navigation ---------- */
 .logo-img .vds-logo { display: inline-block; color: #FFFFFF; line-height: 0; text-decoration: none; }
@@ -160,9 +160,9 @@ section.call-to-action .cta-button { display: inline-block; margin-top: 28px; ba
 /* ---------- Company page (template-parts/company/) ---------- */
 .vds-company-hero{background:#fff;padding:70px 20px 0}
 .vds-company-hero__inner{text-align:center}
-.vds-company-hero__eyebrow{color:#e8693c;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.vds-company-hero h2{color:#1a2a4a;font-size:38px;font-weight:800;margin-bottom:16px}
-.vds-company-hero__lede{color:#666;max-width:620px;margin:0 auto;font-size:16px;line-height:1.8}
+.vds-company-hero__eyebrow{color:#9A6412;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.vds-company-hero h2{color:#16243D;font-size:38px;font-weight:800;margin-bottom:16px}
+.vds-company-hero__lede{color:#5B6675;max-width:620px;margin:0 auto;font-size:16px;line-height:1.8}
 .vds-regions{background:#fff}
 .vds-regions .vds-map{max-width:100%;margin:0 auto;display:block}
 .vds-regions .vds-map svg{width:100%;height:auto;border-radius:14px}
@@ -258,6 +258,7 @@ body.page-id-1296 .accordion-body a { color: #9A6412; text-decoration: underline
 body.page-id-1296 .accordion-body a:hover, body.page-id-1296 .accordion-body a:focus { color: #16243D; }
 
 /* ---------- Solutions page ---------- */
+#supplier-identification, #supplier-evaluation, #production-management, #end-to-end, #factory-tours, #quality-assurance { scroll-margin-top: 120px; }
 .single-box-list li { border-bottom: 1px solid #D9E3E5; }
 .single-box-list li:nth-child(2) { border-top: none; }
 /* Thank-you + booking modal after an inquiry (assets/js/vds.js) */

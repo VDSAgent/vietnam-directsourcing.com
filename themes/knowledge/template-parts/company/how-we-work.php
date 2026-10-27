@@ -19,7 +19,7 @@
           <div class="transport-img"><img src="https://vietnam-directsourcing.com/wp-content/uploads/2026/10/supplier-identification.png" class="vds-info-image" alt="Supplier Identification and Vetting"></div>
           <div class="transport-content">
             <h3>Supplier Identification &amp; Vetting</h3>
-            <p>We match your spec to vetted, export-ready factories — English-fluent, Western-standard communication from a team with 25 years on the ground in Asia.</p>
+            <p>We match your spec to vetted, export-ready factories — clear English communication from a team with 25 years on the ground in Asia.</p>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <div class="transport-img"><img src="https://vietnam-directsourcing.com/wp-content/uploads/2026/10/factory-audits.png" class="vds-info-image" alt="Factory Audits — 3 Regional Hubs"></div>
           <div class="transport-content">
             <h3>Factory Audits — 3 Regional Hubs</h3>
-            <p>Staff based in Hanoi, Da Nang and HCMC mean on-site audits within 24 hours — not weeks of back-and-forth with a broker.</p>
+            <p>Staff based in Hanoi, Da Nang and Ho Chi Minh City mean on-site audits, typically within 24 hours of confirmation — not weeks of back-and-forth with a broker.</p>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
           <div class="transport-img"><img src="https://vietnam-directsourcing.com/wp-content/uploads/2026/10/factory-pricing.png" class="vds-info-image" alt="Zero-Markup Direct Factory Pricing"></div>
           <div class="transport-content">
             <h3>Zero-Markup Direct Factory Pricing</h3>
-            <p>Multiple real quotes, no markup — flat-rate, pay-as-you-go, and you keep the original factory invoice.</p>
+            <p>Multiple real quotes, no markup — flat fees, pay-as-you-go, and you keep the original factory invoice.</p>
           </div>
         </div>
       </div>

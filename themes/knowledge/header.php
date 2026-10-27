@@ -49,13 +49,6 @@
                                         <i class="far fa-bars"></i>
                                     </a>
                                 </div>
-                                <ul class="list-style-none right-btn d-flex align-items-center">
-                                    <li>
-                                        <a class="theme_btn theme_btn_border d-none d-xl-inline-block" href="<?php echo site_url(); ?>/contact-for-sourcing/">
-                                            <span>BOOK A CALL</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
