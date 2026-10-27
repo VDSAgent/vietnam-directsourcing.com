@@ -36,6 +36,8 @@ body:has(.page-title-area) header .dropdown-menu a { color: #16243D !important; 
 .hamburger-menu > a { color: #E3A23A; }
 @media (max-width: 991.98px) { #theme-menu-one .hamburger-menu { display: inline-block !important; } }
 .scrollUp { background-color: #E3A23A; }
+/* Decorative hero shapes: the /viet-nam/ Elementor markup still contains them (the old Additional CSS hid them) */
+.page-title-area .page-shape { display: none !important; }
 
 /* ---------- Hero: homepage (.slider-area) and inner pages (.page-title-area) ---------- */
 .slider-area {

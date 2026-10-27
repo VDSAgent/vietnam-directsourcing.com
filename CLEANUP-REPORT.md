@@ -79,6 +79,7 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | `core/function_option.php` | Logo SVG `viewBox` 0 0 336 56 → 0 0 360 56, `width` 336 → 360 | The wordmark renders 350 px wide in Montserrat 600 and was clipped ("Vietnam Direct Sourcin") | none (verified on staging) |
 | `assets/css/vds.css` | `.logo-img .vds-logo svg` max-width 336px → 360px | Matches the wider SVG | none (verified on staging) |
 | `header.php` | Logo column `col-xl-2` → `col-xl-3`, menu column `col-xl-10` → `col-xl-9`; the `lg` values stay | The logo column was too narrow on wide screens; at 992–1199 px a wider logo column collides with the menu | none (verified on staging) |
+| `assets/css/vds.css` | `.page-title-area .page-shape { display: none !important; }` restored from the old Additional CSS | Not carried over: the `/viet-nam/` Elementor markup still contains the decorative shapes, so a large van and aeroplane appeared in its hero | none (verified on staging) |
 
 ## 3. Where each snippet went (all 29 active snippets + Additional CSS)
 
