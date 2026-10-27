@@ -4,6 +4,13 @@ require_once dirname( __FILE__ ) . '/core/options.php';
 require_once dirname( __FILE__ ) . '/core/shortcode.php';
 require_once dirname( __FILE__ ) . '/core/function_option.php';
 require_once dirname( __FILE__ ) . '/core/postype.php';
+/* Vietnam Direct Sourcing (formerly WPCode snippets; see each file's header) */
+require_once __DIR__ . '/inc/vds-security.php';
+require_once __DIR__ . '/inc/vds-schema.php';
+require_once __DIR__ . '/inc/vds-page-copy.php';
+require_once __DIR__ . '/inc/vds-articles.php';
+require_once __DIR__ . '/inc/vds-podcast.php';
+require_once __DIR__ . '/inc/vds-redirects.php';
 function ajaxurl(){
     ?>
     <script type="text/javascript">
@@ -164,6 +171,7 @@ function knowledgetheme_scripts() {
     wp_enqueue_style( 'style-custom-main', get_stylesheet_directory_uri() . '/assets/css/main.css');
     wp_enqueue_style( 'style-t', get_template_directory_uri() . '/style-t.css', array(), '1.0' );
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom.css', array(), $custom_ver, false );
+    wp_enqueue_style( 'vds', get_template_directory_uri() . '/assets/css/vds.css', array( 'custom' ), filemtime( get_template_directory() . '/assets/css/vds.css' ) );
 
     wp_enqueue_script( 'custom-js-modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-3.5.0.min.js'); 
     wp_enqueue_script( 'custom-js-jquery-1.12.4-min', get_stylesheet_directory_uri() . '/assets/js/vendor/jquery-1.12.4.min.js'); 
@@ -588,81 +596,3 @@ function acf_add_allowed_iframe_tag( $tags, $context ) {
     return $tags;
 }
 require_once __DIR__ . '/webbox/wb_wp_ajaxs.php';
-
-
-
-// Enqueue JavaScript for the Load More functionality
-function enqueue_load_more_scripts() {
-    wp_enqueue_script('load-more-posts', get_template_directory_uri() . '/js/load-more-posts.js', array('jquery'), null, true);
-
-    // Pass variables to the JavaScript file
-    wp_localize_script('load-more-posts', 'loadMoreParams', array(
-        'ajaxUrl' => admin_url('admin-ajax.php'),
-        'postsPerPage' => 9,
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_load_more_scripts');
-
-// AJAX handler for loading more posts
-function load_more_posts_new() {
-	
-    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
-    $posts_per_page = isset($_POST['postsPerPage']) ? intval($_POST['postsPerPage']) : 9;
-
-    $query = new WP_Query(array(
-        'post_type' => 'post',
-        'posts_per_page' => $posts_per_page,
-        'paged' => $paged,
-    ));
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-			
-            $query->the_post();
-            //echo '<div class="post-item">';
-            //echo '<h2>' . get_the_title() . '</h2>';
-            //echo '<div>' . get_the_excerpt() . '</div>';
-            //echo '</div>';
-            //
-                          
-			if ( function_exists('get_field') ) {
-				$image = get_field('featured_image');
-				if ( $image ) {
-					$img_link = '<a href="' . get_permalink() . '"><img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $image['alt'] ) . '"></a>';
-				} else {
-					$img_link = "";
-				}
-			}
-			echo '<div class="col-lg-4 col-md-6">
-				   <div class="comic-blogs-wrapper mb-30">
-						<div class="comic-blogs-thumb">'. $img_link . '</div>
-						<div class="blogs-content">
-							<div class="blog-meta mb-25">
-								<!--
-							   <span class="meta-btn">
-								Business growth                        
-								</span>
-								-->
-							</div>
-							<div class="blog-meta-date mb-15">' . get_the_date() . '</div>
-							<h3 class="blog-title">
-								<a href="' . get_permalink() . '">' . get_the_title() . '</a>
-							</h3>
-					   </div>
-					</div>
-				</div>';
-			
-			
-        }
-    } else {
-        echo 'no more posts';
-    }
-
-    wp_reset_postdata();
-    wp_die();
-}
-add_action('wp_ajax_load_more_posts_new', 'load_more_posts_new');
-add_action('wp_ajax_nopriv_load_more_posts_new', 'load_more_posts_new');
-
-/* VDS: add areaServed to Organization schema (no physical address) */
-add_filter('wpseo_schema_organization', function($data){ $data['areaServed'] = array(array('@type'=>'Country','name'=>'Vietnam'), 'Worldwide'); return $data; });
