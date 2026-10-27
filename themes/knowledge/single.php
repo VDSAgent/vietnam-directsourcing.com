@@ -92,7 +92,6 @@ $title_page=get_field('title_page',get_the_ID ());
                   </li>
                 </ul>
               </div>
-              <?php comments_template(); ?> 
         	</div>
           <div class="container main-share-social summary">
             <?php

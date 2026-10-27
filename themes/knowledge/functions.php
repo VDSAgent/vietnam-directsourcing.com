@@ -11,6 +11,7 @@ require_once __DIR__ . '/inc/vds-page-copy.php';
 require_once __DIR__ . '/inc/vds-articles.php';
 require_once __DIR__ . '/inc/vds-podcast.php';
 require_once __DIR__ . '/inc/vds-redirects.php';
+require_once __DIR__ . '/inc/vds-comments.php';
 /*
  * Register three Knowledge Theme widget areas.
  *
@@ -443,94 +444,6 @@ function custom_social(){
   </div>
 </div>
 <?php
-}
-
-add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
-function mo_comment_fields_custom_order( $fields ) {
-    // The values WordPress's own comment_form() would use. Labels already end in '*',
-    // so the indicator stays empty.
-    $commenter          = wp_get_current_commenter();
-    $req                = (bool) get_option( 'require_name_email' );
-    $html5              = current_theme_supports( 'html5', 'comment-form' );
-    $required_indicator = '';
-    $required_attribute = ' required';
-    $consent            = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
-    $comment_field = sprintf(
-        '<div class="col-lg-12"><div class="comment-form-comment form-group mb-35">%s %s</div></div>',
-        sprintf(
-            '<label for="comment">%s%s</label>',
-            _x( 'Your Comment*', 'noun' ),
-            $required_indicator
-        ),
-        '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
-    );
-    $author_field = sprintf(
-        '<div class="col-lg-6 col-md-6"><div class="comment-form-author form-group mb-35">%s %s</div></div>',
-        sprintf(
-            '<label for="author">%s%s</label>',
-            __( 'Your Name*' ),
-            ( $req ? $required_indicator : '' )
-        ),
-        sprintf(
-            '<input id="author" name="author" type="text" value="%s" size="30" maxlength="245" autocomplete="name"%s />',
-            esc_attr( $commenter['comment_author'] ),
-            ( $req ? $required_attribute : '' )
-        )
-    );
-    $email_field = sprintf(
-        '<div class="col-lg-6 col-md-6"><div class="comment-form-email form-group mb-35">%s %s</div></div>',
-        sprintf(
-            '<label for="email">%s%s</label>',
-            __( 'Your Email*' ),
-            ( $req ? $required_indicator : '' )
-        ),
-        sprintf(
-            '<input id="email" name="email" %s value="%s" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email"%s />',
-            ( $html5 ? 'type="email"' : 'type="text"' ),
-            esc_attr( $commenter['comment_author_email'] ),
-            ( $req ? $required_attribute : '' )
-        )
-    );
-    $url_field = $fields['url'];
-    $cookies_field = sprintf(
-        '<div class="col-lg-12"><div class="comment-form-cookies-consent form-check">%s %s</div></div>',
-        sprintf(
-            '<input id="wp-comment-cookies-consent" class="form-check-input" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
-            $consent
-        ),
-        sprintf(
-            '<label class="form-check-label" for="wp-comment-cookies-consent">%s</label>',
-            __( 'Save my name, email, and website in this browser for the next time I comment.' )
-        )
-    );
-    unset( $fields['comment'] );
-    unset( $fields['author'] );
-    unset( $fields['email'] );
-    unset( $fields['url'] );
-    unset( $fields['cookies'] );
-    // the order of fields is the order below, change it as needed:
-    $fields['author'] = $author_field;
-    $fields['email'] = $email_field;
-    $fields['comment'] = $comment_field;
-    $fields['cookies'] = $cookies_field;
-    // done ordering, now return the fields:
-    return $fields;
-}
-
-add_action('comment_form_top', 'comment_form_top_custom');
-
-function comment_form_top_custom() {
-
-    echo '<div class="row">';
-
-}
-
-add_action('comment_form', 'comment_form_custom');
-
-function comment_form_custom() {
-
-    echo '</div>';
-
 }
 
 function categories_with_count_shortcode($atts) {

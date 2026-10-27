@@ -13,9 +13,7 @@ get_header();
 	                            <h1 class="h1 page-title mb-25"><?php echo get_the_title();?></h1>
                             <div class="blog-meta mb-25">
                                 <a href="javascript:void(0)" class="meta-links"><?php echo get_the_date('F j, Y'); ?></a>
-                                <a href="javascript:void(0)" class="meta-links"> - <?php echo do_shortcode('[post-views]'); ?> Views - </a>
-                                <?php $comments_number = get_comments_number(); ?>
-                                <a href="javascript:void(0)" class="meta-links"><?php echo $comments_number; ?> Comment</a>
+                                <a href="javascript:void(0)" class="meta-links"> - <?php echo do_shortcode('[post-views]'); ?> Views</a>
                             </div>
                         </div>
                     </div>
@@ -108,23 +106,6 @@ get_header();
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php 
-                            $comments_args = array(
-                                'class_container' => 'comment-form-area mb-30',
-                                'class_form' => 'contact-form-1 comment-form mt-40',
-                                'class_submit' => 'theme_btn border-0 mt-25',
-                                'label_submit' => __( 'Leave a comment', 'textdomain' ),
-                                'title_reply' => __( 'Leave a comment', 'textdomain' ),
-                                'comment_notes_before' => '',
-                                'title_reply_before' => '<h2 class="mb-15">',
-                                'title_reply_after' => '</h2><p>Your email address will not be published. Required fields are marked *</p>',
-                                'submit_button' => '<button name="%1$s" type="submit" id="%2$s" class="%3$s" />%4$s</button>',
-                                'submit_field' => '<div class="col-lg-12"><div class="form-submit">%1$s %2$s</div></div>',
-                            );
-                            if (comments_open() || get_comments_number()) :                               
-                                comment_form($comments_args);
-                            endif;
-                        ?>
 						
                     </div>
 					<div class="col-xl-2 col-lg-2"></div>
