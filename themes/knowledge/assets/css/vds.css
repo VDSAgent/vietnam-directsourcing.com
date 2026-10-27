@@ -1,0 +1,60 @@
+/*
+ * Vietnam Direct Sourcing: site styles.
+ *
+ * One stylesheet for everything VDS-specific (formerly spread over WPCode
+ * snippets, inline <style> blocks and the Customizer's Additional CSS).
+ * Loaded after the theme's own CSS (handle 'vds', see functions.php).
+ */
+
+/* ---------- Page copy on templates that print the page body (inc/vds-page-copy.php) ---------- */
+.vds-page-copy .vds-copy-body p{margin-bottom:22px}
+.vds-page-copy .vds-copy-body p:last-child{margin-bottom:0}
+.vds-page-copy .vds-copy-body h2{font-size:30px;line-height:34px;margin:50px 0 16px}
+.vds-page-copy .vds-copy-body h3{font-size:24px;line-height:28px;margin:38px 0 14px}
+.vds-page-copy .vds-copy-body h4{font-size:20px;line-height:26px;margin:32px 0 12px}
+.vds-page-copy .vds-copy-body>*:first-child{margin-top:0}
+.vds-page-copy .vds-copy-body ul,.vds-page-copy .vds-copy-body ol{margin:0 0 22px 20px}
+.vds-page-copy .vds-copy-body li{margin-bottom:8px}
+.vds-page-copy .vds-copy-body img{height:auto;border-radius:8px}
+@media(max-width:767px){.vds-page-copy .vds-copy-body h2{font-size:26px;line-height:30px;margin:36px 0 14px}}
+
+/* ---------- Company page (template-parts/company/) ---------- */
+.vds-company-hero{background:#fff;padding:70px 20px 0}
+.vds-company-hero__inner{text-align:center}
+.vds-company-hero__eyebrow{color:#e8693c;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.vds-company-hero h2{color:#1a2a4a;font-size:38px;font-weight:800;margin-bottom:16px}
+.vds-company-hero__lede{color:#666;max-width:620px;margin:0 auto;font-size:16px;line-height:1.8}
+.vds-regions{background:#fff}
+.vds-regions .vds-map{max-width:100%;margin:0 auto;display:block}
+.vds-regions .vds-map svg{width:100%;height:auto;border-radius:14px}
+.vds-regions .vds-lede{font-size:17px;line-height:30px;margin-bottom:34px}
+.vds-region{display:flex;gap:16px;padding:20px 0;border-top:1px solid rgba(22,36,61,.10)}
+.vds-region:last-child{border-bottom:1px solid rgba(22,36,61,.10)}
+.vds-region .swatch{flex:0 0 6px;border-radius:3px}
+.vds-region h3{font-size:22px;line-height:26px;margin:0 0 4px}
+.vds-region .place{font-size:14px;color:#16243D;opacity:.6;margin:0 0 6px}
+.vds-region p.desc{margin:0;font-size:15px;line-height:25px}
+@media(min-width:1200px){.vds-regions .container>.row>div:first-child{flex:0 0 42%;max-width:42%}.vds-regions .container>.row>div:last-child{flex:0 0 58%;max-width:58%}}
+.vds-team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 28px}
+@media(max-width:991px){.vds-team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:575px){.vds-team-grid{grid-template-columns:1fr}}
+.vds-member{background:transparent;border-radius:5px;overflow:hidden;box-shadow:none;transition:.5s}
+.vds-member:hover{background:#fff;box-shadow:0 0 26px rgba(215,212,212,.35);transform:translateY(-25px)}
+.vds-member .photo{aspect-ratio:1/1;background:#EAF0F6;display:flex;align-items:center;justify-content:center;position:relative}
+.vds-member .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.vds-member .body{padding:18px 20px 24px;text-align:center}
+.vds-member h3{font-size:22px;line-height:26px;margin:0 0 2px}
+.vds-member .role{font-size:14px;margin:0;color:#16243D;opacity:.7}
+.vds-member .pill{display:inline-block;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:12px;color:#16243D}
+.pill-north{background:#D0D3D8}
+.pill-central{background:#969CA8}
+.pill-south{background:#5B6675;color:#fff}
+.pill-all{background:#E3A23A}
+.sw-north{background:#D0D3D8}
+.sw-central{background:#969CA8}
+.sw-south{background:#5B6675}
+.vds-eco{background:#fff}
+.vds-eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 28px}
+@media(max-width:991px){.vds-eco-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:575px){.vds-eco-grid{grid-template-columns:repeat(2,1fr)}}
+.vds-member .vds-linkedin{display:inline-block;margin-top:8px;color:#0A66C2;line-height:0}
