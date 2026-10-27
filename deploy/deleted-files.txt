@@ -1,0 +1,16 @@
+admin/themes.php
+assets/mail.php
+case-tpl.php
+content.php
+core/class-tgm-plugin-activation.php
+core/footer-media.php
+core/plugins.php
+getaquote-tpl.php
+inc/override-parent.php
+inc/post-type.php
+inc/short-code-media.php
+inc/theme-functions.php
+single-case.php
+template-parts/content-single.php
+template-parts/content.php
+webbox/mains.php

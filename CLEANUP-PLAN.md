@@ -1,5 +1,7 @@
 # VDS theme cleanup: Phase 0 plan (no code changes yet)
 
+> **Status, 27 Oct 2026: done and superseded.** D1–D6 were settled under Rod's 27 Oct direction ("one clean code base", "execute as much as you can") rather than answered one by one: D1 delete (server too); D2 moved to the pre-deploy gate (`deploy/predeploy-check.php`); D3 core jQuery; D4 the preloader and the never-rendering carousel removed outright; D5 removed; D6 removed. The scope was then widened to one code base (CLAUDE.md §9). B3 is fixed in the theme (expired nonce no longer drops inquiries). What was done: `CLEANUP-REPORT.md`. How to deploy: `HANDOFF.md`. This plan is kept as the Phase 0 record.
+
 Branch `cleanup/themes-2026-10`. Baseline commit `e367117` (unmodified copy of the live theme, 27 Oct 2026).
 Everything below is measured against that commit. **Stop point: nothing in Phase 1 starts until Rod answers section 5.**
 

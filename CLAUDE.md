@@ -50,3 +50,6 @@ Pull request with `CLEANUP-REPORT.md`: every change with the reason and a risk r
 
 ## 8. Not your job
 Deploying, testing on the live site, WordPress plugins, the database snippets, content, SEO. After your PR, Rod's local session tests on a copy, runs the before/after regression snapshots and deploys. Proposals that would change markup (for example moving a snippet's logic into a template) go in the report as proposals only.
+
+## 9. Addendum, 27 Oct 2026: scope change (Rod)
+Rod widened the scope after Phase 0: "one clean code base, no 2 code bases and lots of patches". The 29 active WPCode snippets and the Additional CSS are now folded into the theme, and the brand review copy decisions are applied in theme files. Sections 2, 3 (markup must stay character-identical for the snippets) and 8 (proposals only) are superseded for this branch: the snippets are retired at go-live instead of being kept as fallbacks. `HANDOFF.md` is the deploy procedure, `CLEANUP-REPORT.md` the change list. For future work: VDS code goes in the theme (`inc/vds-*.php`, `assets/css/vds.css`, `assets/js/vds.js`), not in new snippets or Additional CSS. Never update the theme from ThemeForest.
