@@ -1,7 +1,4 @@
 <?php
-/* Plugin Activation */
-require_once dirname( __FILE__ ) . '/core/class-tgm-plugin-activation.php';
-require_once dirname( __FILE__ ) . '/core/plugins.php';
 /* Theme Options */
 require_once dirname( __FILE__ ) . '/core/options.php';
 require_once dirname( __FILE__ ) . '/core/shortcode.php';
