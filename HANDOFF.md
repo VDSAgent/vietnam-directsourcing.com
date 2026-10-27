@@ -214,7 +214,7 @@ The FAQ schema is generated from the repeater (`vds_schema_faq`), so #9 updates 
 ## 10. Rod's decisions, 28 Oct (all applied)
 
 - **Comments:** off (all spam). Done in the theme; §9 #13–14 tidy the database.
-- **Team roles:** Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" (`template-parts/company/team.php`).
+- **Team roles:** Thao "Central Sourcing Specialist", Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" (`template-parts/company/team.php`).
 - **Solutions labels** ("STEP 01", "TIER A" …): keep the current layout. No change.
 - **Homepage 17%:** leave as is.
 - **B3 measurement:** inquiries sent from a stale cached page arrive with "(sent from an older cached page)" in the subject. Count them for a month. If they're common, consider a shorter LiteSpeed TTL for `/global-sourcing-solutions/`.

@@ -8,7 +8,7 @@ $vds_team = array(
 	array( 'Rod', 'Sourcing Manager', 'all', 'Nationwide', '2026/09/vds_team_rod.png' ),
 	array( 'Minh', 'Technology Specialist', 'all', 'Nationwide', '2026/09/vds-team-minh.jpg' ),
 	array( 'Tho', 'Logistics Specialist', 'all', 'Nationwide', '2026/09/vds-team-tho.jpg' ),
-	array( 'Thao', 'Sourcing Specialist', 'central', 'Central', '2026/09/vds-team-hien.jpg' ),
+	array( 'Thao', 'Central Sourcing Specialist', 'central', 'Central', '2026/09/vds-team-hien.jpg' ),
 	array( 'Telly', 'North Sourcing Specialist', 'north', 'North', '2026/09/vds-team-telly.jpg' ),
 	array( 'Tam', 'North Sourcing Specialist', 'north', 'North', '2026/09/vds_team_tham.png' ),
 	array( 'Cassie', 'South Sourcing Specialist', 'south', 'South', '2026/09/vds-team-cassie.jpg' ),

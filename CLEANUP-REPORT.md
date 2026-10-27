@@ -70,7 +70,7 @@ Risk: **none** (verified here, no behaviour change a visitor can see) or **live 
 | `725f74b` | One byline on every article from the theme; AI-audio disclosure on episode pages; podcast page "Sourcing From Vietnam: The VDS Podcast / Short episodes on real sourcing questions, every Tuesday"; homepage stats boxes Mist with a Signal Gold rule |
 | `74c644e` | 404 page: "The page you a looking for" → "you are looking for" |
 | `dabf81b` | Comments off site-wide (Rod, 28 Oct: all spam): `inc/vds-comments.php` closes and hides them, removes the admin Comments screens; comment form and count removed from articles and episodes; `comments.php` and the comment-form customisation removed. Risk: none (articles lose the form and the "0 Comment" link) |
-| `eae6a53` | Team roles: Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" |
+| `eae6a53` | Team roles: Thao "Central Sourcing Specialist", Telly and Tam "North Sourcing Specialist", Cassie and Kim "South Sourcing Specialist" |
 
 ## 3. Where each snippet went (all 29 active snippets + Additional CSS)
 
