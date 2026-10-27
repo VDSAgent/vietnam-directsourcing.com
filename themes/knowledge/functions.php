@@ -4,8 +4,6 @@ require_once dirname( __FILE__ ) . '/core/options.php';
 require_once dirname( __FILE__ ) . '/core/shortcode.php';
 require_once dirname( __FILE__ ) . '/core/function_option.php';
 require_once dirname( __FILE__ ) . '/core/postype.php';
-//add_filter('show_admin_bar', '__return_false');
-add_filter( 'sewn/seo/add_keywords', '__return_true' );
 function ajaxurl(){
     ?>
     <script type="text/javascript">
@@ -196,67 +194,6 @@ function knowledgetheme_scripts() {
 
 }
 
-function case_feed_func($attr){  
-
-    $atts = shortcode_atts(array(
-        'post_type' => '',
-        'number_post' => ''
-    ), $attr);
-    
-    $post_type = (!empty($atts['post_type'])) ? $atts['post_type'] : 'case';
-    $number_post = (!empty($atts['number_post'])) ? $atts['number_post'] : 3;
-
-    $query = new WP_Query( array(
-        'post_type' => $post_type,
-        'posts_per_page' => $number_post,
-        'order'             => 'DESC', 
-        'orderby'           => 'date'
-    ) );
-
-    ob_start();
-
-    if ( $query->have_posts() ) :
-        echo '<div class="row">';
-        while ( $query->have_posts() ) : $query->the_post(); 
-        ?>
-        <div class="col-lg-4 col-md-6">
-           <div class="single-case mb-70">
-               <div class="single-case__thumb">
-                   <?php echo get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'w-100') ); ?>
-               </div>
-               <div class="single-case__content">
-                   <h3 class="case-title">
-                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
-                    </h3>
-                    <?php 
-                    $sub_title = get_field('sub_title'); 
-                    if ($sub_title) {
-                        echo '<p class="mb-25">' . esc_html($sub_title) . '</p>'; 
-                    }
-               
-                    $description = get_field('description'); 
-                    if ($description) {
-                        echo '<p>' . esc_html($description) . '</p>'; 
-                    }
-                    ?>
-                    <a class="plus-icon" href="<?php echo get_permalink(); ?>">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/add.svg" alt="">
-                    </a>
-               </div>
-           </div>
-        </div>    
-        <?php                           
-        endwhile;    
-        echo '</div>';                                       
-    endif;
-
-    wp_reset_postdata();
-    $myvariable = ob_get_clean();
-    return $myvariable;
-}
-
-add_shortcode('case_feed', 'case_feed_func');
-
 function team_carousel_func($attr){  
     $atts = shortcode_atts(array(
         'post_type' => 'team',
@@ -315,53 +252,6 @@ function team_carousel_func($attr){
     return $myvariable;
 }
 add_shortcode('team_carousel', 'team_carousel_func');
-
-function testimonial_carousel_func($attr){  
-    $atts = shortcode_atts(array(
-        'post_type' => 'testimonial', // Set the post type for testimonials
-        'number_post' => '' // Number of testimonials to display
-    ), $attr);
-    ob_start();  
-    $post_type = (!empty($atts['post_type'])) ? $atts['post_type'] : 'testimonial';
-    $number_post = (!empty($atts['number_post'])) ? $atts['number_post'] : 6;
-
-    $query = new WP_Query( array(
-        'post_type' => $post_type,
-        'posts_per_page' => $number_post,
-        'order' => 'DESC', 
-        'orderby' => 'date'
-    ) );
-
-    if ( $query->have_posts() ) :
-        echo '<div class="team-active owl-carousel">';
-        while ( $query->have_posts() ) : $query->the_post(); ?>
-            <div class="item">
-               <div class="testimonial-wrapper white-bg pos-rel">
-                   <div class="testimonial-thumb">
-                       <?php echo get_the_post_thumbnail(get_the_ID(), 'full', array('alt' => 'testimonial image') ); ?>
-                   </div>
-                   <div class="testimonial-content text-center">
-                       <p class="testimonial-text"><?php echo esc_html(get_the_content()); ?></p> <!-- Testimonial content -->
-                       <h4 class="testimonial-author"><?php the_title(); ?></h4> <!-- Testimonial author/title -->
-                       <?php 
-                           $position = get_field('position'); // Fetch position custom field for testimonial
-                           if ($position) {
-                               echo '<span class="testimonial-position">' . esc_html($position) . '</span>'; 
-                           }
-                       ?>  
-                   </div>
-               </div>
-            </div>   
-     <?php                           
-        endwhile;    
-        echo "</div>";                                       
-    endif;
-
-    wp_reset_postdata();
-    $myvariable = ob_get_clean();
-    return $myvariable;
-}
-add_shortcode('testimonial_carousel', 'testimonial_carousel_func');
 
 
 // Custom class for <li> elements
@@ -425,205 +315,6 @@ function abc_substr($str, $length, $minword = 3){
     return $sub . (($len < strlen($str)) ? '...' : '');
 }
 
-function shortcode_team_about() {
-  ob_start ();
-    $random_query = new WP_Query(array(
-      'post_type' => 'team',
-      'posts_per_page' => 3,
-      'post_status' => 'publish',
-      'order' => 'date'
-    ));
-    if ( $random_query->have_posts() ) :
-        echo '<ul class="team_about">';
-            while ( $random_query->have_posts() ) : $random_query->the_post();?>
-                <li class="team_about_detail">
-                    <div class="images-team-about">
-                        <a href="<?php the_permalink(); ?>">
-                        <?php if( has_post_thumbnail( get_the_ID() ) ) { ?>
-                            <?php echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                          }
-                        ?>
-                        </a>
-                    </div>
-                    <div class="title-team-about">
-                        <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
-                    </div>
-                </li>
-            <?php endwhile;
-        echo '</ul>';
-    endif;
-    $team_about = ob_get_contents();
-    ob_end_clean();
-    return $team_about;
-    die(1);
-}
-add_shortcode( 'shortcode_show_team_about', 'shortcode_team_about' );
-add_action( 'vc_before_init', 'team_about' );
-function team_about() {
-    vc_map( array(
-      "name" => __( "Team About Show", "starbeach" ),
-      "base" => "shortcode_show_team_about",
-      "class" => "",
-      "category" => __( "Content", "starbeach"),
-      "params" => array(
-                    ),
-     "description" => "Team About Show",
-    ));
-}
-/*
-function more_client_ajax(){
-    $key = $_POST["key"];
-    var_dump($key);?>
-      <script type="text/javascript">
-          $("ul.shortcode-client li").filter(function() {
-                    return $(this).children('ul.shortcode-client li a').eq(0).text().substring(0, 1).toLowerCase() != '<?php echo $key;?>';
-                }).hide();
-      </script>
-    <?php
-    $client_ajax = ob_get_contents();
-    ob_end_clean();
-    echo $client_ajax;
-    die();
-}
-add_action('wp_ajax_nopriv_more_client_ajax', 'more_client_ajax');
-add_action('wp_ajax_more_client_ajax', 'more_client_ajax');
-function shortcode_media_page() {
-    ob_start ();
-    $random_query = new WP_Query(array(
-            'post_type' =>'services',
-            'posts_per_page' => -1,
-            'orderby' => date
-    ));
-    if ( $random_query->have_posts() ) :
-          echo '<div class="class-width-large">';
-                 while ( $random_query->have_posts() ) :
-                    $random_query->the_post();?>
-                        <div class="col-md-4 col-sm-4 col-xs-12 services-box">
-                            <div class="custom-hover-services">
-                              <a class="images_shortcode_services" href="<?php the_permalink(); ?>">
-                                  <?php if( has_post_thumbnail( get_the_ID() ) ) { ?>
-                                  <?php echo get_the_post_thumbnail( get_the_ID(), 'detail' ); ?>
-                              <?php }
-                                else{?>
-                                  <img src="<?php echo get_site_url();?>/wp-content/uploads/2016/04/book.jpg" class="attachment-detail size-detail wp-post-image" alt="img">
-                                <?php }
-                              ?>
-                              </a>
-                                <div class="text_title">
-                                    <a href="<?php the_permalink(); ?>" class="title_services"><?php echo get_the_title();?></a>
-                                </div>
-                            </div>
-                        </div>
-            <?php endwhile;
-          echo "</div>";
-          echo '<div class="class-width-small botder-bottom-services">';
-            echo '<hr>';
-          echo '</div>';
-    endif;
-   $services = ob_get_contents();
-   ob_end_clean();
-   return $services;
-   die(1);
-}
-add_shortcode( 'shortcode_show_services', 'shortcode_media_page' );
-add_action( 'vc_before_init', 'services' );
-function services() {
-    vc_map( array(
-      "name" => __( "Media Services Show", "starbeach" ),
-      "base" => "shortcode_show_services",
-      "class" => "",
-      "category" => __( "Content", "starbeach"),
-      "params" => array(
-                    ),
-     "description" => "Media Services Show",
-    ));
-}
-function more_book_reviews_ajax(){
-    $offset = $_POST["offset"];
-    $number_post=$_POST["number_post"];
-    $ppp = $_POST["ppp"];
-    $args = array(
-        'post_type' => 'bookreviews',
-        'post_status' => 'publish',
-        'posts_per_page' => $ppp,
-        'offset' => $offset
-    );
-    $loop = new WP_Query($args);
-    ob_start ();
-    if ($loop -> have_posts()) : 
-    while ($loop -> have_posts()) : $loop -> the_post();
-    ?>
-        <li class="colum-full-blogs">
-            <div class="img-holder col-md-6 col-sm-6 col-xs-12">
-              <a href="<?php echo get_permalink();?>" class="images_shortcode_services">
-                <?php if( has_post_thumbnail( get_the_ID() ) ) { ?>                          
-                      <?php //echo get_the_post_thumbnail( get_the_ID(), 'detail' );
-                      $image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                      $image_path = wp_upload_dir();                    
-                      $img_name = basename($image_src[0]);                   
-                      $file = ABSPATH.'wp-content/uploads/book_review/'.$img_name ;
-                      if(!file_exists ( $file )){
-                        $image_url = wp_get_image_editor( $image_path['path'].'/'.$img_name  );
-                        //var_dump($image_path['path']);                                      
-                        if ( ! is_wp_error( $image_url ) ) {
-                          $image_url->resize( 460, 320, true );                       
-                          $image_url->save( $file );
-                          $img_cl = home_url()."/wp-content/uploads/book_review/". $img_name;                       
-                        }
-                        else 
-                        {
-                          $img_cl = home_url()."/wp-content/uploads/book_review/". $img_name;;
-                        }
-                      }
-                      else
-                      {
-                        $img_cl = home_url()."/wp-content/uploads/book_review/". $img_name;
-                      }
-                       ?>                          
-                       <img width="460" height="320" src="<?php echo $img_cl;?>" class="attachment-detail size-detail wp-post-image" alt="img">
-                    <?php }
-                  else{?>
-                    <img width="399" height="277" src="<?php echo get_site_url();?>/wp-content/uploads/2016/04/images1.png" class="attachment-detail size-detail wp-post-image" alt="img">
-                  <?php }
-                ?>
-              </a>
-            </div>
-            <div class="news-holder col-xs-12 col-sm-6 col-md-6">
-                <h2>
-                  <a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a>
-                  <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>"><?php echo get_the_date(); ?></time>
-                </h2>
-                <p><?php //$texts=get_the_excerpt();
-                    echo abc_substr(get_the_excerpt(),250);
-                ?></p>
-                <a class="more" href="<?php the_permalink(); ?>"><?php _e( 'Read more', 'bishopstrow' ); ?></a>
-            </div>
-        </li>
-    <?php
-    endwhile;
-    endif;
-    $total_post_current=$offset+$ppp;
-        if($total_post_current >=$number_post){?>
-            <script type="text/javascript">
-                jQuery("#book_review").hide();
-            </script>
-        <?php
-        }else{
-            ?>
-            <script type="text/javascript">
-                jQuery("#book_review").show();
-            </script>
-            <?php
-        }
-       wp_reset_postdata();
-       $response4 = ob_get_contents();
-       ob_end_clean();
-       echo $response4;
-       die();
-}
-add_action('wp_ajax_nopriv_more_book_reviews_ajax', 'more_book_reviews_ajax');
-add_action('wp_ajax_more_book_reviews_ajax', 'more_book_reviews_ajax');
-*/
 function custom_breadcrumbs(){
   /* === OPTIONS === */
   $text['home']     = 'Home'; // text for the 'Home' link
@@ -751,17 +442,6 @@ function custom_social(){
 <?php
 }
 
-add_filter( 'gform_submit_button', 'add_custom_css_classes', 10, 2 );
-function add_custom_css_classes( $button, $form ) {
-    $dom = new DOMDocument();
-    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
-    $input = $dom->getElementsByTagName( 'input' )->item(0);
-    $classes = $input->getAttribute( 'class' );
-    $classes .= " theme_btn rounded-1";
-    $input->setAttribute( 'class', $classes );
-    return $dom->saveHtml( $input );
-}
-
 add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 function mo_comment_fields_custom_order( $fields ) {
     $comment_field = sprintf(
@@ -825,14 +505,6 @@ function mo_comment_fields_custom_order( $fields ) {
     // done ordering, now return the fields:
     return $fields;
 }
-
-// add_filter( 'comment_form_logged_in', 'mo_comment_form_custom_logged_in', 10, 3 );
-
-// function mo_comment_form_custom_logged_in( $args_logged_in, $commenter, $user_identity ) {
-
-//     return $args_logged_in;
-
-// }
 
 add_action('comment_form_top', 'comment_form_top_custom');
 
@@ -991,55 +663,6 @@ function load_more_posts_new() {
 }
 add_action('wp_ajax_load_more_posts_new', 'load_more_posts_new');
 add_action('wp_ajax_nopriv_load_more_posts_new', 'load_more_posts_new');
-
-// Fix broken search form in header nav
-function fix_nav_search_form() {
-    ?>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var searchArea = document.querySelector('.search-area');
-        if (searchArea) {
-            var inputGroup = searchArea.querySelector('.input-group');
-            if (inputGroup && !inputGroup.querySelector('input[name="s"]')) {
-                var searchInput = inputGroup.querySelector('input[type="text"]');
-                var searchIcon = inputGroup.querySelector('img');
-                var iconSrc = searchIcon ? searchIcon.src : '';
-                
-                var form = document.createElement('form');
-                form.setAttribute('role', 'search');
-                form.setAttribute('method', 'get');
-                form.setAttribute('action', '<?php echo esc_url(home_url("/")); ?>');
-                form.className = 'input-group';
-                form.style.cssText = 'flex-wrap:nowrap;';
-                
-                var input = document.createElement('input');
-                input.type = 'search';
-                input.name = 's';
-                input.placeholder = 'Search here.....';
-                input.style.cssText = 'flex:1;border:1px solid #ddd;padding:6px 12px;border-radius:4px 0 0 4px;outline:none;font-size:14px;';
-                
-                var btn = document.createElement('button');
-                btn.type = 'submit';
-                btn.className = 'input-group-text';
-                btn.style.cssText = 'background:transparent;border:1px solid #ddd;border-left:none;padding:6px 12px;cursor:pointer;border-radius:0 4px 4px 0;';
-                if (iconSrc) {
-                    var img = document.createElement('img');
-                    img.src = iconSrc;
-                    img.alt = 'search';
-                    img.style.cssText = 'width:16px;height:16px;';
-                    btn.appendChild(img);
-                }
-                
-                form.appendChild(input);
-                form.appendChild(btn);
-                inputGroup.parentNode.replaceChild(form, inputGroup);
-            }
-        }
-    });
-    </script>
-    <?php
-}
-add_action('wp_footer', 'fix_nav_search_form');
 
 /* VDS: add areaServed to Organization schema (no physical address) */
 add_filter('wpseo_schema_organization', function($data){ $data['areaServed'] = array(array('@type'=>'Country','name'=>'Vietnam'), 'Worldwide'); return $data; });

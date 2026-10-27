@@ -34,25 +34,6 @@ get_header();
             </div><!--/.container-->
         </section>
         <!--copic-team end-->
-        <!--testiomonial-area start-->
-        <section class="grey-bg-soft2 testimonial-area position-relative pt-120 pb-155 pt-lg-80 pt-md-60 pb-md-135 pt-xs-60 pb-xs-135">
-            <img class="test-shape tshape-1 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-2.svg" alt="">
-            <img class="test-shape tshape-2 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-4.svg" alt="">
-            <img class="test-shape tshape-3 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="">
-            <img class="test-shape tshape-4 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
-            <div class="container nav-style-1">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="section-title text-center mb-80">
-                            <h6 class="mb-30">TESTIMONIALS</h6>
-                            <h2>What Our <span class="bg-shape">Clients Say</span></h2>
-                        </div>
-                    </div>
-                </div>
-         		<?php echo do_shortcode('[testimonial_carousel]'); ?>
-            </div><!--/.container-->
-        </section>
-        <!--testiomonial-area end-->
         <!--shipping-discount start-->
         <section class="shipping-discount position-relative fix pt-160 pb-120 pt-lg-115 pb-lg-50 pt-md-60 pb-md-50 pt-xs-60 pb-xs-50">
             <img class="shipping-shape sshape-1 d-none d-md-inline-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="">

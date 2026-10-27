@@ -18,8 +18,6 @@ $title_brand = get_field('title_brand');
 $description_brand = get_field('description_brand');
 $list_item_brand = get_field('list_item_brand');
 
-$sub_title_testinomial = get_field('sub_title_testinomial');
-$title_testinomial = get_field('title_testinomial');
 
 $title_team = get_field('title_team');
 $description_team = get_field('description_team');
@@ -179,29 +177,6 @@ $description_award_r = get_sub_field('description_award');
 </section>
 <?php } ?>
 <!--onestop-mangement end-->
-<!--testiomonial-area start-->
-<?php
-$hide_testimonials = get_field('hide_testimonials');
-if(empty( $hide_testimonials ) || $hide_testimonials[0] !=='yes') { ?>
-<section class="grey-bg-soft2 testiomonial-area position-relative pt-120 pb-155 pt-lg-80 pt-md-60 pb-md-135 pt-xs-60 pb-xs-135">
-<img class="test-shape tshape-1 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/eclip-2.svg" alt="">
-<img class="test-shape tshape-2 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/line/line-4.svg" alt="">
-<img class="test-shape tshape-3 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/box-2.svg" alt="">
-<img class="test-shape tshape-4 d-none d-md-block" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/orange-1.svg" alt="">
-<div class="container nav-style-1">
-<div class="row justify-content-center">
-<div class="col-lg-6">
-<div class="section-title text-center mb-80">
-<h6 class="mb-30"><?php echo $sub_title_testinomial; ?></h6>
-<?php echo $title_testinomial; ?>
-</div>
-</div>
-</div>
-<?php echo do_shortcode('[testimonial_carousel]'); ?>
-</div><!--/.container-->
-</section>
-<?php } ?>
-<!--testiomonial-area end-->
 <!--left-right-content start-->
 <?php
 $hide_team = get_field('hide_team');

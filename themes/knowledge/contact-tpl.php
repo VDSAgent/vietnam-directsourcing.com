@@ -49,37 +49,11 @@ get_header();
                     <div class="col-md-12">
                         <div class="contact-info">
                            <div class="info-box  pr-lg-0 pr-md-0 pr-xs-0">
-                               <!-- <h5 class="fw-medium fs-20 mb-3 text-uppercase">Contact us</h5>
-                               <p class="mb-35">1763 Pancaster Court boarbazar, NY 12601</p>
-                               <h5 class="fw-medium fs-20 text-uppercase">Want to say hello?</h5>
-                               <p><a href="mail-to:inussk@gmail.com">inussk@gmail.com</a></p>
-                               <p  class="mb-35"><a href="#">+88 01682648101</a></p>
-                               <p>Client work with us</p>
-                               <h3 class="contact-title fw-medium mb-4">Over <span class="theme-color">5,000+</span>  Client all over the world.</h3> -->
                                <?php echo get_field("description_infor_left"); ?>
-                               <!-- <img src="<?php //echo get_stylesheet_directory_uri(); ?>/assets/img/contact/current-loc-1.svg" alt="Current Loc"> -->
                            </div>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12" style="margin-top: -30px">
-<!--                         <?php 
-                        $bg_form = get_field('ctf_form');
-                        if( !$bg_form) {
-                            $bg_form = get_stylesheet_directory_uri().'/assets/img/contact/map-bg-1.png';
-                        }
-                        ?>
-
-                        <div class="contact-wrapper" data-bg-src="<?php echo $bg_form ?>">
-                            <div class="contact-wrapper-inner pl-25 pr-35 mb-30 pr-xs-0 pl-xs-0">
-                            <div class="section-title text-md-start mb-80">
-                                <h6 class="mb-30">Contact us</h6>
-                                <h2>Lets Create Something Great Together!</h2>
-
-                                <?php echo get_field("description_infor_right"); ?>
-                            </div>
-                            <?php echo do_shortcode('[gravityform id="2" title="false" ajax="true"]');?>
-                        </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -131,42 +105,6 @@ get_header();
                                     }
                                 ?>
 
-                                <!-- <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                       Are you Global?
-                                    </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                         <p>There is no license fee or monthly subscriptions for signing up or access. Optimise charges transaction fees and commission on shipments. For carriers, access is 100% free of charge.</p>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Can you provide after hours and weekends emergency?
-                                    </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>There is no license fee or monthly subscriptions for signing up or access. Optimise charges transaction fees and commission on shipments. For carriers, access is 100% free of charge.</p>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        What if we have a new customer in Tanzania?
-                                    </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>There is no license fee or monthly subscriptions for signing up or access. Optimise charges transaction fees and commission on shipments. For carriers, access is 100% free of charge.</p>
-                                    </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
