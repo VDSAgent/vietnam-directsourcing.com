@@ -1,0 +1,1512 @@
+{
+ "companies": [
+  {
+   "account_fiscal_country_id": [
+    241,
+    "Vietnam"
+   ],
+   "country_id": [
+    241,
+    "Vietnam"
+   ],
+   "currency_id": [
+    1,
+    "USD"
+   ],
+   "email": "contact@vietnam-directsourcing.com",
+   "id": 1,
+   "name": "Vietnam Direct Sourcing",
+   "portal_confirmation_pay": false,
+   "portal_confirmation_sign": true,
+   "prepayment_percent": 1.0,
+   "vat": false,
+   "website": "https://vietnam-directsourcing.com"
+  }
+ ],
+ "config_parameters": [
+  {
+   "id": 14,
+   "key": "auth_signup.invitation_scope",
+   "value": "b2b"
+  },
+  {
+   "id": 15,
+   "key": "auth_signup.reset_password",
+   "value": "True"
+  }
+ ],
+ "currencies_active": [
+  "USD",
+  "CAD",
+  "AUD",
+  "VND",
+  "GBP"
+ ],
+ "delivery_methods": [
+  {
+   "company_id": false,
+   "country_ids": [],
+   "delivery_type": "fixed",
+   "id": 1,
+   "is_published": true,
+   "name": "Standard delivery",
+   "website_id": false
+  }
+ ],
+ "ecommerce_categories": [],
+ "fields_not_in_this_version": {},
+ "fiscal_positions": [],
+ "modules_installed": [
+  "account",
+  "account_accountant",
+  "account_asset",
+  "account_bank_statement_extract",
+  "account_bank_statement_import",
+  "account_bank_statement_import_camt",
+  "account_bank_statement_import_csv",
+  "account_bank_statement_import_ofx",
+  "account_base_import",
+  "account_edi_ubl_cii",
+  "account_extract",
+  "account_fiscal_categories",
+  "account_followup",
+  "account_invoice_extract",
+  "account_invoice_extract_purchase",
+  "account_loans",
+  "account_loans_extract",
+  "account_online_synchronization",
+  "account_payment",
+  "account_payment_custom",
+  "account_qr_code_emv",
+  "account_qr_code_sepa",
+  "account_reports",
+  "accountant",
+  "accountant_knowledge",
+  "ai",
+  "ai_account",
+  "ai_app",
+  "ai_auto_install",
+  "ai_calendar",
+  "ai_crm",
+  "ai_crm_livechat",
+  "ai_documents",
+  "ai_documents_account",
+  "ai_documents_source",
+  "ai_fields",
+  "ai_helpdesk",
+  "ai_html_builder",
+  "ai_knowledge",
+  "ai_livechat",
+  "ai_mass_mailing",
+  "ai_mcp",
+  "ai_product",
+  "ai_project",
+  "ai_purchase",
+  "ai_sale",
+  "ai_sale_stock",
+  "ai_server_actions",
+  "ai_social",
+  "ai_stock",
+  "ai_website",
+  "ai_website_appointment_livechat",
+  "ai_website_appointment_sale",
+  "ai_website_livechat",
+  "ai_website_sale",
+  "ai_website_sale_livechat",
+  "analytic",
+  "analytic_enterprise",
+  "api_doc",
+  "appointment",
+  "appointment_account_payment",
+  "appointment_crm",
+  "appointment_google_calendar",
+  "appointment_hr",
+  "appointment_sms",
+  "attachment_indexation",
+  "auth_passkey",
+  "auth_passkey_portal",
+  "auth_signup",
+  "auth_totp",
+  "auth_totp_mail",
+  "auth_totp_portal",
+  "barcodes",
+  "barcodes_gs1_nomenclature",
+  "base",
+  "base_automation",
+  "base_automation_hr",
+  "base_geolocalize",
+  "base_import",
+  "base_import_module",
+  "base_install_request",
+  "base_report_wkhtmltox",
+  "base_setup",
+  "bus",
+  "calendar",
+  "calendar_sms",
+  "certificate",
+  "contacts",
+  "contacts_enterprise",
+  "crm",
+  "crm_enterprise",
+  "crm_helpdesk",
+  "crm_iap_enrich",
+  "crm_iap_mine",
+  "crm_livechat",
+  "crm_mail_plugin",
+  "crm_sale_project",
+  "crm_sms",
+  "currency_rate_live",
+  "data_cleaning",
+  "data_merge_crm",
+  "data_merge_helpdesk",
+  "data_merge_product",
+  "data_merge_project",
+  "data_merge_stock_account",
+  "data_merge_utm",
+  "data_recycle",
+  "delivery",
+  "digest",
+  "digest_enterprise",
+  "documents",
+  "documents_account",
+  "documents_hr",
+  "documents_hr_sign",
+  "documents_hr_skills",
+  "documents_product",
+  "documents_project",
+  "documents_project_sale",
+  "documents_project_sign",
+  "documents_sign",
+  "documents_spreadsheet",
+  "documents_spreadsheet_sign",
+  "documents_spreadsheet_survey",
+  "gamification",
+  "gamification_sale_crm",
+  "google_account",
+  "google_calendar",
+  "google_gmail",
+  "google_recaptcha",
+  "helpdesk",
+  "helpdesk_mail_plugin",
+  "helpdesk_planning_field_service",
+  "helpdesk_sale",
+  "helpdesk_sms",
+  "hr",
+  "hr_calendar",
+  "hr_calendar_google",
+  "hr_gamification",
+  "hr_gantt",
+  "hr_livechat",
+  "hr_mobile",
+  "hr_sign",
+  "hr_skills",
+  "hr_skills_survey",
+  "hr_timesheet",
+  "html_builder",
+  "html_editor",
+  "http_routing",
+  "iap",
+  "iap_crm",
+  "iap_extract",
+  "iap_mail",
+  "im_livechat",
+  "knowledge",
+  "l10n_vn",
+  "l10n_vn_reports",
+  "link_tracker",
+  "mail",
+  "mail_bot",
+  "mail_bot_hr",
+  "mail_enterprise",
+  "mail_mobile",
+  "mail_plugin",
+  "marketing_automation",
+  "marketing_automation_crm",
+  "marketing_automation_website_sale",
+  "mass_mailing",
+  "mass_mailing_crm",
+  "mass_mailing_sale",
+  "mass_mailing_themes",
+  "microsoft_outlook",
+  "mrp",
+  "mrp_account",
+  "mrp_account_enterprise",
+  "mrp_accountant",
+  "mrp_workorder",
+  "mrp_workorder_hr_account",
+  "onboarding",
+  "partner_autocomplete",
+  "payment",
+  "payment_custom",
+  "phone_validation",
+  "planning",
+  "planning_field_service",
+  "planning_field_service_sale_stock",
+  "planning_field_service_sale_timesheet",
+  "planning_field_service_sms",
+  "planning_field_service_stock",
+  "planning_hr_skills",
+  "portal",
+  "portal_rating",
+  "privacy_lookup",
+  "product",
+  "product_barcodelookup",
+  "project",
+  "project_account",
+  "project_account_asset",
+  "project_enterprise",
+  "project_enterprise_hr",
+  "project_enterprise_hr_skills",
+  "project_enterprise_hr_todo",
+  "project_helpdesk",
+  "project_hr_skills",
+  "project_mail_plugin",
+  "project_mrp",
+  "project_mrp_account",
+  "project_mrp_sale",
+  "project_mrp_workorder_account",
+  "project_purchase",
+  "project_purchase_stock",
+  "project_sms",
+  "project_stock",
+  "project_stock_account",
+  "project_todo",
+  "purchase",
+  "purchase_accountant",
+  "purchase_edi_ubl_bis3",
+  "purchase_mrp",
+  "purchase_mrp_workorder_quality",
+  "purchase_stock",
+  "quality",
+  "quality_control",
+  "quality_mrp",
+  "quality_mrp_workorder",
+  "rating",
+  "resource",
+  "resource_mail",
+  "rpc",
+  "saas_ai",
+  "saas_base_import",
+  "saas_dashboard_activities",
+  "saas_geolocalize",
+  "saas_google_account",
+  "saas_helpdesk",
+  "saas_product_barcodelookup",
+  "saas_trial",
+  "saas_unsplash",
+  "saas_website",
+  "saas_website_generator",
+  "saas_website_onboarding",
+  "sale",
+  "sale_account_accountant",
+  "sale_crm",
+  "sale_edi_ubl",
+  "sale_enterprise",
+  "sale_management",
+  "sale_mrp",
+  "sale_pdf_quote_builder",
+  "sale_planning",
+  "sale_project",
+  "sale_project_enterprise",
+  "sale_project_stock",
+  "sale_project_stock_account",
+  "sale_purchase",
+  "sale_purchase_project",
+  "sale_purchase_stock",
+  "sale_service",
+  "sale_sms",
+  "sale_stock",
+  "sale_timesheet",
+  "sale_timesheet_enterprise",
+  "sales_team",
+  "sign",
+  "sign_ai",
+  "sms",
+  "snailmail",
+  "snailmail_account",
+  "snailmail_account_followup",
+  "social",
+  "social_crm",
+  "social_facebook",
+  "social_instagram",
+  "social_linkedin",
+  "social_media",
+  "social_push_notifications",
+  "social_sale",
+  "social_twitter",
+  "social_youtube",
+  "spreadsheet",
+  "spreadsheet_account",
+  "spreadsheet_dashboard",
+  "spreadsheet_dashboard_account",
+  "spreadsheet_dashboard_account_accountant",
+  "spreadsheet_dashboard_crm",
+  "spreadsheet_dashboard_documents",
+  "spreadsheet_dashboard_edition",
+  "spreadsheet_dashboard_helpdesk",
+  "spreadsheet_dashboard_hr_timesheet",
+  "spreadsheet_dashboard_im_livechat",
+  "spreadsheet_dashboard_marketing_automation",
+  "spreadsheet_dashboard_mrp_account",
+  "spreadsheet_dashboard_purchase_stock",
+  "spreadsheet_dashboard_sale",
+  "spreadsheet_dashboard_sale_timesheet",
+  "spreadsheet_dashboard_sale_timesheet_enterprise",
+  "spreadsheet_dashboard_stock",
+  "spreadsheet_dashboard_stock_account",
+  "spreadsheet_dashboard_website_sale",
+  "spreadsheet_edition",
+  "spreadsheet_edition_account",
+  "spreadsheet_sale_management",
+  "stock",
+  "stock_account",
+  "stock_accountant",
+  "stock_enterprise",
+  "stock_sms",
+  "survey",
+  "survey_crm",
+  "timer",
+  "timesheet_grid",
+  "timesheet_grid_calendar",
+  "uom",
+  "utm",
+  "web",
+  "web_cohort",
+  "web_enterprise",
+  "web_gantt",
+  "web_grid",
+  "web_hierarchy",
+  "web_map",
+  "web_mobile",
+  "web_tour",
+  "web_unsplash",
+  "website",
+  "website_appointment",
+  "website_appointment_account_payment",
+  "website_appointment_crm",
+  "website_appointment_sale",
+  "website_appointment_sale_project",
+  "website_crm",
+  "website_crm_livechat",
+  "website_crm_sms",
+  "website_documents",
+  "website_enterprise",
+  "website_generator",
+  "website_generator_sale",
+  "website_helpdesk",
+  "website_helpdesk_knowledge",
+  "website_helpdesk_livechat",
+  "website_knowledge",
+  "website_links",
+  "website_livechat",
+  "website_mail",
+  "website_mass_mailing",
+  "website_partner",
+  "website_payment",
+  "website_planning_field_service",
+  "website_product_barcodelookup",
+  "website_project",
+  "website_sale",
+  "website_sale_dashboard",
+  "website_sale_mass_mailing",
+  "website_sms",
+  "website_timesheet"
+ ],
+ "payment_providers": [
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 1,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Adyen",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 2,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Amazon Payment Services",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 3,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Asiapay",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 4,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Authorize.net",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 5,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Buckaroo",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 6,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Demo",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 7,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "DPO Pay",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 8,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "ECPay",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 9,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Flutterwave",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 10,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Iyzico",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 11,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Mercado Pago",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 12,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Mollie",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 13,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Nuvei",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "custom",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": "pay_on_invoice",
+   "id": 14,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "installed",
+   "name": "Pay on Invoice",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 15,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Paymob",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 16,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "PayPal",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 17,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "PayU",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 18,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Razorpay",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 19,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Redsys",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 20,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "SEPA Direct Debit",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 21,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Stripe",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 22,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Toss Payments",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "custom",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": "wire_transfer",
+   "id": 23,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "installed",
+   "name": "Wire Transfer",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 24,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Worldline",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "none",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": false,
+   "id": 25,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "uninstalled",
+   "name": "Xendit",
+   "website_id": false
+  },
+  {
+   "active": true,
+   "available_country_ids": [],
+   "available_currency_ids": [],
+   "available_pricelist_ids": [],
+   "code": "custom",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "custom_mode": "cash_on_delivery",
+   "id": 26,
+   "is_live": false,
+   "is_published": false,
+   "maximum_amount": 0.0,
+   "minimum_amount": 0.0,
+   "module_state": "installed",
+   "name": "Cash on Delivery",
+   "website_id": false
+  }
+ ],
+ "payment_terms": [
+  "Immediate Payment",
+  "15 Days",
+  "21 Days",
+  "30 Days",
+  "45 Days",
+  "End of Following Month",
+  "10 Days after End of Next Month",
+  "30% Now, Balance 60 Days",
+  "2/7 Net 30",
+  "90 days, on the 10th",
+  "VDS \u2014 50% Deposit / 50% on Delivery",
+  "VDS \u2014 100% in Advance (Monthly Retainer)",
+  "VDS \u2014 100% on Acceptance"
+ ],
+ "pricelists": [
+  {
+   "active": true,
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "country_group_ids": [],
+   "currency_id": [
+    1,
+    "USD"
+   ],
+   "id": 1,
+   "name": "Default (USD)",
+   "selectable": false,
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "active": true,
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "country_group_ids": [],
+   "currency_id": [
+    1,
+    "USD"
+   ],
+   "id": 2,
+   "name": "VDS Rate Card (USD)",
+   "selectable": false,
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  }
+ ],
+ "products": {
+  "published_on_all_websites": 0,
+  "templates_total": 14,
+  "website 1 (Vietnam Direct Sourcing)": 0
+ },
+ "redirects": [],
+ "relevant_modules_state": {
+  "account": "installed",
+  "ai_mcp": "installed",
+  "appointment": "installed",
+  "auth_signup": "installed",
+  "crm": "installed",
+  "delivery": "installed",
+  "delivery_starshipit": "uninstalled",
+  "payment": "installed",
+  "payment_custom": "installed",
+  "payment_stripe": "uninstalled",
+  "portal": "installed",
+  "purchase": "installed",
+  "sale": "installed",
+  "sale_management": "installed",
+  "stock": "installed",
+  "stock_dropshipping": "uninstalled",
+  "web_studio": "uninstalled",
+  "website": "installed",
+  "website_appointment": "installed",
+  "website_crm": "installed",
+  "website_sale": "installed",
+  "website_sale_stock": "uninstalled"
+ },
+ "routes": [
+  {
+   "active": true,
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "id": 2,
+   "name": "Vietnam Direct Sourcing: Receive in 1 step (stock)",
+   "product_selectable": false,
+   "sale_selectable": false
+  },
+  {
+   "active": true,
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "id": 3,
+   "name": "Vietnam Direct Sourcing: Deliver in 1 step (ship)",
+   "product_selectable": false,
+   "sale_selectable": false
+  },
+  {
+   "active": true,
+   "company_id": false,
+   "id": 4,
+   "name": "Manufacture",
+   "product_selectable": false,
+   "sale_selectable": false
+  },
+  {
+   "active": true,
+   "company_id": false,
+   "id": 6,
+   "name": "Buy",
+   "product_selectable": false,
+   "sale_selectable": false
+  }
+ ],
+ "sales_teams": [
+  {
+   "alias_name": false,
+   "company_id": false,
+   "id": 1,
+   "name": "VDS Sourcing",
+   "website_ids": []
+  },
+  {
+   "alias_name": false,
+   "company_id": false,
+   "id": 2,
+   "name": "Website",
+   "website_ids": [
+    1
+   ]
+  }
+ ],
+ "server_version": {
+  "version": "saas~19.4+e",
+  "version_info": [
+   "saas~19",
+   4,
+   0,
+   "final",
+   0,
+   "e"
+  ]
+ },
+ "taxes": {
+  "count_by_country_and_use": {
+   "Vietnam": {
+    "none": 9,
+    "purchase": 16,
+    "sale": 6
+   }
+  },
+  "sale_taxes": [
+   {
+    "active": true,
+    "amount": 10.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 30,
+    "name": "10%",
+    "type_tax_use": "sale"
+   },
+   {
+    "active": true,
+    "amount": 8.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 31,
+    "name": "8%",
+    "type_tax_use": "sale"
+   },
+   {
+    "active": true,
+    "amount": 5.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 32,
+    "name": "5%",
+    "type_tax_use": "sale"
+   },
+   {
+    "active": true,
+    "amount": 0.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 33,
+    "name": "0%",
+    "type_tax_use": "sale"
+   },
+   {
+    "active": true,
+    "amount": 0.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 34,
+    "name": "VAT EXEMPTION",
+    "type_tax_use": "sale"
+   },
+   {
+    "active": true,
+    "amount": 0.0,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "country_id": [
+     241,
+     "Vietnam"
+    ],
+    "id": 35,
+    "name": "KKKTT",
+    "type_tax_use": "sale"
+   }
+  ]
+ },
+ "uom_cartons": [],
+ "warehouses": [
+  {
+   "code": "WH",
+   "company_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "delivery_steps": "ship_only",
+   "id": 1,
+   "name": "Vietnam Direct Sourcing",
+   "partner_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ],
+   "reception_steps": "one_step"
+  }
+ ],
+ "website_menus": [
+  {
+   "id": 1,
+   "name": "Default Main Menu",
+   "parent_id": false,
+   "sequence": 0,
+   "url": "#",
+   "website_id": false
+  },
+  {
+   "id": 2,
+   "name": "Home",
+   "parent_id": [
+    1,
+    "Default Main Menu"
+   ],
+   "sequence": 10,
+   "url": "/",
+   "website_id": false
+  },
+  {
+   "id": 3,
+   "name": "Top Menu for Website 1",
+   "parent_id": false,
+   "sequence": 0,
+   "url": "#",
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Home",
+   "parent_id": [
+    3,
+    "Top Menu for Website 1"
+   ],
+   "sequence": 0,
+   "url": "/",
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Book a call",
+   "parent_id": [
+    3,
+    "Top Menu for Website 1"
+   ],
+   "sequence": 1,
+   "url": "/appointment",
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Appointment",
+   "parent_id": [
+    1,
+    "Default Main Menu"
+   ],
+   "sequence": 55,
+   "url": "/appointment",
+   "website_id": false
+  },
+  {
+   "id": 8,
+   "name": "Service Requests",
+   "parent_id": [
+    3,
+    "Top Menu for Website 1"
+   ],
+   "sequence": 2,
+   "url": "/service-requests",
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Service Requests",
+   "parent_id": [
+    1,
+    "Default Main Menu"
+   ],
+   "sequence": 60,
+   "url": "/service-requests",
+   "website_id": false
+  },
+  {
+   "id": 11,
+   "name": "Shop",
+   "parent_id": [
+    1,
+    "Default Main Menu"
+   ],
+   "sequence": 20,
+   "url": "/shop",
+   "website_id": false
+  },
+  {
+   "id": 12,
+   "name": "Client Portal",
+   "parent_id": [
+    3,
+    "Top Menu for Website 1"
+   ],
+   "sequence": 3,
+   "url": "/my",
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  }
+ ],
+ "website_pages": [
+  {
+   "id": 1,
+   "is_published": true,
+   "name": "Thanks (Contact us)",
+   "url": "/contactus-thank-you",
+   "view_id": [
+    3159,
+    "Thanks (Contact us)"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 2,
+   "is_published": true,
+   "name": "Home",
+   "url": "/",
+   "view_id": [
+    3157,
+    "Home"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 3,
+   "is_published": false,
+   "name": "Contact Us",
+   "url": "/contactus",
+   "view_id": [
+    3158,
+    "Contact Us"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 4,
+   "is_published": true,
+   "name": "Privacy Policy",
+   "url": "/privacy",
+   "view_id": [
+    3164,
+    "Privacy Policy"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 5,
+   "is_published": false,
+   "name": "Home",
+   "url": "/",
+   "view_id": [
+    3846,
+    "Home"
+   ],
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 6,
+   "is_published": true,
+   "name": "Ticket Received",
+   "url": "/your-ticket-has-been-submitted",
+   "view_id": [
+    3861,
+    "Ticket Received"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 7,
+   "is_published": true,
+   "name": "Task Submitted",
+   "url": "/your-task-has-been-submitted",
+   "view_id": [
+    3881,
+    "Task Submitted"
+   ],
+   "website_id": false
+  },
+  {
+   "id": 8,
+   "is_published": true,
+   "name": "RFI Thank You",
+   "url": "/rfi-thank-you",
+   "view_id": [
+    4393,
+    "RFI Thank You"
+   ],
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  },
+  {
+   "id": 9,
+   "is_published": true,
+   "name": "Sourcing Requirements",
+   "url": "/quote",
+   "view_id": [
+    4394,
+    "Sourcing Requirements"
+   ],
+   "website_id": [
+    1,
+    "Vietnam Direct Sourcing"
+   ]
+  }
+ ],
+ "websites": {
+  "setting_fields_in_this_version": [
+   "account_on_checkout",
+   "auth_signup_uninvited",
+   "cart_abandoned_delay",
+   "cart_recovery_mail_template_id",
+   "contact_us_link_url",
+   "ecommerce_access",
+   "prevent_sale",
+   "prevent_sale_for",
+   "prevent_sale_for_categories",
+   "pricelist_ids",
+   "send_abandoned_cart_email",
+   "send_abandoned_cart_email_activation_time",
+   "shop_default_sort",
+   "shop_extra_field_ids",
+   "shop_gap",
+   "shop_opt_products_design_classes",
+   "shop_page_container",
+   "shop_ppg",
+   "shop_ppr",
+   "specific_user_account"
+  ],
+  "websites": [
+   {
+    "account_on_checkout": "optional",
+    "auth_signup_uninvited": "b2c",
+    "cart_abandoned_delay": 10.0,
+    "cart_recovery_mail_template_id": false,
+    "company_id": [
+     1,
+     "Vietnam Direct Sourcing"
+    ],
+    "contact_us_link_url": "/contactus",
+    "default_lang_id": [
+     1,
+     "English (US)"
+    ],
+    "domain": false,
+    "ecommerce_access": "everyone",
+    "homepage_url": false,
+    "id": 1,
+    "language_ids": [
+     1,
+     91
+    ],
+    "menus": 5,
+    "name": "Vietnam Direct Sourcing",
+    "pages": 3,
+    "prevent_sale": false,
+    "prevent_sale_for": "zero_price",
+    "prevent_sale_for_categories": [],
+    "pricelist_ids": [
+     2,
+     1
+    ],
+    "redirects": 0,
+    "send_abandoned_cart_email": false,
+    "send_abandoned_cart_email_activation_time": false,
+    "shop_default_sort": "website_sequence asc",
+    "shop_extra_field_ids": [],
+    "shop_gap": "16px",
+    "shop_opt_products_design_classes": "o_wsale_products_opt_layout_catalog o_wsale_products_opt_design_thumbs o_wsale_products_opt_name_color_regular o_wsale_products_opt_rounded_2 o_wsale_products_opt_thumb_cover o_wsale_products_opt_img_secondary_show o_wsale_products_opt_img_hover_zoom_out_light o_wsale_products_opt_has_cta o_wsale_products_opt_actions_onhover o_wsale_products_opt_has_wishlist o_wsale_products_opt_wishlist_fixed o_wsale_products_opt_has_description o_wsale_products_opt_actions_subtle o_wsale_products_opt_cc1",
+    "shop_page_container": "regular",
+    "shop_ppg": 21,
+    "shop_ppr": 3,
+    "specific_user_account": false,
+    "theme_id": false
+   }
+  ]
+ }
+}

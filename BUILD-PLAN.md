@@ -21,7 +21,7 @@ The brand doesn't exist yet. Build the whole structure now with placeholders (`[
 3. **Inventory before and after.**
    - Run `scripts/odoo_probe.py` at the start and end of every phase and keep the JSON in `probes/` (it reads configuration only, no customer data).
    - The diff must show only what the phase intended.
-4. **The existing website (book.vietnam-directsourcing.com) must not change.** Its theme, menus, pages, appointments, CRM pipelines and the enquiries@ flow stay exactly as they are; the probe diff proves it. Installing eCommerce adds things to every website, and §2.1 lists them. In particular, keep:
+4. **The existing website (book.vietnam-directsourcing.com) must not change.** Its theme, menus, pages, appointments, CRM pipelines and the enquiries@ flow stay exactly as they are; the probe diff proves it. eCommerce is already installed in this database (since 23 Sep 2026), so its additions to every website are already there; §2.1 lists what to do about them. In particular, keep:
    - the `/quote` form (view 4394) working: its `<form>` needs the class `s_website_form` and the button `s_website_form_send`, or it submits nothing
    - `/rfi-thank-you` (view 4393), the booking (appointment) pages and the website logo
    - the header as it is (Home, Book a call, Client Portal; no "Contact Us" button, no shop or cart) and the footer (view 4410)
@@ -73,10 +73,10 @@ Conventions:
 ### 2.1 Website, domain, and protecting the booking site
 - Create website 2 "[BRAND] Trade" (Website → Configuration → Websites) with company Vietnam Direct Sourcing LLC, language English (AU), and its own theme (select website 2 first, then pick the theme).
 - Domain: CNAME `shop` → `<database>.odoo.com` at the DNS host (Hostinger), then add the domain in odoo.com/my/databases → Domain names (SSL is automatic), and set it on website 2. Only in Phase 6, with Rod.
-- **Installing eCommerce affects every website.** On website 1 (booking site), after the install:
-  - remove the "Shop" menu item if one was added
-  - hide the cart and wishlist icons in its header (Edit → Theme/Customize on website 1 only)
-  - add 301 redirects `/shop` → `/` and `/shop/cart` → `/` scoped to website 1 (Website → Configuration → Redirects)
+- **eCommerce is already installed (`website_sale`, 23 Sep 2026), so website 1 already serves the shop routes.** Phase 0 on the copy (28 Oct): `/shop` and `/shop/cart` return 200 and `/shop` is in website 1's sitemap; the cart and wishlist icons are in its header HTML but hidden while the cart is empty; the template menu has a "Shop" item but website 1's own menu does not. On website 1 (booking site), in Phase 1:
+  - keep the cart and wishlist icons hidden (they are, while the cart is empty; `scripts/website1_guard.py` checks it)
+  - add 301 redirects `/shop` → `/`, `/shop/cart` → `/` and `/shop/wishlist` → `/` scoped to website 1 (Website → Configuration → Redirects)
+  - run the guard again: `/shop` should leave website 1's sitemap; if it stays, hide it another way (a 404-type redirect or a robots rule) and log it
 - Every shop product, eCommerce category and page has **website = website 2**. A product without a website shows on all websites.
 
 ### 2.2 Who sees what
@@ -85,15 +85,14 @@ Conventions:
 | Public (not logged in) | Catalogue, product pages, specs, MOQ, lead time; **no prices** | Apply for a trade account; send a trade enquiry |
 | Approved trade account (portal user) | Their pricelist (AUD or USD) | Order Ready-stock products online; request Factory-direct quotes; see orders, invoices, re-order in My Account |
 
-How to hide prices:
-- Prefer a native "hide prices from public users" setting if this Odoo version has one (check in Phase 0).
-- Otherwise use the standard pattern:
-  - the website's default pricelist for public visitors gives every product a price of 0
-  - website setting **Prevent sale of zero-priced products** is on (shows a "Contact us" button instead of Add to cart), pointing to the Trade enquiries page
-  - trade pricelists are assigned per customer
-- Verify in the page source that public product pages carry no price (or `0`) in their structured data.
+How to hide prices (Phase 0 result for saas~19.4: there is no "hide prices from public users" switch; the native mechanism is the zero-price one):
+- The website's default pricelist for public visitors gives every product a price of 0; trade pricelists are assigned per customer.
+- Website setting **Hide Add To Cart** (`website.prevent_sale`) is on with **Prevent Sale For = 0 price products** (`prevent_sale_for = zero_price`). The shop grid then hides the price and shows a "Contact us" button instead of Add to cart. On the product page the price block is switched by `combination_info['hide_price']` (class `d-none`; the figure `0.00` is still in the HTML). The button goes to the website setting `contact_us_link_url` (website 1: `/contactus`, unpublished): on website 2 point it at the Trade enquiries page.
+- The other mode, "Specific categories", is exclusive with "0 price products" on one website, so the two cannot be combined.
+- Do not use **Ecommerce Access = Logged in users**: by its name and the header templates that read it, it limits the shop to signed-in users, which would remove the public catalogue. Not tested in Phase 0 because switching it is a change; test it on the copy if it is ever considered.
+- Verify on a sample product page that the page source carries no real price and what the structured data contains (it is generated in code, not in a view, so it can only be checked on a rendered page).
 
-Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login.
+Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login. Phase 0 note: website 1 currently allows free sign-up (`/web/signup` serves a form) and customer accounts are shared across websites (`specific_user_account` is off), so a self-registered account on website 1 would also work on website 2. Set website 2 to "On invitation" and settle the website 1 question first (§5 #11).
 
 ### 2.3 Trade account flow (uses the existing CRM)
 1. **Apply.** "Apply for a trade account" page: a website form that creates a CRM lead in a new sales team **"Wholesale – [BRAND]"**. It is separate from the VDS sourcing pipeline and from enquiries@.
@@ -111,7 +110,7 @@ Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login.
   - **Ready stock (ships from Australia):** ribbon "Ready stock"; customer lead time 2–5 business days; Add to cart.
   - **Factory direct (indent):** ribbon "Factory direct"; MOQ and lead time shown; **no card checkout** (see §2.7).
 - **eCommerce categories** (website 2): placeholders by range; real ones once the range is known.
-- **Sales unit:** sell in cartons. Create units of measure such as "Carton of 12" (category Unit, bigger than the reference, ratio 12), so quantities can only be whole cartons. Show units per carton, MOQ, carton size and weight, origin "Vietnam" and HS code in the product's specification section.
+- **Sales unit:** sell in cartons. In saas~19.4 units have no category: create a unit "Carton of 12" with **Reference Unit** (`relative_uom_id`) = Units and **Contains** (`relative_factor`) = 12 and set it as the product's unit (`uom_id`), so quantities are whole cartons. Packaging units are listed in the product's `uom_ids`; there is no separate purchase unit (`uom_po_id`). Show units per carton, MOQ, carton size and weight, origin "Vietnam" and HS code in the product's specification section. This version has no `hs_code` or `country_of_origin` field on any model: create custom fields (§5 #12) or keep them in the specification text.
 - **Factory and cost:** each product's vendor line (Purchase tab) holds the factory, factory price in USD, minimum quantity and lead time. This drives purchase orders.
 - Product data comes from `data/product-import-template.csv`; the column → field mapping is in §6.
 
@@ -124,16 +123,17 @@ Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login.
 
 - **Currencies:** activate AUD and USD.
 - **Visibility:** trade pricelists are shared by all brand websites (not tied to a website, §2.0) and not selectable by visitors; the customer's assigned pricelist applies when they log in. Each website's default pricelist is its public "prices hidden" one.
-- **Website 1:** confirm its pricelists and appointment prices are unchanged.
+- **Check in Phase 2:** which pricelist a logged-out visitor of website 2 receives when the trade pricelists carry no website. If it is not the public "prices hidden" one, give that one the lowest sequence or tie the trade pricelists to the website (test #1 catches it).
+- **Website 1:** confirm its pricelists and appointment prices are unchanged. On the copy it has `Default (USD)` and `VDS Rate Card (USD)`, neither selectable.
 
 ### 2.6 Fulfilment
 - **Ready stock:**
   - a warehouse "AU – [3PL name]" (code `AU3P`) with the 3PL's address
   - stock comes in by purchase orders to the factory (receipts to the AU warehouse)
   - orders ship from it
-  - the 3PL integration (Starshipit connector, email or CSV, or an API) is decided when the 3PL is chosen; until then, delivery orders are processed manually
+  - the 3PL integration (Starshipit connector, email or CSV, or an API) is decided when the 3PL is chosen (`delivery_starshipit` is available, not installed); until then, delivery orders are processed manually
 - **Factory direct (indent):**
-  - enable Dropshipping; route "Dropship" on Factory-direct products (vendor = factory)
+  - enable Dropshipping (installs the module `stock_dropshipping`, available but not installed: needs Rod's go); route "Dropship" on Factory-direct products (vendor = factory). Routes today: Receive in 1 step, Deliver in 1 step, Manufacture, Buy
   - a confirmed order creates a request for quotation (RFQ) to the factory, delivered to the customer's address; staff confirm it
   - the Incoterm (FOB Vietnam port vs CIF/DDP Australia) is on the order and invoice: Rod to decide (§5)
 - **Lead times** come from product customer lead time (`sale_delay`) and vendor lead time.
@@ -145,12 +145,12 @@ Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login.
 | Ready stock, bank transfer | "Bank transfer / on account" (Odoo's Wire Transfer provider). Order waits as a pending quotation; staff confirm on receipt of funds, or immediately for accounts with credit terms (invoice carries their payment terms). Bank details: AUD and USD accounts (Rod to supply) |
 | Factory direct | No card checkout. The product's button leads to a **request a quote** (cart submitted as a quote request or the Trade enquiries form). Staff confirm MOQ, lead time, freight and Incoterm, then send an Odoo quotation with an **online prepayment** (suggested 30% deposit, balance before shipment). The buyer pays the deposit by card or transfer from the quotation link |
 
-Phase 0 decides the mechanism that stops Factory-direct items being paid in full by card. In order of preference:
-1. a native per-product or per-category setting, if this version has one
-2. zero price in the trade pricelists plus the website-wide "Contact us" button pointing to the Trade enquiries page (indicative price and MOQ in the product text)
-3. a Stripe maximum amount, with staff review
+Mechanism for stopping Factory-direct items being paid in full by card (Phase 0 result for saas~19.4):
+1. The native per-category setting (Prevent Sale For = Specific categories) exists but is exclusive with the "0 price products" mode that §2.2 needs, so it cannot be used on website 2.
+2. **Chosen:** Factory-direct products get price 0 in the trade pricelists, so the same Hide Add To Cart setting keeps them on "Contact us" for everyone, logged in or not (indicative price and MOQ in the product text). To be proved on the copy in Phase 3.
+3. Fallback: a payment provider's `maximum_amount` (providers can also be limited by `minimum_amount` and `available_pricelist_ids`), with staff review.
 
-Pick the simplest that works on the copy and record why.
+Also native in this version: online prepayment on quotations (`prepayment_percent` on the company, the quotation template and the order, with `require_payment`), which is what the 30% deposit in the Factory-direct row uses. A payment provider's mode is `is_published` and `is_live` (there is no `state` field). The custom-provider module is installed (Wire Transfer, Pay on Invoice and Cash on Delivery are listed; none published); Stripe's module is not installed (an install: Rod's go).
 
 Payment terms to create: "Pre-payment", "14 days", "30 days end of month", and "30% deposit, 70% before shipment".
 
@@ -161,7 +161,7 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
   - Does VDS LLC need an ABN and GST registration (turnover threshold), and who is importer of record for 3PL stock?
   - If registered: Odoo's foreign-VAT fiscal position (Accounting → Fiscal positions → Foreign tax ID, country Australia) loads Australian GST 10% for this company. Prices to trade buyers are shown excluding GST.
 - **NZ buyers:** exports from Australia (zero-rated); NZ GST at the NZ border.
-- **Phase 0:** report the company's country, fiscal localisation and existing taxes before anything is created.
+- **Phase 0 result:** the company is in Vietnam (fiscal country Vietnam, chart `l10n_vn`, company currency USD, no tax ID on the record). The only taxes are 6 Vietnamese sales taxes and 16 purchase taxes, and there are no fiscal positions. Fiscal positions have a Foreign Tax ID field (`foreign_vat`), but the Australian and New Zealand localisation modules (`l10n_au`, `l10n_nz`) are not installed. Whether creating a foreign-VAT position installs `l10n_au` by itself is untested (it would be a module install: Rod's go, and only after the accountant's answer, §5 #5).
 
 ### 2.9 Shipping
 - **Ready stock:**
@@ -198,8 +198,8 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 
 | Phase | Work | Output for Rod |
 |---|---|---|
-| **0. Probe and feature check** | Rod makes the temporary test copy (rule 1). Run the probe on the copy (it mirrors production as of the copy date). Report: Odoo version; company country and localisation; installed apps (already installed on 28 Oct: Sales, Inventory, Purchase, Manufacturing, Website, Accounting, CRM, Appointments, Studio; eCommerce is the main one missing); existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** | Short report + updated plan |
-| **1. Foundations (copy)** | With Rod's go, install eCommerce (`website_sale`) and enable Dropshipping in Inventory settings (Sales, Inventory and Purchase are already installed); Stripe and Wire Transfer providers stay disabled. Create website 2 (no theme yet). Protect website 1 (§2.1, rule 4). Currencies, units of measure, eCommerce categories (placeholders), sales team "Wholesale – [BRAND]" | Probe diff showing website 1 unchanged; website 2 skeleton |
+| **0. Probe and feature check** | Rod makes the temporary test copy (rule 1). Run the probe on the copy (it mirrors production as of the copy date). Report: Odoo version; company country and localisation; installed apps (checked 28 Oct: Sales, Inventory, Purchase, Manufacturing, Website, Accounting, CRM, Appointments and eCommerce are installed; Studio is not); existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** **Done 28 Oct 2026: `PHASE-0-REPORT.md`.** | Short report + updated plan |
+| **1. Foundations (copy)** | With Rod's go, enable Dropshipping in Inventory settings (installs `stock_dropshipping`; eCommerce, Sales, Inventory and Purchase are already installed); Stripe and Wire Transfer providers stay disabled. Create website 2 (no theme yet). Protect website 1 (§2.1, rule 4). Currencies, units of measure, eCommerce categories (placeholders), sales team "Wholesale – [BRAND]" | Probe diff showing website 1 unchanged; website 2 skeleton |
 | **2. Access and pricing (copy)** | Pricelists, hidden public prices, sign-up on invitation, checkout requires login, trade application form → CRM, approval checklist, email templates | Test: public sees no prices; a test trade account sees AUD prices; another sees USD |
 | **3. Fulfilment, payments, taxes (copy)** | AU warehouse, Dropship route, payment terms, Stripe (test keys) and bank transfer, the indent quote mechanism, shipping methods, fiscal positions as far as the accountant has confirmed | Test orders (§4) |
 | **4. Design and content (copy)** | Theme shortlist → Rod picks; theme options; header/footer; all pages with placeholders; 3 placeholder products per channel | Screenshots desktop + mobile |
@@ -235,6 +235,9 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 | 8 | Freight: zone rates vs quoted, especially pallets | Phase 3 |
 | 9 | Documents show Vietnam Direct Sourcing LLC for every brand (one company), with a "trading name of" line per brand. The VDS site promises sourcing clients independence and no supplier commission, so keep the brand sites visibly separate from VDS's sourcing service. If a brand ever becomes its own registered company, it is added as a second company in the same database (Odoo multi-company), still one database | Before go-live |
 | 10 | Terms of Trade and Privacy Policy written or checked by a lawyer (Australian Consumer Law, Privacy Act) | Before go-live |
+| 11 | Website 1 allows free sign-up today (Phase 0). Switch it to "On invitation"? Also: are trade accounts shared across brand websites or separate per site (§2.0)? Website 1 is the live booking site, so this is Rod's call; check production first | Before Phase 2 |
+| 12 | `hs_code` and `country_of_origin` do not exist in this version: add custom fields through the API, or keep both in the specification text | Phase 1 |
+| 13 | Module installs the plan will ask for, each needing Rod's go: `stock_dropshipping` (Phase 1), `payment_stripe` (Phase 3), `delivery_starshipit` (when the 3PL is chosen), `l10n_au` / `l10n_nz` (only if the foreign-VAT set-up needs them) | As listed |
 
 ## 6. Product data: CSV columns → Odoo
 
@@ -244,19 +247,19 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 |---|---|
 | sku | `product.template.default_code` |
 | name | `name` |
-| channel | ribbon (Ready stock / Factory direct), route (none / Dropship), eCommerce category |
+| channel | ribbon (`website_ribbon_id`: Ready stock / Factory direct), route (`route_ids`: none / Dropship), eCommerce category |
 | ecommerce_category | `public_categ_ids` (website 2 categories) |
-| short_description | sales/eCommerce description field of this version |
-| full_description | website description (product page body) |
-| sales_unit, units_per_carton | `uom_id` and `uom_po_id` = the "Carton of N" unit |
+| short_description | `description_sale` (Sales Description) or `description_ecommerce` (eCommerce Description): confirm which one the shop card and the product page print, on a sample product in Phase 4 |
+| full_description | `website_description` (Description for the website); confirm in Phase 4 together with the row above |
+| sales_unit, units_per_carton | `uom_id` = the "Carton of N" unit (`uom.uom` with `relative_uom_id` and `relative_factor`); there is no `uom_po_id` in this version |
 | moq_cartons | shown in specs; enforced by staff on indent quotes |
 | carton_weight_kg, carton_volume_m3 | `weight`, `volume` (per sales unit = per carton) |
-| hs_code, country_of_origin | `hs_code`, `country_of_origin` (if present in this version) |
+| hs_code, country_of_origin | not present in this version: custom fields (§5 #12) or specification text |
 | factory, factory_price_usd, factory_moq, factory_lead_days | `seller_ids` (`product.supplierinfo`: partner, price, currency USD, `min_qty`, `delay`) |
 | customer_lead_days | `sale_delay` |
-| trade_price_aud, trade_price_usd | `product.pricelist.item` fixed prices in Trade AUD and Trade USD |
+| trade_price_aud, trade_price_usd | `product.pricelist.item` fixed prices in Trade AUD and Trade USD (`applied_on` = `1_product`, `compute_price` = `fixed`, `fixed_price`, `min_quantity`); 0 for Factory-direct items (§2.7) |
 | barcode | `barcode` |
 | image_files | `image_1920` (first) + extra product images |
 | compliance_notes | internal note (not published) |
 
-All products: `website_id` = website 2; `is_published` = false until Rod approves.
+All products: `website_id` = website 2; `is_published` = false until Rod approves. Ready-stock products are Product Type Goods (`consu`) with Track Inventory (`is_storable`) on.

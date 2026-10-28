@@ -28,7 +28,7 @@ RELEVANT_MODULES = {
     'delivery_starshipit', 'account', 'payment', 'payment_stripe', 'payment_custom',
     'crm', 'appointment', 'auth_signup', 'portal', 'web_studio', 'ai_mcp',
 }
-WEBSITE_SETTING_PATTERN = re.compile(r'price|pricelist|checkout|signup|ecommerce|cart|shop|zero|contact_us|b2b|account', re.I)
+WEBSITE_SETTING_PATTERN = re.compile(r'price|pricelist|checkout|signup|ecommerce|cart|shop|zero|prevent|contact_us|b2b|account', re.I)
 
 
 class OdooError(Exception):
@@ -64,6 +64,7 @@ def main():
         return http(f'/json/2/{model}/{method}', kwargs)
 
     field_cache = {}
+    missing = {}  # model -> requested fields this version does not have (dropped from the rows)
 
     def fields_of(model):
         if model not in field_cache:
@@ -72,6 +73,7 @@ def main():
 
     def read(model, domain, wanted, order='id'):
         have = fields_of(model)
+        missing.setdefault(model, set()).update(f for f in wanted if f not in have)
         return call(model, 'search_read', domain=domain, fields=[f for f in wanted if f in have], order=order)
 
     def first_model(*names):
@@ -100,7 +102,8 @@ def main():
     section('relevant_modules_state', lambda: {
         m['name']: m['state'] for m in read('ir.module.module', [('name', 'in', sorted(RELEVANT_MODULES))], ['name', 'state'])})
     section('companies', lambda: read('res.company', [], [
-        'name', 'currency_id', 'country_id', 'account_fiscal_country_id', 'vat', 'email', 'website']))
+        'name', 'currency_id', 'country_id', 'account_fiscal_country_id', 'vat', 'email', 'website',
+        'prepayment_percent', 'portal_confirmation_pay', 'portal_confirmation_sign']))
     section('currencies_active', lambda: [c['name'] for c in read('res.currency', [('active', '=', True)], ['name'])])
 
     def websites():
@@ -121,11 +124,13 @@ def main():
 
     section('pricelists', lambda: read('product.pricelist', [('active', 'in', [True, False])], [
         'name', 'active', 'currency_id', 'company_id', 'website_id', 'selectable', 'country_group_ids']))
-    section('payment_providers', lambda: read(first_model('payment.provider', 'payment.acquirer'), [], [
-        'name', 'code', 'state', 'company_id', 'website_id', 'maximum_amount', 'available_currency_ids',
-        'available_country_ids', 'custom_mode']))
+    section('payment_providers', lambda: read(first_model('payment.provider', 'payment.acquirer'), [('active', 'in', [True, False])], [
+        'name', 'code', 'module_state', 'active', 'is_published', 'is_live', 'company_id', 'website_id',
+        'minimum_amount', 'maximum_amount', 'available_currency_ids', 'available_country_ids',
+        'available_pricelist_ids', 'custom_mode']))
     section('payment_terms', lambda: [t['name'] for t in read('account.payment.term', [], ['name'])])
-    section('warehouses', lambda: read('stock.warehouse', [], ['name', 'code', 'company_id', 'partner_id']))
+    section('warehouses', lambda: read('stock.warehouse', [], [
+        'name', 'code', 'company_id', 'partner_id', 'reception_steps', 'delivery_steps']))
     section('routes', lambda: read(first_model('stock.route', 'stock.location.route'), [], [
         'name', 'active', 'product_selectable', 'sale_selectable', 'company_id']))
     section('delivery_methods', lambda: read('delivery.carrier', [], [
@@ -159,8 +164,10 @@ def main():
     section('products', products)
     section('ecommerce_categories', lambda: read('product.public.category', [], ['name', 'parent_id', 'website_id']))
     section('uom_cartons', lambda: read('uom.uom', [('name', 'ilike', 'carton')], [
-        'name', 'category_id', 'uom_type', 'factor_inv', 'relative_factor']))
+        'name', 'active', 'relative_uom_id', 'relative_factor', 'factor', 'package_type_id']))
     section('config_parameters', lambda: read('ir.config_parameter', [('key', 'like', 'auth_signup.%')], ['key', 'value']))
+
+    out['fields_not_in_this_version'] = {m: sorted(f) for m, f in sorted(missing.items()) if f}
 
     json.dump(out, sys.stdout, indent=1, sort_keys=True, default=str)
     sys.stdout.write('\n')

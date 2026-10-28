@@ -1,0 +1,814 @@
+{
+ "checks": [
+  {
+   "detail": "",
+   "informational": false,
+   "name": "/quote loads (200)",
+   "ok": true
+  },
+  {
+   "detail": "view source",
+   "informational": false,
+   "name": "/quote form tag has class s_website_form",
+   "ok": true
+  },
+  {
+   "detail": "view source",
+   "informational": false,
+   "name": "/quote submit button has class s_website_form_send",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "/quote served page has the s_website_form form and its send button",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "/rfi-thank-you loads (200)",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "booking page /appointment/1 loads (200)",
+   "ok": true
+  },
+  {
+   "detail": "72893 bytes",
+   "informational": false,
+   "name": "website logo is served",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "no page is served as a logged-in user",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "no \"Contact Us\" in any public page header",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "no tel: links on public pages",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "no phone-like numbers in public page text",
+   "ok": true
+  },
+  {
+   "detail": " -> #;  -> /; 0 -> /shop/cart; 0 -> /shop/wishlist; Book a call -> /appointment; Client Portal -> /my; English (US) -> /appointment; Sign in -> /web/login; Ti\u1ebfng Vi\u1ec7t -> /vi/appointment",
+   "informational": true,
+   "name": "header links (public view of /appointment)",
+   "ok": true
+  },
+  {
+   "detail": "status 200, final 200 /shop",
+   "informational": true,
+   "name": "/shop on website 1 is hidden or redirected",
+   "ok": false
+  },
+  {
+   "detail": "/shop",
+   "informational": true,
+   "name": "no shop URLs in the website 1 sitemap",
+   "ok": false
+  },
+  {
+   "detail": "",
+   "informational": false,
+   "name": "cart and wishlist icons are hidden in the header (empty cart)",
+   "ok": true
+  },
+  {
+   "detail": "status 200, final 200 /web/signup",
+   "informational": true,
+   "name": "free sign-up form is NOT offered at /web/signup",
+   "ok": false
+  }
+ ],
+ "logo": {
+  "bytes": 72893,
+  "content_type": "image/png",
+  "sha256": "d966f853b54dd09570347588e9c9f95d6fd5213db30e06e9de0e580749aa2515",
+  "status": 200
+ },
+ "pages": {
+  "/": {
+   "final_path": "/appointment",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/appointment",
+     "class": "o_searchbar_form s_searchbar_input flex-grow-1",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /appointment",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/appointment"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": "/appointment",
+   "status": 303,
+   "tel_links": 0,
+   "title": "Appointment Types Selection | Vietnam Direct Sourcing"
+  },
+  "/appointment": {
+   "final_path": "/appointment",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/appointment",
+     "class": "o_searchbar_form s_searchbar_input flex-grow-1",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /appointment",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/appointment"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Appointment Types Selection | Vietnam Direct Sourcing"
+  },
+  "/appointment/1": {
+   "final_path": "/appointment/1",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "",
+     "class": "form o_appointment_appointment_info_form",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /appointment/1",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/appointment/1"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Discovery Call \u2014 Vietnam Sourcing | Vietnam Direct Sourcing"
+  },
+  "/contactus": {
+   "final_path": "",
+   "final_status": 404,
+   "redirects_to": null,
+   "status": 404
+  },
+  "/helpdesk/customer-care-1": {
+   "final_path": "/helpdesk/customer-care-1",
+   "final_status": 200,
+   "form_field_names": [
+    "Attachment",
+    "description",
+    "name",
+    "partner_company_name",
+    "partner_email",
+    "partner_name",
+    "partner_phone",
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/form/",
+     "class": "o_mark_required",
+     "send_button_class": "btn btn-primary btn-lg s_website_form_send"
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /helpdesk/customer-care-1",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/helpdesk/cham-soc-khach-hang-1"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Submit a Ticket | Vietnam Direct Sourcing"
+  },
+  "/my": {
+   "final_path": "/web/login",
+   "final_status": 200,
+   "form_field_names": [
+    "login",
+    "password",
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/web/login",
+     "class": "oe_login_form d-none",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /en/web/login?redirect=%2Fmy%3F",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/web/login?redirect=%2Fmy%3F"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": "/web/login",
+   "status": 303,
+   "tel_links": 0,
+   "title": "Login | Vietnam Direct Sourcing"
+  },
+  "/privacy": {
+   "final_path": "/privacy",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /privacy",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/privacy"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Privacy Policy | Vietnam Direct Sourcing"
+  },
+  "/quote": {
+   "final_path": "/quote",
+   "final_status": 200,
+   "form_field_names": [
+    "contact_name",
+    "description",
+    "email_from",
+    "name",
+    "partner_name",
+    "search",
+    "x_annual_import",
+    "x_category",
+    "x_certifications",
+    "x_company_website",
+    "x_destination_market",
+    "x_hs_code",
+    "x_initial_qty",
+    "x_product_status",
+    "x_repeat_volume",
+    "x_role",
+    "x_target_delivery"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/form/",
+     "class": "s_website_form o_mark_required",
+     "send_button_class": "btn s_website_form_send"
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /quote",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/quote"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Sourcing Requirements | Vietnam Direct Sourcing"
+  },
+  "/rfi-thank-you": {
+   "final_path": "/rfi-thank-you",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /rfi-thank-you",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/rfi-thank-you"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "RFI Thank You | Vietnam Direct Sourcing"
+  },
+  "/service-requests": {
+   "final_path": "",
+   "final_status": 404,
+   "redirects_to": null,
+   "status": 404
+  },
+  "/shop": {
+   "final_path": "/shop",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/shop",
+     "class": "o_searchbar_form s_searchbar_input o_wsale_products_searchbar_form flex-grow-1 ",
+     "send_button_class": null
+    },
+    {
+     "action": "",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/shop",
+     "class": "js_attributes accordion accordion-flush d-flex flex-column  wsale_accordion_collapsible accordion accordion-flush",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /shop",
+    "Featured -> /shop?order=website_sequence+asc",
+    "Name (A-Z) -> /shop?order=name+asc",
+    "Newest Arrivals -> /shop?order=publish_date+desc",
+    "Price - High to Low -> /shop?order=list_price+desc",
+    "Price - Low to High -> /shop?order=list_price+asc",
+    "Sign in -> /web/login",
+    "Sort By Sort By: Featured -> #",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/shop"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Products | Vietnam Direct Sourcing"
+  },
+  "/shop/cart": {
+   "final_path": "/shop/cart",
+   "final_status": 200,
+   "redirects_to": null,
+   "status": 200
+  },
+  "/terms": {
+   "final_path": "/terms",
+   "final_status": 200,
+   "form_field_names": [
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /terms",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/terms"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Terms & Conditions | Vietnam Direct Sourcing"
+  },
+  "/web/login": {
+   "final_path": "/web/login",
+   "final_status": 200,
+   "form_field_names": [
+    "login",
+    "password",
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/web/login",
+     "class": "oe_login_form d-none",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /en/web/login",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/web/login"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Login | Vietnam Direct Sourcing"
+  },
+  "/web/signup": {
+   "final_path": "/web/signup",
+   "final_status": 200,
+   "form_field_names": [
+    "confirm_password",
+    "login",
+    "name",
+    "password",
+    "search"
+   ],
+   "forms": [
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "/website/search",
+     "class": "o_searchbar_form s_searchbar_input ",
+     "send_button_class": null
+    },
+    {
+     "action": "",
+     "class": "oe_signup_form",
+     "send_button_class": null
+    }
+   ],
+   "header_has_contact_us": false,
+   "header_links": [
+    " -> #",
+    " -> /",
+    "0 -> /shop/cart",
+    "0 -> /shop/wishlist",
+    "Book a call -> /appointment",
+    "Client Portal -> /my",
+    "English (US) -> /en/web/signup",
+    "Sign in -> /web/login",
+    "Ti\u1ebfng Vi\u1ec7t -> /vi/web/signup"
+   ],
+   "header_logo_images": 2,
+   "header_shop_icons_hidden": [
+    "cart",
+    "wishlist"
+   ],
+   "header_shop_icons_visible": [],
+   "logged_in_view": false,
+   "phone_like_text_masked": [],
+   "redirects_to": null,
+   "status": 200,
+   "tel_links": 0,
+   "title": "Sign up login | Vietnam Direct Sourcing"
+  }
+ },
+ "robots_txt": {
+  "lines": [
+   "User-agent: *",
+   "Allow: /social_instagram/",
+   "Sitemap: /sitemap.xml",
+   "##############",
+   "#   custom   #",
+   "##############",
+   "User-agent: *",
+   "Disallow: /"
+  ],
+  "status": 200
+ },
+ "sitemaps": {
+  "paths": [
+   "/",
+   "/appointment",
+   "/helpdesk/customer-care-1",
+   "/privacy",
+   "/quote",
+   "/rfi-thank-you",
+   "/shop",
+   "/terms"
+  ],
+  "status": 200
+ },
+ "views": {
+  "footer_website_1": {
+   "active": true,
+   "arch_chars": 1199,
+   "arch_sha256": "9ac4410aea85a0c47aef766112d1fc327e97b86391c64ef0f5c74ee8bd23c260",
+   "found": true,
+   "id": 4410,
+   "key": "website.footer_custom",
+   "phone_like_text_masked": [],
+   "tel_link_in_source": false,
+   "website_id": 1
+  },
+  "quote_form": {
+   "active": true,
+   "arch_chars": 7546,
+   "arch_sha256": "bb93a17df25e2a237bad6302266d11ac595f58b4f35ed131002919ab7977682b",
+   "field_names_in_source": [
+    "contact_name",
+    "csrf_token",
+    "description",
+    "email_from",
+    "email_to",
+    "name",
+    "partner_name",
+    "team_id",
+    "x_annual_import",
+    "x_category",
+    "x_certifications",
+    "x_company_website",
+    "x_destination_market",
+    "x_hs_code",
+    "x_initial_qty",
+    "x_product_status",
+    "x_repeat_volume",
+    "x_role",
+    "x_target_delivery"
+   ],
+   "form_tag_has_s_website_form": true,
+   "found": true,
+   "has_s_website_form_send_button": true,
+   "id": 4394,
+   "key": "website.rfi_form",
+   "website_id": 1
+  },
+  "rfi_thank_you": {
+   "active": true,
+   "arch_chars": 1409,
+   "arch_sha256": "430c491d5bc12a150ff86df808349bee94a20d0195c100b70536afe8b0053a24",
+   "found": true,
+   "id": 4393,
+   "key": "website.rfi_thank_you",
+   "website_id": 1
+  }
+ }
+}
