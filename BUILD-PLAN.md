@@ -7,7 +7,12 @@ The brand doesn't exist yet. Build the whole structure now with placeholders (`[
 
 ## 0. Rules
 
-1. **Duplicate first.** Build everything in a copy of the production database (odoo.com/my/databases → Duplicate, marked for testing, so no emails go out and payments stay in test mode). Touch production only in Phase 6, after Rod approves.
+1. **One database; test on a temporary copy.** The business runs on the existing VDS database only; the shop is a second website inside it. For Phases 1–5, make a throwaway test copy (odoo.com/my/databases → Duplicate, marked for testing, so no emails go out and payments stay in test mode) and build there. Why:
+   - installing eCommerce, Inventory and Purchase changes menus, settings and the header on the live booking site straight away
+   - apps can't be cleanly uninstalled
+   - test orders and payments would otherwise land in the real books
+
+   Touch production only in Phase 6, after Rod approves, by re-running the same scripts. Delete the copy after go-live.
 2. **Script it.**
    - Do configuration through the external API (XML-RPC; the database is on the Custom plan) with idempotent scripts in `scripts/`, so the same scripts run on the copy and then on production.
    - Anything that can only be done in the UI goes into `BUILD-LOG.md` with the exact clicks.
@@ -36,11 +41,28 @@ The brand doesn't exist yet. Build the whole structure now with placeholders (`[
 | Fulfilment | Both: **Ready stock** from an Australian warehouse/3PL, and **Factory direct (indent)** made and shipped from Vietnam |
 | Payment | Card (Stripe) and invoice / bank transfer |
 | Currency | AUD and USD pricelists |
-| Selling company | Vietnam Direct Sourcing LLC (the existing company) |
+| Selling company | Vietnam Direct Sourcing LLC (the existing company); the shop is a VDS business unit, not a separate legal entity |
+| Future | More brand websites in the same database, all selling as VDS LLC (§2.0) |
 | Design | A built-in Odoo theme, customised (colours, fonts, header, footer, pages) |
 | Brand, logo, products | Not ready: placeholders |
 
 ## 2. Target design
+
+### 2.0 One database, several brand websites
+This shop is the first of possibly several brand websites, all run from the VDS database and selling as Vietnam Direct Sourcing LLC. Build it so the next brand is a new website, not a new setup.
+
+| Shared by all brand websites (set up once) | Per website (repeat for each brand) |
+|---|---|
+| Company VDS LLC, contacts, CRM, accounting, taxes and fiscal positions | Domain, theme, pages, menus, legal pages |
+| Stripe and bank-transfer providers, payment terms | eCommerce categories; products (`website_id` set to that site) |
+| Warehouses / 3PL, routes, factories (vendors), units of measure | Public "prices hidden" pricelist |
+| Trade pricelists "Trade AUD" and "Trade USD" (not tied to a website; prices are per product) | Sales team "Wholesale – [BRAND]" and its application form |
+| The trade-account approval checklist | Email wording and the "[BRAND] is a trading name of Vietnam Direct Sourcing LLC" line |
+
+Conventions:
+- SKUs carry a brand prefix (`BRD-001-AU`).
+- Scripts take the website and brand as parameters, so the build scripts run again for brand 2.
+- Customer logins: decide in Phase 2 whether a trade account works across all brand sites or per site. That is Odoo's "shared customer accounts" website setting; per site suits distinct brands.
 
 ### 2.1 Website, domain, and protecting the booking site
 - Create website 2 "[BRAND] Trade" (Website → Configuration → Websites) with company Vietnam Direct Sourcing LLC, language English (AU), and its own theme (select website 2 first, then pick the theme).
@@ -95,7 +117,7 @@ Accounts: sign-up "On invitation" (no free sign-up). Checkout requires login.
 | Trade USD | USD | NZ and other trade accounts | fixed price per product; optional quantity breaks |
 
 - **Currencies:** activate AUD and USD.
-- **Visibility:** trade pricelists are available on website 2 but not selectable by visitors; the customer's assigned pricelist applies when they log in.
+- **Visibility:** trade pricelists are shared by all brand websites (not tied to a website, §2.0) and not selectable by visitors; the customer's assigned pricelist applies when they log in. Each website's default pricelist is its public "prices hidden" one.
 - **Website 1:** confirm its pricelists and appointment prices are unchanged.
 
 ### 2.6 Fulfilment
@@ -170,7 +192,7 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 
 | Phase | Work | Output for Rod |
 |---|---|---|
-| **0. Probe and feature check** | Duplicate the database. Run the probe on production and the copy. Report: Odoo version; company country and localisation; installed apps; existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** | Short report + updated plan |
+| **0. Probe and feature check** | Rod makes the temporary test copy (rule 1). Run the probe on production and the copy. Report: Odoo version; company country and localisation; installed apps; existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** | Short report + updated plan |
 | **1. Foundations (copy)** | Install eCommerce, Sales, Inventory, Purchase, Dropshipping (and Stripe/Wire Transfer providers, disabled). Create website 2 (no theme yet). Protect website 1 (§2.1). Currencies, units of measure, eCommerce categories (placeholders), sales team "Wholesale – [BRAND]" | Probe diff showing website 1 unchanged; website 2 skeleton |
 | **2. Access and pricing (copy)** | Pricelists, hidden public prices, sign-up on invitation, checkout requires login, trade application form → CRM, approval checklist, email templates | Test: public sees no prices; a test trade account sees AUD prices; another sees USD |
 | **3. Fulfilment, payments, taxes (copy)** | AU warehouse, Dropship route, payment terms, Stripe (test keys) and bank transfer, the indent quote mechanism, shipping methods, fiscal positions as far as the accountant has confirmed | Test orders (§4) |
@@ -205,7 +227,7 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 | 6 | Trade account rules: ABN/NZBN required? Who gets credit terms, and who approves? | Phase 2 |
 | 7 | Stripe account for VDS LLC (AUD and USD); AUD and USD bank accounts for transfers | Phase 3 (test keys meanwhile) |
 | 8 | Freight: zone rates vs quoted, especially pallets | Phase 3 |
-| 9 | Documents show Vietnam Direct Sourcing LLC. The VDS site promises sourcing clients independence and no supplier commission, so keep the brand visibly separate from VDS's sourcing service. A separate company in the same database later keeps the books apart too | Before go-live |
+| 9 | Documents show Vietnam Direct Sourcing LLC for every brand (one company), with a "trading name of" line per brand. The VDS site promises sourcing clients independence and no supplier commission, so keep the brand sites visibly separate from VDS's sourcing service. If a brand ever becomes its own registered company, it is added as a second company in the same database (Odoo multi-company), still one database | Before go-live |
 | 10 | Terms of Trade and Privacy Policy written or checked by a lawyer (Australian Consumer Law, Privacy Act) | Before go-live |
 
 ## 6. Product data: CSV columns → Odoo
