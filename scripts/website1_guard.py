@@ -30,6 +30,11 @@ PAGES = ['/', '/appointment', '/appointment/1', '/quote', '/rfi-thank-you', '/pr
          '/web/signup', '/my']
 PHONE = re.compile(r'(?<![\w@./:-])(\+?\d[\d\s().\-]{6,}\d)(?![\w-])')
 DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+HIDES_HEADER = re.compile(r'(?:header|#top|\.o_header_standard)[^{}]*\{[^}]*display\s*:\s*none', re.I)
+
+
+def header_hidden_by_inline_css(html):
+    return any(HIDES_HEADER.search(css) for css in re.findall(r'<style[^>]*>(.*?)</style>', html, re.S))
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -163,7 +168,8 @@ def main():
                 'final_status': final_status, 'final_path': final_path}
         if final_status == 200 and body[:15].lower().lstrip().startswith((b'<!doctype', b'<html')):
             page = Page()
-            page.feed(body.decode('utf-8', errors='replace'))
+            html_text = body.decode('utf-8', errors='replace')
+            page.feed(html_text)
             text = ' '.join(' '.join(page.text).split())
             header_text = ' '.join(' '.join(page.header_text).split())
             info.update({
@@ -171,6 +177,7 @@ def main():
                 'logged_in_view': 'o_connected_user' in page.body_class,
                 'header_links': sorted({f'{t} -> {h}' for t, h in page.header_links if t or h}),
                 'header_has_contact_us': 'contact us' in header_text.lower(),
+                'header_hidden_by_inline_css': header_hidden_by_inline_css(html_text),
                 'header_shop_icons_visible': sorted({i['item'] for i in page.shop_icons if not i['hidden']}),
                 'header_shop_icons_hidden': sorted({i['item'] for i in page.shop_icons if i['hidden']}),
                 'header_logo_images': page.logo_images,
@@ -240,7 +247,9 @@ def main():
           bool(live_form) and bool(live_form[0]['send_button_class']))
     check('/rfi-thank-you loads (200)', out['pages']['/rfi-thank-you']['final_status'] == 200)
     check('booking page /appointment/1 loads (200)', out['pages']['/appointment/1']['final_status'] == 200)
-    check('website logo is served', out['logo']['status'] == 200 and out['logo']['bytes'] > 0, f"{out['logo']['bytes']} bytes")
+    check('website logo file is served', out['logo']['status'] == 200 and out['logo']['bytes'] > 0, f"{out['logo']['bytes']} bytes")
+    hidden = sorted(p for p, i in parsed.items() if i['header_hidden_by_inline_css'])
+    check('pages that hide their own header and logo with inline CSS (embed pages)', True, ', '.join(hidden), informational=True)
     public_pages = {p: i for p, i in parsed.items() if i['final_path'] not in ('/web/login', '/web/signup')}
     check('no page is served as a logged-in user', not any(i['logged_in_view'] for i in parsed.values()))
     check('no "Contact Us" in any public page header', not any(i['header_has_contact_us'] for i in parsed.values()))

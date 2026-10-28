@@ -32,7 +32,9 @@ Both were run twice; the second run was byte-identical.
 
 ## 3. Booking site (website 1) baseline
 
-All 13 must-keep checks pass on the copy: `/quote` view 4394 (form class `s_website_form`, send button `s_website_form_send`, live page has both), `/rfi-thank-you` 200, booking pages 200, logo served (72,893 bytes), no `tel:` links, no phone-like text on any public page, no "Contact Us" in any header, cart and wishlist icons hidden while the cart is empty. View sources are recorded as hashes.
+All 13 must-keep checks pass on the copy: `/quote` view 4394 (form class `s_website_form`, send button `s_website_form_send`, live page has both), `/rfi-thank-you` 200, booking pages 200, logo file served (72,893 bytes; see the note below on where it is visible), no `tel:` links, no phone-like text on any public page, no "Contact Us" in any header, cart and wishlist icons hidden while the cart is empty. View sources are recorded as hashes.
+
+**Where the logo shows.** `/`, `/appointment`, `/appointment/1`, `/quote` and `/rfi-thank-you` hide the whole site header, logo included, with an inline CSS rule (`display:none` on `header`), so they sit cleanly inside an embed. The logo shows on pages that keep the header, such as `/shop`, `/privacy` and `/terms`. This is how the copy already was; the guard now records it (`header_hidden_by_inline_css`) so a later phase cannot change it unnoticed.
 
 Four things the plan did not know about (all existed before Phase 0; nothing was changed):
 

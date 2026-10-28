@@ -39,7 +39,13 @@
   {
    "detail": "72893 bytes",
    "informational": false,
-   "name": "website logo is served",
+   "name": "website logo file is served",
+   "ok": true
+  },
+  {
+   "detail": "/, /appointment, /appointment/1, /quote, /rfi-thank-you",
+   "informational": true,
+   "name": "pages that hide their own header and logo with inline CSS (embed pages)",
    "ok": true
   },
   {
@@ -128,6 +134,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": true,
    "header_links": [
     " -> #",
     " -> /",
@@ -176,6 +183,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": true,
    "header_links": [
     " -> #",
     " -> /",
@@ -224,6 +232,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": true,
    "header_links": [
     " -> #",
     " -> /",
@@ -285,6 +294,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -335,6 +345,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -378,6 +389,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -442,6 +454,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": true,
    "header_links": [
     " -> #",
     " -> /",
@@ -485,6 +498,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": true,
    "header_links": [
     " -> #",
     " -> /",
@@ -549,6 +563,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -604,6 +619,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -654,6 +670,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
@@ -706,6 +723,7 @@
     }
    ],
    "header_has_contact_us": false,
+   "header_hidden_by_inline_css": false,
    "header_links": [
     " -> #",
     " -> /",
