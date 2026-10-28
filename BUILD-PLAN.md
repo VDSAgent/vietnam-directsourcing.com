@@ -8,26 +8,32 @@ The brand doesn't exist yet. Build the whole structure now with placeholders (`[
 ## 0. Rules
 
 1. **One database; test on a temporary copy.** The business runs on the existing VDS database only; the shop is a second website inside it. For Phases 1–5, make a throwaway test copy (odoo.com/my/databases → Duplicate, marked for testing, so no emails go out and payments stay in test mode) and build there. Why:
-   - installing eCommerce, Inventory and Purchase changes menus, settings and the header on the live booking site straight away
+   - installing eCommerce changes menus, settings and the header of every website straight away, including the live booking site
    - apps can't be cleanly uninstalled
    - test orders and payments would otherwise land in the real books
 
-   Touch production only in Phase 6, after Rod approves, by re-running the same scripts. Delete the copy after go-live.
+   A cloud session gets credentials for the test copy only, never for production. In Phase 6 Rod decides what is copied to the live database, and his local session (or Rod) replays the scripts and logged steps there. Delete the copy after go-live.
 2. **Script it.**
-   - Do configuration through the external API (XML-RPC; the database is on the Custom plan) with idempotent scripts in `scripts/`, so the same scripts run on the copy and then on production.
+   - Do configuration through Odoo's **JSON-2 API** (`POST /json/2/<model>/<method>`, header `Authorization: bearer <key>`; XML-RPC and JSON-RPC are deprecated in saas~19.x) with idempotent scripts in `scripts/`, so the same scripts run on the copy and then on production.
+   - Odoo Online cannot install custom modules. Customise with Odoo's own settings and website editor, plus records created through the API (inherited views, custom SCSS, automation rules, server actions).
    - Anything that can only be done in the UI goes into `BUILD-LOG.md` with the exact clicks.
    - Commit both.
 3. **Inventory before and after.**
    - Run `scripts/odoo_probe.py` at the start and end of every phase and keep the JSON in `probes/` (it reads configuration only, no customer data).
    - The diff must show only what the phase intended.
-4. **The existing website must not change.** Its theme, menus, pages, appointments, CRM pipelines and the enquiries@ flow stay exactly as they are; the probe diff proves it. Installing eCommerce adds things to every website, and §2.1 lists them.
+4. **The existing website (book.vietnam-directsourcing.com) must not change.** Its theme, menus, pages, appointments, CRM pipelines and the enquiries@ flow stay exactly as they are; the probe diff proves it. Installing eCommerce adds things to every website, and §2.1 lists them. In particular, keep:
+   - the `/quote` form (view 4394) working: its `<form>` needs the class `s_website_form` and the button `s_website_form_send`, or it submits nothing
+   - `/rfi-thank-you` (view 4393), the booking (appointment) pages and the website logo
+   - the header as it is (Home, Book a call, Client Portal; no "Contact Us" button, no shop or cart) and the footer (view 4410)
+   - no phone numbers on any public page (the company record keeps its phone; do not clear it)
 5. **No secrets in files.**
-   - The API key lives in environment variables only.
-   - Create it in Odoo under your user → Preferences → Account Security → New API Key.
-6. **Approval needed for these:**
-   - no third-party Odoo apps without Rod's approval (Odoo Online allows standard apps and data-only modules anyway)
+   - The API key lives in environment variables or environment secrets only; never in chat, files, logs or commits.
+   - Rod creates it in Odoo under his user → Preferences → Account Security → New API Key, and revokes it when the build is done.
+6. **Back up before you change anything.** Before editing any existing record (a view, server action, template or setting), store its current value as an `ir.attachment` created with the field `raw` (base64; saas~19.4 ignores `datas` and stores 0 bytes), then read back `file_size`: it must be above 0. Note the attachment id in BUILD-LOG.
+7. **Approval needed for these:**
+   - installing or uninstalling any app, even on the copy (Rod's standing rule), and no third-party apps
    - nothing published, no live payments, no DNS changes and no emails to real contacts without Rod's approval
-7. **Stop after each phase.** Show Rod the BUILD-LOG entry, the probe diff and screenshots, then wait for approval.
+8. **Stop after each phase and report.** Show Rod the BUILD-LOG entry, the probe diff and screenshots: what changed on the copy, so Rod decides what gets copied to the live site. Then wait for approval.
 
 ## 1. Decisions (Rod, 28 Oct 2026)
 
@@ -169,7 +175,7 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 - Brand the website-2 emails: order confirmation, quotation, invoice, portal invitation, trade account approved/declined. Placeholders until the brand exists.
 
 ### 2.11 Design and pages (built-in theme)
-- **Theme:** in Phase 4, shortlist three built-in themes suited to a product catalogue (for example Loftspace, Clean, Graphene; check what this version offers). Screenshot each on the copy with placeholder content and let Rod choose. Customise only through theme options (colours, fonts, buttons, header, footer); no custom module unless a need appears.
+- **Theme:** in Phase 4, shortlist three built-in themes suited to a product catalogue (for example Loftspace, Clean, Graphene; check what this version offers). Screenshot each on the copy with placeholder content and let Rod choose. Customise through the website editor's theme options (colours, fonts, buttons, header, footer). A layout modelled on Rod's reference site goes beyond those: build it from inherited views and custom SCSS created through the API (backed up first, rule 6). There is no custom module: Odoo Online can't install one.
 - **Pages (website 2), placeholder content until the brand exists:**
   - Home: range overview; "Ready stock" vs "Factory direct" explained; trade account call to action
   - Shop and category pages
@@ -192,13 +198,13 @@ Not tax advice. These are questions for Rod's accountant or customs broker, with
 
 | Phase | Work | Output for Rod |
 |---|---|---|
-| **0. Probe and feature check** | Rod makes the temporary test copy (rule 1). Run the probe on production and the copy. Report: Odoo version; company country and localisation; installed apps; existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** | Short report + updated plan |
-| **1. Foundations (copy)** | Install eCommerce, Sales, Inventory, Purchase, Dropshipping (and Stripe/Wire Transfer providers, disabled). Create website 2 (no theme yet). Protect website 1 (§2.1). Currencies, units of measure, eCommerce categories (placeholders), sales team "Wholesale – [BRAND]" | Probe diff showing website 1 unchanged; website 2 skeleton |
+| **0. Probe and feature check** | Rod makes the temporary test copy (rule 1). Run the probe on the copy (it mirrors production as of the copy date). Report: Odoo version; company country and localisation; installed apps (already installed on 28 Oct: Sales, Inventory, Purchase, Manufacturing, Website, Accounting, CRM, Appointments, Studio; eCommerce is the main one missing); existing websites, pricelists, payment providers, taxes. Check which mechanisms this version has for §2.2 (hide prices), §2.7 (no card checkout for indent), §2.6 (Dropship, Starshipit), §2.8 (foreign VAT). Update this plan where the version differs. **No changes.** | Short report + updated plan |
+| **1. Foundations (copy)** | With Rod's go, install eCommerce (`website_sale`) and enable Dropshipping in Inventory settings (Sales, Inventory and Purchase are already installed); Stripe and Wire Transfer providers stay disabled. Create website 2 (no theme yet). Protect website 1 (§2.1, rule 4). Currencies, units of measure, eCommerce categories (placeholders), sales team "Wholesale – [BRAND]" | Probe diff showing website 1 unchanged; website 2 skeleton |
 | **2. Access and pricing (copy)** | Pricelists, hidden public prices, sign-up on invitation, checkout requires login, trade application form → CRM, approval checklist, email templates | Test: public sees no prices; a test trade account sees AUD prices; another sees USD |
 | **3. Fulfilment, payments, taxes (copy)** | AU warehouse, Dropship route, payment terms, Stripe (test keys) and bank transfer, the indent quote mechanism, shipping methods, fiscal positions as far as the accountant has confirmed | Test orders (§4) |
 | **4. Design and content (copy)** | Theme shortlist → Rod picks; theme options; header/footer; all pages with placeholders; 3 placeholder products per channel | Screenshots desktop + mobile |
 | **5. End-to-end test (copy)** | All §4 scenarios, logged out and as test buyers | Test report |
-| **6. Production** | After Rod approves: run the scripts on production, replay the UI steps from BUILD-LOG, probe diff against the copy. DNS and domain, Stripe live, real bank details. Website 2 stays unpublished (or password-protected) until brand and products are ready; then import products and go live | Go-live checklist signed off by Rod |
+| **6. Production** | Rod decides from the reports what is copied to the live database; his local session (or Rod) runs the scripts there and replays the UI steps from BUILD-LOG, then compares a probe of production with the copy. DNS and domain, Stripe live, real bank details. Website 2 stays unpublished (or password-protected) until brand and products are ready; then import products and go live. The cloud session never gets production credentials | Go-live checklist signed off by Rod |
 
 ## 4. Test scenarios (Phase 3 and 5)
 

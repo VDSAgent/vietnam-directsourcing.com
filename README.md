@@ -11,6 +11,8 @@ It is built as a second website in the existing Vietnam Direct Sourcing Odoo dat
 | `BUILD-LOG.md` | Where Claude Code records every step, probe diff and approval |
 | `probes/` | Probe outputs (configuration only) |
 
-## Start (paste into Claude Code)
+## Context that is NOT in this repository
+This repository is public. Rod's Odoo project notes (`VDS - Odoo/CLAUDE.md`, `Changelog.md`, `Build/Roadmap.md`) and the content rules (`VDS - Marketing/CLAUDE.md`) are given to the working session directly (uploaded), never committed here. Read them before Phase 0; where they conflict with this plan on Odoo facts, the notes win; on the shop design, this plan wins.
 
-> Clone branch `odoo-shop/build-pack` of https://github.com/VDSAgent/vietnam-directsourcing.com into a new folder (`git clone -b odoo-shop/build-pack --single-branch <url> vds-odoo-shop`). Read `BUILD-PLAN.md` fully and follow its rules. Do Phase 0 only: I have made a temporary test copy of our Odoo database (it is only for testing; the shop will run in our main VDS database). Run `scripts/odoo_probe.py` on production and on the copy (API key from my Odoo user, in environment variables only, never in files), check which features this Odoo version has for the points listed in Phase 0, update the plan where the version differs, commit, and report back to me. Make no changes to either database in Phase 0.
+## Start
+The session needs the test copy's `ODOO_URL`, `ODOO_DB` and `ODOO_API_KEY` as environment secrets and the copy's host in the allowed network domains. Then: read `BUILD-PLAN.md`, do Phase 0 only (read-only), commit the probe and report to this branch, and stop for Rod.
